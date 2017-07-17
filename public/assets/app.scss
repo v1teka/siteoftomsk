@@ -26,6 +26,44 @@ body {
     width: 90%;
 }
 
+.navbar {
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.6rem;
+    background-color: #eee;
+    &__logo {
+        float: left;
+        margin-left: 5%;
+        margin-right: 40px;
+        font-size: 2.4rem;
+        &-link,
+        &-link:hover,
+        &-link:active,
+        &-link:visited {
+            color: #222;
+            border-bottom: none;
+        }
+    }
+    &__content {
+        float: left;
+    }
+    &__right {
+        float: right;
+        margin-right: 5%;
+        margin-left: 40px;
+    }
+    &__link {
+        display: inline-block;
+        padding: 0 15px;
+        color: #222;
+        border-bottom: none;
+        &:hover {
+            color: #222;
+            background-color: #fff;
+        }
+    }
+}
+
 .footer {
     padding: 50px 0;
     background-color: #eee;
