@@ -13,3 +13,6 @@
 
 Route::get('/', 'PageController@index')->name('pages.index');
 Route::get('/about', 'PageController@about')->name('pages.about');
+
+Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');

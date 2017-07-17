@@ -11,7 +11,12 @@
         <a class="link navbar__link" href="">Мнения</a>
     </div>
     <div class="navbar__right">
-        <a class="link navbar__link" href="">Вход</a>
-        <a class="link navbar__link" href="">Регистрация</a>
+        @if(Auth::check())
+            <a class="link navbar__link" href="">{{ Auth::user()->full_name }}</a>
+            <a class="link navbar__link" href="{{ route('logout') }}">Выйти</a>
+        @else
+            <a class="link navbar__link" href="{{ route('login') }}">Вход</a>
+            <a class="link navbar__link" href="{{ route('register') }}">Регистрация</a>
+        @endif
     </div>
 </div>
