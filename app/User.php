@@ -27,8 +27,25 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
     public function getFullNameAttribute()
     {
         return ucfirst($this->name) . ' ' . ucfirst($this->surname);
+    }
+
+    public function hasRole($roleName)
+    {
+        foreach ($this->roles()->get() as $role)
+        {
+            if ($role->name == $roleName)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
