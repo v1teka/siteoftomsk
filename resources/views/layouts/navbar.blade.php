@@ -12,7 +12,7 @@
     </div>
     <div class="navbar__right">
         @if(Auth::check())
-            <a class="link navbar__link" href="">{{ Auth::user()->full_name }}</a>
+            <a class="link navbar__link" href="{{ route('profile.show') }}">{{ Auth::user()->full_name }}</a>
             <a class="link navbar__link" href="{{ route('logout') }}">Выйти</a>
         @else
             <a class="link navbar__link" href="{{ route('login') }}">Вход</a>
