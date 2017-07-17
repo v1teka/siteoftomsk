@@ -10,6 +10,52 @@ body {
     color: #222;
 }
 
+// Setka
+@media (min-width: 550px) {
+    .row {
+        &__col {
+            float: left;
+            margin-left: 4%;
+            box-sizing: border-box;
+            &:first-child {
+                margin-left: 0;
+            }
+            &_size {
+                &_1 { width: 4.66666666667%; }
+                &_2 { width: 13.3333333333%; }
+                &_3 { width: 22%; }
+                &_4 { width: 30.6666666667%; }
+                &_5 { width: 39.3333333333%; }
+                &_6 { width: 48%; }
+                &_7 { width: 56.6666666667%; }
+                &_8 { width: 65.3333333333%; }
+                &_9 { width: 74%; }
+                &_10 { width: 82.6666666667%; }
+                &_11 { width: 91.3333333333%; }
+                &_12 { width: 100%; margin-left: 0; }
+            }
+            &_offset {
+                &_1 { margin-left: 8.66666666667%; }
+                &_2 { margin-left: 17.3333333333%; }
+                &_3 { margin-left: 26%; }
+                &_4 { margin-left: 34.6666666667%; }
+                &_5 { margin-left: 43.3333333333%; }
+                &_6 { margin-left: 52%; }
+                &_7 { margin-left: 60.6666666667%; }
+                &_8 { margin-left: 69.3333333333%; }
+                &_9 { margin-left: 78%; }
+                &_10 { margin-left: 86.6666666667%; }
+                &_11 { margin-left: 95.3333333333%; }
+            }
+        }
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+}
+
 .link {
     color: #0065ff;
     text-decoration: none;
