@@ -9,3 +9,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+
+public/assets/app.css
+public/assets/app.css.map
