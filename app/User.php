@@ -32,6 +32,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
 
+    public function projects()
+    {
+        return $this->hasMany('App\Project');
+    }
+
     public function getFullNameAttribute()
     {
         return ucfirst($this->name) . ' ' . ucfirst($this->surname);
@@ -47,5 +52,10 @@ class User extends Authenticatable
             }
         }
         return false;
+    }
+
+    public function isModerator()
+    {
+        return $this->hasRole('Модератор');
     }
 }

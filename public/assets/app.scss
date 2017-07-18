@@ -102,7 +102,11 @@ body {
     }
 }
 
-.text { }
+.text {
+    &_warning {
+        color: #f70;
+    }
+}
 
 .input, .textarea {
     display: inline-block;
@@ -171,6 +175,8 @@ body {
     &__label {
         display: block;
         margin-bottom: 5px;
+        font-weight: 500;
+        font-size: 1.6rem;
     }
     &__message {
         display: block;
@@ -187,7 +193,7 @@ body {
         display: block;
         margin-top: 5px;
         font-size: 1.2rem;
-        color: #eee;
+        color: #888;
     }
 }
 
@@ -254,4 +260,45 @@ body {
 .welcome {
     &__title { }
     &__text { }
+}
+
+
+.project {
+    padding-top: 0;
+    &__container { }
+    &__header {
+        width: 100%;
+        height: 300px;
+        color: #fff;
+    }
+    &__title {
+        padding-top: 30px;
+    }
+    &__description { }
+    &__text { }
+}
+
+.project-card {
+    display: block;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    margin-bottom: 2.5rem;
+    &_link, &_link:hover, &_link:active, &_link:visited {
+        text-decoration: none;
+        color: #222;
+    }
+    &__image {
+        padding: 0;
+        height: 200px;
+    }
+    &__content {
+        padding: 15px;
+    }
+    &__title {
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+    &__text {
+        font-size: 1.4rem;
+    }
 }
