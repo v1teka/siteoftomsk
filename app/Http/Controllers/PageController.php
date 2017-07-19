@@ -10,7 +10,7 @@ class PageController extends Controller
     //Главная страница
     public function index()
     {
-        $projects = Project::published()->moderated()->latest('published_at')->limit(6)->get();
+        $projects = Project::moderated()->latest('published_at')->limit(6)->get();
         return view('pages.index', compact('projects'));
     }
 
