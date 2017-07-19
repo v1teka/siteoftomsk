@@ -18,8 +18,8 @@
 
     {{-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
-    <link rel="stylesheet" href="{{ asset('/assets/app.css') }}">
     @stack('head')
+    <link rel="stylesheet" href="{{ asset('/assets/app.css') }}">
   </head>
 
   <body>
@@ -38,6 +38,6 @@
 
   {{-- Скрипты
   –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
-  <script src="{{ asset('/assets/app.js') }}" type="text/javascript"></script>
   @stack('scripts')
+  <script src="{{ asset('/assets/app.js') }}" type="text/javascript"></script>
 </html>
