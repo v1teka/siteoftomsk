@@ -14,7 +14,7 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         // Авторизация (политики работают только для аутентифицированного пользователя)
-        if($project->moderated || (Auth::check() && (Auth::user()->isModerator() || (Auth::user()->id === $project->user_id)))) {
+        if($project->moderated || (Auth::check() && (Auth::user()->isModerator() || (Auth::user()->id == $project->user_id)))) {
             $project->with('rubric');
             return view('projects.show', compact('project'));
         }
