@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Project;
+use App\Rubric;
 use Auth;
 
 class ProjectController extends Controller
@@ -14,6 +15,7 @@ class ProjectController extends Controller
     {
         // Авторизация (политики работают только для аутентифицированного пользователя)
         if($project->moderated || (Auth::check() && (Auth::user()->isModerator() || (Auth::user()->id === $project->user_id)))) {
+            $project->with('rubric');
             return view('projects.show', compact('project'));
         }
         return abort(404, 'The resource you are looking for could not be found.');
@@ -22,7 +24,8 @@ class ProjectController extends Controller
     // Форма создания проекта
     public function create()
     {
-        return view('projects.create');
+        $rubrics = Rubric::all();
+        return view('projects.create', compact('rubrics'));
     }
 
     // Сохранение проекта
@@ -32,6 +35,7 @@ class ProjectController extends Controller
             'title' => 'required|max:255',
             'description' => 'required|max:255',
             'content' => 'required',
+            'rubric_id' => 'nullable|exists:rubrics,id',
         ]);
 
         $project = new Project;
@@ -41,6 +45,7 @@ class ProjectController extends Controller
         $project->content = request('content');
         // Если пользватель может модерировать проекты, то модерация не нужна
         $project->moderated = Auth::user()->can('moderate', $project) ? 1 : null;
+        $project->rubric_id = request('rubric_id');
         $project->save();
 
         return redirect()->route('projects.show', $project);
@@ -49,7 +54,8 @@ class ProjectController extends Controller
     // Форма редактирования проекта
     public function edit(Project $project)
     {
-        return view('projects.edit', compact('project'));
+        $rubrics = Rubric::all();
+        return view('projects.edit', compact('project', 'rubrics'));
     }
 
     // Сохранение изменений проекта
@@ -59,6 +65,7 @@ class ProjectController extends Controller
             'title' => 'required',
             'description' => 'required|max:255',
             'content' => 'required',
+            'rubric_id' => 'nullable|exists:rubrics,id',
         ]);
 
         $project->title = request('title');
@@ -66,6 +73,7 @@ class ProjectController extends Controller
         $project->content = request('content');
         // Если пользватель не может модерировать проекты, то сбрасываем флаг модерации
         $project->moderated = Auth::user()->can('moderate', $project) ? $project->moderated : null;
+        $project->rubric_id = request('rubric_id');
         $project->save();
 
         return redirect()->route('projects.show', $project);

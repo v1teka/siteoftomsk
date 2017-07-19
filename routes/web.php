@@ -27,5 +27,12 @@ Route::prefix('projects')->group(function() {
     Route::get('/{project}', 'ProjectController@show')->name('projects.show');
 });
 
+// Рубрики
+Route::get('/rubrics/create', 'RubricController@create')->name('rubrics.create')->middleware('can:create,App\Rubric');;
+Route::post('/rubrics', 'RubricController@store')->name('rubrics.store')->middleware('can:create,App\Rubric');;
+Route::get('/rubrics/{rubric}/edit', 'RubricController@edit')->name('rubrics.edit')->middleware('can:update,rubric');
+Route::patch('/rubrics/{rubric}', 'RubricController@update')->name('rubrics.update')->middleware('can:update,rubric');
+Route::get('/rubrics/{rubric}', 'RubricController@show')->name('rubrics.show');
+
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');

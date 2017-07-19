@@ -22,5 +22,17 @@
      @endif
 </div>
 <div class="form-group">
+    <label class="form-group__label" for="rubric">Рубрика</label>
+    <select class="select {{ $errors->has('rubric_id') ? 'select_has-error' : '' }}" id="rubric" name="rubric_id">
+        <option class="select__option" value="">Без рубрики</option>
+        @foreach ($rubrics as $rubric)
+            <option class="select__option" value="{{ $rubric->id }}">{{ $rubric->name }}</option>
+        @endforeach
+    </select>
+    @if($errors->has('rubric_id'))
+        <div class="form-group__message_error">{{ $errors->first('rubric_id') }}</div>
+    @endif
+</div>
+<div class="form-group">
     <button class="button button_success" type="submit">{{ $submitButtonText }}</button>
 </div>

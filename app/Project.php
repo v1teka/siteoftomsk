@@ -11,12 +11,17 @@ class Project extends Model
     public $timestamps = true;
 
     protected $fillable = [
-      'title', 'description', 'content',
+      'title', 'description', 'content', 'rubric_id',
     ];
 
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function rubric()
+    {
+        return $this->belongsTo('App\Rubric');
     }
 
     public function scopeModerated($query)
