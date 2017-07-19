@@ -4,6 +4,10 @@
 
 @section('content')
   @parent
+  <div class="section slider">
+      @include('pages.includes.slider')
+  </div>
+
   <div class="section welcome">
       <div class="container welcome__container">
           <div class="title title-xl welcome__title">Уважаемые посетители портала,</div>
