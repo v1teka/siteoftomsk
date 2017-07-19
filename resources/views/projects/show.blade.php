@@ -14,7 +14,7 @@
                     <p class="project__rubric"><a class="link" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a></p>
                 @endisset
                 @can('update', $project)
-                    <a class="link" href="{{ route('projects.edit', $project->id) }}">Редактировать</a>
+                    <a class="link" href="{{ route('projects.edit', $project) }}">Редактировать</a>
                 @endcan
             </div>
         </div>
