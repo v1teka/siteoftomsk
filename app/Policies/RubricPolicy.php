@@ -28,4 +28,11 @@ class RubricPolicy
         // доступно только модератору
         return $user->isModerator();
     }
+
+    // Администрирование рубрик
+    public function administrate(User $user)
+    {
+        // доступно только модератору
+        return $user->isModerator();
+    }
 }

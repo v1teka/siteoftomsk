@@ -66,4 +66,10 @@ class RubricController extends Controller
         $rubrics = Rubric::has('projects')->with('projects')->paginate(10);
         return view('rubrics.index', compact('rubrics'));
     }
+
+    public function administrate()
+    {
+        $rubrics = Rubric::with('projects')->paginate(20);
+        return view('rubrics.admin', compact('rubrics'));
+    }
 }

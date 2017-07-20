@@ -38,6 +38,7 @@ Route::get('/rubrics', 'RubricController@index')->name('rubrics.index');
 
 // Администрирование
 Route::get('/admin/projects', 'ProjectController@administrate')->name('projects.admin')->middleware('can:administrate,App\Project');
+Route::get('/admin/rubrics', 'RubricController@administrate')->name('rubrics.admin')->middleware('can:administrate,App\Rubric');
 
 
 Auth::routes();
