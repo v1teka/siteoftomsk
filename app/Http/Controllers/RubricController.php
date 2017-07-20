@@ -60,4 +60,10 @@ class RubricController extends Controller
 
         return redirect()->route('rubrics.show', $rubric);
     }
+
+    public function index()
+    {
+        $rubrics = Rubric::has('projects')->with('projects')->paginate(10);
+        return view('rubrics.index', compact('rubrics'));
+    }
 }

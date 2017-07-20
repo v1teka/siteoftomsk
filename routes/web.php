@@ -34,6 +34,7 @@ Route::post('/rubrics', 'RubricController@store')->name('rubrics.store')->middle
 Route::get('/rubrics/{rubric}/edit', 'RubricController@edit')->name('rubrics.edit')->middleware('can:update,rubric');
 Route::patch('/rubrics/{rubric}', 'RubricController@update')->name('rubrics.update')->middleware('can:update,rubric');
 Route::get('/rubrics/{rubric}', 'RubricController@show')->name('rubrics.show');
+Route::get('/rubrics', 'RubricController@index')->name('rubrics.index');
 
 // Администрирование
 Route::get('/admin/projects', 'ProjectController@administrate')->name('projects.admin')->middleware('can:administrate,App\Project');
