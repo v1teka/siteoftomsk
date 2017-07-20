@@ -102,6 +102,22 @@ body {
     }
 }
 
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    &__head {
+        font-weight: 600;
+    }
+    &__body { }
+    &__row {
+        border: 1px solid #eee;
+    }
+    &__column {
+        margin: 0;
+        padding: 5px 10px;
+    }
+}
+
 .text {
     &_warning {
         color: #f70;

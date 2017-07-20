@@ -28,4 +28,10 @@ class ProjectPolicy
     {
         return $user->isModerator();
     }
+
+    // Администрирование проектов
+    public function administrate(User $user)
+    {
+        return $user->isModerator();
+    }
 }

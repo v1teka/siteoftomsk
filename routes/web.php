@@ -34,5 +34,9 @@ Route::get('/rubrics/{rubric}/edit', 'RubricController@edit')->name('rubrics.edi
 Route::patch('/rubrics/{rubric}', 'RubricController@update')->name('rubrics.update')->middleware('can:update,rubric');
 Route::get('/rubrics/{rubric}', 'RubricController@show')->name('rubrics.show');
 
+// Администрирование
+Route::get('/admin/projects', 'ProjectController@administrate')->name('projects.admin')->middleware('can:administrate,App\Project');
+
+
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');

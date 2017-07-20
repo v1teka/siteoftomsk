@@ -94,4 +94,11 @@ class ProjectController extends Controller
         $project->save();
         return back();
     }
+
+    // Список проектов в админке
+    public function administrate()
+    {
+        $projects = Project::with('user', 'rubric')->paginate(20);
+        return view('projects.admin', compact('projects'));
+    }
 }
