@@ -25,6 +25,7 @@ Route::prefix('projects')->group(function() {
     Route::patch('/{project}/moderate', 'ProjectController@moderate')->name('projects.moderate')->middleware('can:moderate,project');
     Route::patch('/{project}/publish', 'ProjectController@publish')->name('projects.publish')->middleware('can:publish,project');
     Route::get('/{project}', 'ProjectController@show')->name('projects.show');
+    Route::get('/', 'ProjectController@index')->name('projects.index');
 });
 
 // Рубрики

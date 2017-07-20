@@ -95,6 +95,13 @@ class ProjectController extends Controller
         return back();
     }
 
+    // Список проектов (карточками)
+    public function index()
+    {
+        $projects = Project::moderated()->latest('published_at')->paginate(9);
+        return view('projects.index', compact('projects'));
+    }
+
     // Список проектов в админке
     public function administrate()
     {
