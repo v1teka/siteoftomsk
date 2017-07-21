@@ -36,6 +36,9 @@ Route::patch('/rubrics/{rubric}', 'RubricController@update')->name('rubrics.upda
 Route::get('/rubrics/{rubric}', 'RubricController@show')->name('rubrics.show');
 Route::get('/rubrics', 'RubricController@index')->name('rubrics.index');
 
+// Пользователи
+Route::get('/users/{user}', 'UserController@show')->name('users.show')->middleware('can:view,user');
+
 // Администрирование
 Route::get('/admin/projects', 'ProjectController@administrate')->name('projects.admin')->middleware('can:administrate,App\Project');
 Route::get('/admin/rubrics', 'RubricController@administrate')->name('rubrics.admin')->middleware('can:administrate,App\Rubric');
