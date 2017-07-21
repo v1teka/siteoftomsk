@@ -24,6 +24,9 @@
                 <label class="form-group__label">Дата регистрации</label>
                 <div class="form-group__value">{{ $user->created_at->format('d.m.Y H:i:s') }}</div>
             </div>
+
+            @include('users.includes.update_roles')
+
         </div>
     </div>
 @endsection

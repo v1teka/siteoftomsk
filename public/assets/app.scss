@@ -145,8 +145,15 @@ body {
     }
 }
 
-.input, .select {
+.input {
     height: 32px;
+}
+
+.select {
+    height: 32px;
+    &-multiply {
+        height: auto;
+    }
 }
 
 .button {

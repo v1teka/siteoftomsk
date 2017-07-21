@@ -38,6 +38,7 @@ Route::get('/rubrics', 'RubricController@index')->name('rubrics.index');
 
 // Пользователи
 Route::get('/users/{user}', 'UserController@show')->name('users.show')->middleware('can:view,user');
+Route::patch('/users/{user}/roles', 'UserController@update_roles')->name('users.update_roles')->middleware('can:update_roles,user');
 
 // Администрирование
 Route::get('/admin/projects', 'ProjectController@administrate')->name('projects.admin')->middleware('can:administrate,App\Project');
