@@ -6,7 +6,7 @@
 @section('content')
     @parent
     <div class="section project">
-        <div class="project__header" style="background-color: #222;">
+        <div class="project__header" style="background:url('{{ Storage::disk('public')->url($project->image) }}') no-repeat center center; background-size: cover;">
             <div class="container project__container">
                 <h1 class="title project__title">{{ $project->title }}</h1>
                 <p class="project__description">{{ $project->description }}</p>

@@ -7,7 +7,7 @@
     <div class="section">
         <div class="container">
             <h1 class="title title-xxl">Редактирование проекта</h1>
-            <form method="POST" action="{{ route('projects.update', $project) }}">
+            <form method="POST" action="{{ route('projects.update', $project) }}" enctype="multipart/form-data">
                 {{ method_field('PATCH') }}
                 @include('projects.includes.form', ['submitButtonText' => 'Сохранить'])
             </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use App\Project;
 use App\Rubric;
@@ -36,6 +37,7 @@ class ProjectController extends Controller
             'description' => 'required|max:255',
             'content' => 'required',
             'rubric_id' => 'nullable|exists:rubrics,id',
+            'image' => 'required|image|mimes:jpeg,png|dimensions:min_width=1200|max:3072',
         ]);
 
         $project = new Project;
@@ -46,6 +48,7 @@ class ProjectController extends Controller
         // Если пользватель может модерировать проекты, то модерация не нужна
         $project->moderated = Auth::user()->can('moderate', $project) ? 1 : null;
         $project->rubric_id = request('rubric_id');
+        $project->image = request()->file('image')->store('projects', 'public');
         $project->save();
 
         return redirect()->route('projects.show', $project);
@@ -66,6 +69,7 @@ class ProjectController extends Controller
             'description' => 'required|max:255',
             'content' => 'required',
             'rubric_id' => 'nullable|exists:rubrics,id',
+            'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1200|max:3072',
         ]);
 
         $project->title = request('title');
@@ -74,6 +78,14 @@ class ProjectController extends Controller
         // Если пользватель не может модерировать проекты, то сбрасываем флаг модерации
         $project->moderated = Auth::user()->can('moderate', $project) ? $project->moderated : null;
         $project->rubric_id = request('rubric_id');
+
+        if(request()->hasFile('image')) {
+            // Удаление старого изображения
+            Storage::disk('public')->delete($project->image);
+            // Загрузка нового изображения
+            $project->image = request()->file('image')->store('projects', 'public');
+        }
+
         $project->save();
 
         return redirect()->route('projects.show', $project);

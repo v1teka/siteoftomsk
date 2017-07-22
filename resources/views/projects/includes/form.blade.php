@@ -34,5 +34,18 @@
     @endif
 </div>
 <div class="form-group">
+    <label class="form-group__label" for="image">Изображение</label>
+    @isset($project->image)
+        <div class="form-group__value">
+            <img class="form-group__image-preview" src="{{ Storage::disk('public')->url($project->image) }}" height="100"/>
+        </div>
+    @endisset
+    <input class="file" type="file" name="image" id="image" accept="image/png,image/jpeg">
+     @if($errors->has('image'))
+         <div class="form-group__message_error">{{ $errors->first('image') }}</div>
+     @endif
+     <div class="form-group__help">Поддерживаются файлы .jpeg, .jpg и .png шириной от 1200 пикс. и размером не более 2&nbsp;Мб.</div>
+</div>
+<div class="form-group">
     <button class="button button_success" type="submit">{{ $submitButtonText }}</button>
 </div>
