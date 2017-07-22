@@ -21,9 +21,9 @@
     <div class="form-group">
         <label class="form-group__label">Роли</label>
         @if($user->roles->count())
-            @foreach($user->roles as $role)
-                <div class="form-group__value">{{ $role->name }}</div>
-            @endforeach
+            <div class="form-group__value">
+                {!! $user->rolesToStr('<br>') !!}
+            </div>
         @else
             <div class="form-group__value">Нет назначенных ролей</div>
         @endif
