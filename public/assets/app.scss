@@ -300,7 +300,15 @@ body {
         padding-top: 30px;
     }
     &__description { }
-    &__rubric { }
+    &__rubric {
+        &_link {
+            display: inline-block;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding: 2px 20px;
+            color: #fff;
+        }
+    }
     &__text { }
 }
 

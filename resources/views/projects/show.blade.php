@@ -11,7 +11,7 @@
                 <h1 class="title project__title">{{ $project->title }}</h1>
                 <p class="project__description">{{ $project->description }}</p>
                 @isset($project->rubric)
-                    <p class="project__rubric"><a class="link" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a></p>
+                    <p class="project__rubric"><a class="link project__rubric_link" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a></p>
                 @endisset
                 @isset($project->form)
                     <p class="project__form"><a class="link" href="{{ $project->form }}" target="_blank">Анкета проекта</a></p>
