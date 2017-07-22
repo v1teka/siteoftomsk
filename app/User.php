@@ -54,6 +54,11 @@ class User extends Authenticatable
         return false;
     }
 
+    public function rolesToStr($separator)
+    {
+        return implode($separator, $this->roles()->pluck('name')->toArray());
+    }
+
     public function isModerator()
     {
         return $this->hasRole('Модератор');
