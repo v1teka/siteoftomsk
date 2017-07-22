@@ -14,6 +14,12 @@ class UserController extends Controller
         return view('users.show', compact('user', 'roles'));
     }
 
+    public function administrate()
+    {
+        $users = User::with('roles')->paginate(20);
+        return view('users.admin', compact('users'));
+    }
+
     public function update_roles(User $user)
     {
         $this->validate(request(), [

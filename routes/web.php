@@ -43,6 +43,7 @@ Route::patch('/users/{user}/roles', 'UserController@update_roles')->name('users.
 // Администрирование
 Route::get('/admin/projects', 'ProjectController@administrate')->name('projects.admin')->middleware('can:administrate,App\Project');
 Route::get('/admin/rubrics', 'RubricController@administrate')->name('rubrics.admin')->middleware('can:administrate,App\Rubric');
+Route::get('/admin/users', 'UserController@administrate')->name('users.admin')->middleware('can:administrate,App\User');
 
 
 Auth::routes();

@@ -32,4 +32,11 @@ class UserPolicy
         // доступно только модератору для управления ролями других пользователей
         return $current_user->isModerator() && $current_user != $user;
     }
+
+    // Администрирование пользователей
+    public function administrate(User $current_user)
+    {
+        // доступно только модератору
+        return $current_user->isModerator();
+    }
 }
