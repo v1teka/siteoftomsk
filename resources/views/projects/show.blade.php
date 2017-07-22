@@ -13,6 +13,9 @@
                 @isset($project->rubric)
                     <p class="project__rubric"><a class="link" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a></p>
                 @endisset
+                @isset($project->form)
+                    <p class="project__form"><a class="link" href="{{ $project->form }}" target="_blank">Анкета проекта</a></p>
+                @endisset
                 @can('update', $project)
                     <a class="link" href="{{ route('projects.edit', $project) }}">Редактировать</a>
                 @endcan
@@ -24,4 +27,14 @@
             <p>{{ $project->content }}</p>
         </div>
     </div>
+
+    {{--<div class="section project">
+        <div class="container project__container">
+            <iframe
+                src="{{ $project->form }}?embedded=true"
+                width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">
+                Загрузка анкеты...
+            </iframe>
+        </div>
+    </div>--}}
 @endsection

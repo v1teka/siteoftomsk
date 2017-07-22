@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
         $table->string('description', 255);
         $table->text('content');
         $table->string('image', 255);
+        $table->text('form')->nullable();
         $table->boolean('moderated')->nullable()->default(null);
         $table->dateTime('published_at')->nullable()->default(null);
         $table->timestamps();
