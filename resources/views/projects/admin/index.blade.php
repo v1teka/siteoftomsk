@@ -23,7 +23,7 @@
                     @foreach ($projects as $project)
                         <tr class="table__row">
                             <td class="table__column">{{ $project->id }}</td>
-                            <td class="table__column"><a class="link" href="{{ route('projects.show', $project) }}">{{ $project->title }}</td>
+                            <td class="table__column"><a class="link" href="{{ route('projects.admin.show', $project) }}">{{ $project->title }}</td>
                             <td class="table__column">
                                 @if($project->rubric)
                                     <a class="link" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a>

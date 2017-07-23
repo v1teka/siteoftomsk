@@ -22,8 +22,6 @@ Route::prefix('projects')->group(function() {
     Route::post('/', 'ProjectController@store')->name('projects.store')->middleware('auth');
     Route::get('/{project}/edit', 'ProjectController@edit')->name('projects.edit')->middleware('can:update,project');
     Route::patch('/{project}', 'ProjectController@update')->name('projects.update')->middleware('can:update,project');
-    Route::patch('/{project}/moderate', 'ProjectController@moderate')->name('projects.moderate')->middleware('can:moderate,project');
-    Route::patch('/{project}/publish', 'ProjectController@publish')->name('projects.publish')->middleware('can:publish,project');
     Route::get('/{project}', 'ProjectController@show')->name('projects.show');
     Route::get('/', 'ProjectController@index')->name('projects.index');
 });
@@ -41,7 +39,10 @@ Route::get('/users/{user}', 'UserController@show')->name('users.show')->middlewa
 Route::patch('/users/{user}/roles', 'UserController@update_roles')->name('users.update_roles')->middleware('can:update_roles,user');
 
 // Администрирование
-Route::get('/admin/projects', 'ProjectController@administrate')->name('projects.admin')->middleware('can:administrate,App\Project');
+Route::get('/admin/projects', 'ProjectController@adminIndex')->name('projects.admin.index')->middleware('can:administrate,App\Project');
+Route::get('/admin/projects/{project}', 'ProjectController@adminShow')->name('projects.admin.show')->middleware('can:administrate,App\Project');
+Route::patch('/admin/projects/{project}', 'ProjectController@adminUpdate')->name('projects.admin.update')->middleware('can:administrate,App\Project');
+
 Route::get('/admin/rubrics', 'RubricController@administrate')->name('rubrics.admin')->middleware('can:administrate,App\Rubric');
 Route::get('/admin/users', 'UserController@administrate')->name('users.admin')->middleware('can:administrate,App\User');
 

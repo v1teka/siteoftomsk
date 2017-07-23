@@ -94,22 +94,6 @@ class ProjectController extends Controller
         return redirect()->route('projects.show', $project);
     }
 
-    // Модерация проекта
-    public function moderate(Project $project)
-    {
-        $project->moderated = ($project->moderated == true) ? false : true;
-        $project->save();
-        return back();
-    }
-
-    // Публикация проекта
-    public function publish(Project $project)
-    {
-        $project->published_at = (is_null($project->published_at)) ? Carbon::now() : null;
-        $project->save();
-        return back();
-    }
-
     // Список проектов (карточками)
     public function index()
     {
@@ -118,9 +102,29 @@ class ProjectController extends Controller
     }
 
     // Список проектов в админке
-    public function administrate()
+    public function adminIndex()
     {
         $projects = Project::with('user', 'rubric')->paginate(20);
-        return view('projects.admin', compact('projects'));
+        return view('projects.admin.index', compact('projects'));
+    }
+
+    public function adminShow(Project $project)
+    {
+        $project->with('rubric', 'user');
+        return view('projects.admin.show', compact('project'));
+    }
+
+    public function adminUpdate(Project $project)
+    {
+        $this->validate(request(), [
+            'moderated' => 'nullable|boolean',
+            'published' => 'nullable',
+        ]);
+
+        $project->moderated = request('moderated');
+        $project->published_at = request()->has('published') ? Carbon::now() : null;
+        $project->save();
+
+        return redirect()->route('projects.admin.show', $project);
     }
 }
