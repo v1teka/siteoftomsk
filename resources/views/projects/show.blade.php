@@ -13,9 +13,6 @@
                 @isset($project->rubric)
                     <p class="project__rubric"><a class="link project__rubric_link" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a></p>
                 @endisset
-                @isset($project->form)
-                    <p class="project__form"><a class="link" href="{{ $project->form }}" target="_blank">Анкета проекта</a></p>
-                @endisset
                 @can('update', $project)
                     <a class="link" href="{{ route('projects.edit', $project) }}">Редактировать</a>
                 @endcan
@@ -25,6 +22,9 @@
     <div class="section project">
         <div class="container project__container">
             <p>{{ $project->content }}</p>
+            @isset($project->form)
+                <p class="project__form"><a class="link" href="{{ $project->form }}" target="_blank">Анкета проекта</a></p>
+            @endisset
         </div>
     </div>
 
