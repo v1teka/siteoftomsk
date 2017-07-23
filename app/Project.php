@@ -11,7 +11,11 @@ class Project extends Model
     public $timestamps = true;
 
     protected $fillable = [
-      'title', 'description', 'content', 'image', 'form', 'rubric_id',
+      'title', 'description', 'content', 'image', 'form', 'rubric_id', 'published_at',
+    ];
+
+    protected $dates = [
+        'created_at', 'updated_at', 'published_at',
     ];
 
     public function user()
