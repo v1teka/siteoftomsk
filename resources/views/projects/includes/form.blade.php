@@ -47,7 +47,7 @@
      <div class="form-group__help">Поддерживаются файлы .jpeg, .jpg и .png шириной от 1200 пикс. и размером не более 2&nbsp;Мб.</div>
 </div>
 <div class="form-group">
-    <label class="form-group__label" for="description">Анкета</label>
+    <label class="form-group__label" for="form">Анкета</label>
     <textarea class="textarea {{ $errors->has('form') ? 'textarea_has-error' : '' }}" name="form" id="form" placeholder="Ссылка на форму" rows="3">{{ $project->form or old('form') }}</textarea>
     @if($errors->has('form'))
         <div class="form-group__message_error">{{ $errors->first('form') }}</div>

@@ -16,7 +16,7 @@
                     <div class="text text_warning">Изменение информации о данном проекте потребует повторной проверки проекта модератором.</div>
                 @endif
             @endcannot
-            <div class="text"><a class="link" href="{{ route('projects.show', $project) }}">&larr; Вернуться на страницу проекта.</a></div>
+            <div class="text"><a class="link" href="{{ route('projects.show', $project) }}">&larr; Вернуться на страницу проекта</a></div>
         </div>
     </div>
 @endsection
