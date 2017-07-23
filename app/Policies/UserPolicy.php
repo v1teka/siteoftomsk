@@ -19,17 +19,10 @@ class UserPolicy
 
     }
 
-    // Просмотр информации о пользователе
-    public function view(User $current_user, User $user)
+    // Изменение информации о пользователе
+    public function update(User $current_user, User $user)
     {
-        // доступно только модератору
-        return $current_user->isModerator();
-    }
-
-    // Управление ролями пользователя
-    public function update_roles(User $current_user, User $user)
-    {
-        // доступно только модератору для управления ролями других пользователей
+        // доступно только модератору и только для управления ролями других пользователей
         return $current_user->isModerator() && $current_user != $user;
     }
 

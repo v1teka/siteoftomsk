@@ -1,5 +1,5 @@
-@can('update_roles', $user)
-    <form method="POST" action="{{ route('users.update_roles', $user) }}">
+@can('update', $user)
+    <form method="POST" action="{{ route('users.admin.update', $user) }}">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
         <div class="form-group">

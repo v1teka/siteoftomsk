@@ -34,17 +34,17 @@ Route::patch('/rubrics/{rubric}', 'RubricController@update')->name('rubrics.upda
 Route::get('/rubrics/{rubric}', 'RubricController@show')->name('rubrics.show');
 Route::get('/rubrics', 'RubricController@index')->name('rubrics.index');
 
-// Пользователи
-Route::get('/users/{user}', 'UserController@show')->name('users.show')->middleware('can:view,user');
-Route::patch('/users/{user}/roles', 'UserController@update_roles')->name('users.update_roles')->middleware('can:update_roles,user');
-
 // Администрирование
 Route::get('/admin/projects', 'ProjectController@adminIndex')->name('projects.admin.index')->middleware('can:administrate,App\Project');
 Route::get('/admin/projects/{project}', 'ProjectController@adminShow')->name('projects.admin.show')->middleware('can:administrate,App\Project');
 Route::patch('/admin/projects/{project}', 'ProjectController@adminUpdate')->name('projects.admin.update')->middleware('can:administrate,App\Project');
 
+Route::get('/admin/users', 'UserController@adminIndex')->name('users.admin.index')->middleware('can:administrate,App\User');
+Route::get('/admin/users/{user}', 'UserController@adminShow')->name('users.admin.show')->middleware('can:administrate,App\User');
+Route::patch('/admin/users/{user}', 'UserController@adminUpdate')->name('users.admin.update')->middleware('can:update,user');
+
 Route::get('/admin/rubrics', 'RubricController@administrate')->name('rubrics.admin')->middleware('can:administrate,App\Rubric');
-Route::get('/admin/users', 'UserController@administrate')->name('users.admin')->middleware('can:administrate,App\User');
+
 
 
 Auth::routes();

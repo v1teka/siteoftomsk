@@ -8,19 +8,19 @@ use App\Role;
 
 class UserController extends Controller
 {
-    public function show(User $user)
+    public function adminShow(User $user)
     {
         $roles = Role::all();
-        return view('users.show', compact('user', 'roles'));
+        return view('users.admin.show', compact('user', 'roles'));
     }
 
-    public function administrate()
+    public function adminIndex()
     {
         $users = User::with('roles')->paginate(20);
-        return view('users.admin', compact('users'));
+        return view('users.admin.index', compact('users'));
     }
 
-    public function update_roles(User $user)
+    public function adminUpdate(User $user)
     {
         $this->validate(request(), [
             'roles' => 'nullable|array',
@@ -29,6 +29,6 @@ class UserController extends Controller
         $user->roles()->sync(request('roles'));
         $user->save();
 
-        return redirect()->route('users.show', $user);
+        return redirect()->route('users.admin.show', $user);
     }
 }

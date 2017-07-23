@@ -21,7 +21,7 @@
                     @foreach ($users as $user)
                         <tr class="table__row">
                             <td class="table__column">{{ $user->id }}</td>
-                            <td class="table__column"><a class="link" href="{{ route('users.show', $user) }}">{{ $user->full_name }}</td>
+                            <td class="table__column"><a class="link" href="{{ route('users.admin.show', $user) }}">{{ $user->full_name }}</td>
                             <td class="table__column"><a class="link" href="mailto:{{ $user->email }}">{{ $user->email }}</td>
                             <td class="table__column">{{ $user->created_at->format('d.m.Y H:i:s') }}</td>
                             <td class="table__column">

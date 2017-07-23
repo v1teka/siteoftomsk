@@ -31,7 +31,7 @@
                                     Без рубрики
                                 @endif
                             </td>
-                            <td class="table__column"><a class="link" href="{{ route('users.show', $project->user) }}">{{ $project->user->full_name }}</a></td>
+                            <td class="table__column"><a class="link" href="{{ route('users.admin.show', $project->user) }}">{{ $project->user->full_name }}</a></td>
                             <td class="table__column">{{ $project->created_at->format('d.m.Y H:i:s') }}</td>
                             <td class="table__column">
                                 @if ($project->moderated === null)

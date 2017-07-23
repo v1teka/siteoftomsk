@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label class="form-group__label">Автор</label>
-                <div class="form-group__value"><a class="link" href="{{ route('users.show', $project->user) }}">{{ $project->user->full_name }}</a></div>
+                <div class="form-group__value"><a class="link" href="{{ route('users.admin.show', $project->user) }}">{{ $project->user->full_name }}</a></div>
             </div>
             @isset ($project->rubric)
                 <div class="form-group">
