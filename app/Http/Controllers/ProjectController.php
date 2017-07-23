@@ -78,8 +78,8 @@ class ProjectController extends Controller
         $project->title = request('title');
         $project->description = request('description');
         $project->content = request('content');
-        // Если пользватель не может модерировать проекты, то сбрасываем флаг модерации
-        $project->moderated = Auth::user()->can('moderate', $project) ? $project->moderated : null;
+        // Если пользватель не может администрировать проекты, то сбрасываем флаг модерации
+        $project->moderated = Auth::user()->can('administrate', $project) ? $project->moderated : null;
         $project->rubric_id = request('rubric_id');
         // Загрузка изображения
         if(request()->hasFile('image')) {
