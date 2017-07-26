@@ -15,8 +15,8 @@ $page-padding: 50px;
 $black: #222;
 $blue: #0065ff;
 $red: #f00;
-$gray: #888;
-$light-gray: #ddd;
+$gray: #aaa;
+$light-gray: #eee;
 
 html {
     font-size: 62.5%;
@@ -175,21 +175,19 @@ body {
         border: 1px solid $light-gray;
         text-decoration: none;
         margin-left: 2px;
-        color: $black;
+        color: $blue;
         &:first-child {
             margin-left: 0;
         }
         &:hover, &:active {
             color: $red;
         }
-        &--active {
-
+        &--active, &--active:hover, &--active:active {
+            color: $black;
+            background-color: $light-gray;
         }
-        &--disabled {
+        &--disabled, &--disabled:hover, &--disabled:active {
             color: $gray;
-            &:hover, &:active {
-                color: $gray;
-            }
         }
     }
 }
