@@ -29,6 +29,9 @@
                         <div class="rubric-projects__message">Нет проектов</div>
                     @endif
                 </div>
+
+                {{ $projects->links('layouts.pagination') }}
+
             </div>
         </div>
     </div>

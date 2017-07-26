@@ -10,7 +10,7 @@ class RubricController extends Controller
 {
     public function show(Rubric $rubric)
     {
-        $projects = $rubric->projects()->moderated()->get();
+        $projects = $rubric->projects()->moderated()->paginate(9);
         return view('rubrics.show', compact('rubric', 'projects'));
     }
 
