@@ -4,9 +4,11 @@
 
 @section('content')
   @parent
-  <div class="section">
-      <div class="container">
-          Информация о сайте
+  <div class="page">
+      <div class="page__content">
+          <div class="container">
+              Информация о сайте
+          </div>
       </div>
   </div>
 @endsection

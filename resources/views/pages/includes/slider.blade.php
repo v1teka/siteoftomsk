@@ -1,13 +1,13 @@
 <div class="fotorama">
-    <div class="slider__item" data-img="https://pp.userapi.com/c627231/v627231559/2c8f8/fVt8BKPEZjY.jpg">
-        <div class="container slider__container">
-            <div class="title title-xxl slider__title">Будущее Томска</div>
-            <div class="slider__content"><a class="link" href="" target="_blank">Пройти анкетирование &rarr;</a></div>
+    <div class="slider-item" data-img="https://pp.userapi.com/c627231/v627231559/2c8f8/fVt8BKPEZjY.jpg">
+        <div class="container">
+            <div class="title title--xxl slider-item__title">Будущее Томска</div>
+            <div class="slider-item__content"><a class="link link--light" href="" target="_blank">Пройти анкетирование &rarr;</a></div>
         </div>
     </div>
-    <div class="slider__item slider__item-center" data-img="https://pp.userapi.com/c627231/v627231559/2c901/kpbqrMikGYo.jpg">
-        <div class="container slider__container">
-            <div class="title title-xxl slider__title">Слайдер №2</div>
+    <div class="slider-item slider-item--center" data-img="https://pp.userapi.com/c627231/v627231559/2c901/kpbqrMikGYo.jpg">
+        <div class="container">
+            <div class="title title--xxl slider-item__title">Слайдер №2</div>
         </div>
     </div>
     <a href="https://youtu.be/Q8CUYhxJFrw?rel=0&amp;controls=0&amp;showinfo=0&amp;modestbranding=1">

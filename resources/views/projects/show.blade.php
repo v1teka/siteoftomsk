@@ -5,36 +5,31 @@
 
 @section('content')
     @parent
-    <div class="section project">
-        <div class="project__header" style="background:url('{{ Storage::disk('public')->url($project->image) }}') no-repeat center center; background-size: cover;">
-            <div class="container project__container">
-                <h1 class="title project__title">{{ $project->title }}</h1>
-                <p class="project__description">{{ $project->description }}</p>
+    <div class="page">
+        <div class="page__slider project-header" style="background:url('{{ Storage::disk('public')->url($project->image) }}') no-repeat center center; background-size: cover;">
+            <div class="container">
+                <h1 class="title title--xxl project-header__title">{{ $project->title }}</h1>
+                <p class="project-header__description">{{ $project->description }}</p>
                 @isset($project->rubric)
-                    <p class="project__rubric"><a class="link project__rubric_link" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a></p>
+                    <p><a class="rubric-label rubric-label--light" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a></p>
                 @endisset
                 @can('update', $project)
-                    <a class="link" href="{{ route('projects.edit', $project) }}">Редактировать</a>
+                    <a class="link link--light" href="{{ route('projects.edit', $project) }}">Редактировать</a>
+                @endcan
+                @can('administrate', $project)
+                    <a class="link link--light" href="{{ route('projects.admin.show', $project) }}">Администрировать</a>
                 @endcan
             </div>
         </div>
-    </div>
-    <div class="section project">
-        <div class="container project__container">
-            <p>{{ $project->content }}</p>
-            @isset($project->form)
-                <p class="project__form"><a class="link" href="{{ $project->form }}" target="_blank">Анкета проекта</a></p>
-            @endisset
-        </div>
-    </div>
 
-    {{--<div class="section project">
-        <div class="container project__container">
-            <iframe
-                src="{{ $project->form }}?embedded=true"
-                width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">
-                Загрузка анкеты...
-            </iframe>
+        <div class="page__content project-content">
+            <div class="container">
+                {!! $project->content !!}
+                @isset($project->form)
+                    <p><a class="link" href="{{ $project->form }}" target="_blank">Открыть анкету в новом окне</a></p>
+                @endisset
+                <p class="project-content__author">{{ $project->user->full_name }}, {{ $project->created_at->format('d.m.Y') }}</p>
+            </div>
         </div>
-    </div>--}}
+    </div>
 @endsection
