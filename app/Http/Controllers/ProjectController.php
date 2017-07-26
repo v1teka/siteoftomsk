@@ -46,8 +46,8 @@ class ProjectController extends Controller
         $project->title = request('title');
         $project->description = request('description');
         $project->content = request('content');
-        // Если пользватель может модерировать проекты, то модерация не нужна
-        $project->moderated = Auth::user()->can('moderate', $project) ? 1 : null;
+        // Если пользватель может администрировать проекты, то модерация не нужна
+        $project->moderated = Auth::user()->can('administrate', $project) ? 1 : null;
         $project->rubric_id = request('rubric_id');
         $project->image = request()->file('image')->store('projects', 'public');
         $project->form = request('form');
