@@ -57,3 +57,12 @@
 <div class="form-group">
     <button class="button button_success" type="submit">{{ $submitButtonText }}</button>
 </div>
+
+@push('scripts')
+    <script src="//cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'content', {
+            customConfig: '{{ asset("/assets/ckeditor/config/project.js") }}'
+        } );
+    </script>
+@endpush
