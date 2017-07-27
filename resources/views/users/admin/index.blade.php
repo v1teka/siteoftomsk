@@ -34,8 +34,8 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $users->links('layouts.pagination') }}
             </div>
         </div>
-        {{ $users->links('layouts.pagination') }}
     </div>
 @endsection

@@ -50,9 +50,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $projects->links('layouts.pagination') }}
             </div>
         </div>
-        {{ $projects->links('layouts.pagination') }}
     </div>
 
 @endsection
