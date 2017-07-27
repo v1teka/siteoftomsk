@@ -43,7 +43,7 @@ Route::get('/admin/users', 'UserController@adminIndex')->name('users.admin.index
 Route::get('/admin/users/{user}', 'UserController@adminShow')->name('users.admin.show')->middleware('can:administrate,App\User');
 Route::patch('/admin/users/{user}', 'UserController@adminUpdate')->name('users.admin.update')->middleware('can:update,user');
 
-Route::get('/admin/rubrics', 'RubricController@administrate')->name('rubrics.admin')->middleware('can:administrate,App\Rubric');
+Route::get('/admin/rubrics', 'RubricController@adminIndex')->name('rubrics.admin.index')->middleware('can:administrate,App\Rubric');
 
 
 

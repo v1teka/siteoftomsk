@@ -17,7 +17,7 @@
                             <div class="nav__item nav__item--sub"><a class="nav__link" href="{{ route('projects.admin.index') }}">Проекты</a></div>
                         @endcan
                         @can('administrate', 'App\Rubric')
-                            <div class="nav__item nav__item--sub"><a class="nav__link" href="/admin/rubrics">Рубрики</a></div>
+                            <div class="nav__item nav__item--sub"><a class="nav__link" href="{{ route('rubrics.admin.index') }}">Рубрики</a></div>
                         @endcan
                         @can('administrate', 'App\User')
                             <div class="nav__item nav__item--sub"><a class="nav__link" href="{{ route('users.admin.index') }}">Пользователи</a></div>

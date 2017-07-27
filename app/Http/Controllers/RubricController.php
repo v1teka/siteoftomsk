@@ -67,9 +67,9 @@ class RubricController extends Controller
         return view('rubrics.index', compact('rubrics'));
     }
 
-    public function administrate()
+    public function adminIndex()
     {
         $rubrics = Rubric::with('projects')->paginate(20);
-        return view('rubrics.admin', compact('rubrics'));
+        return view('rubrics.admin.index', compact('rubrics'));
     }
 }
