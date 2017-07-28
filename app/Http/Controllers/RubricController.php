@@ -49,13 +49,15 @@ class RubricController extends Controller
                 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
                 'not_in:create',
                 'max:255',
-                Rule::unique('rubrics')->ignore($rubric->slug),
+                Rule::unique('rubrics')->ignore($rubric->slug, 'slug'),
             ],
             'description' => 'nullable|max:255',
         ]);
         $rubric->name = request('name');
         $rubric->description = request('description');
-        $rubric->slug = request('slug') ? request('slug') : request('name');
+        if (request('slug') != $rubric->slug) {
+            $rubric->slug = request('slug') ? request('slug') : request('name');
+        }
         $rubric->save();
 
         return redirect()->route('rubrics.show', $rubric);
