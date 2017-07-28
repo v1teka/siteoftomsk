@@ -9,6 +9,7 @@ $(document).ready(function() {
 // Навигация
 $(document).ready(function() {
     $('.js-nav-dropdown-link').click(function(e) {
+        e.preventDefault();
         $(this).siblings('.js-nav-dropdown-content').slideToggle();
         e.stopPropagation();
     });
@@ -17,11 +18,13 @@ $(document).ready(function() {
         $('.js-nav-dropdown-content').slideUp();
     });
 
-    $('.js-nav-mobile-toggle').on('click', function() {
+    $('.js-nav-mobile-toggle').on('click', function(e) {
+        e.preventDefault();
         $(this).find('.nav-mobile__content').toggleClass('nav-mobile__content--active');
     });
 
-    $('.js-nav-mobile-toggle').click(function() {
+    $('.js-nav-mobile-toggle').click(function(e) {
+        e.preventDefault();
         $('.nav__menu').toggle();
     });
 });
