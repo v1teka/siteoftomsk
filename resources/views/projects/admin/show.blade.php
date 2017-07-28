@@ -19,9 +19,11 @@
                 <div class="form-group">
                     <label class="form-group__label">Контент</label>
                     <div class="form-group__value">
-                        <a class="link link--dashed js-spoiler-link" href="#">Показать</a>
-                        <div class="project-content js-spoiler-content">
-                            {!! $project->content !!}
+                        <div class="js-spoiler">
+                            <a class="link link--dashed js-spoiler-link" href="#">Показать</a>
+                            <div class="project-content js-spoiler-content">
+                                {!! $project->content !!}
+                            </div>
                         </div>
                     </div>
                 </div>

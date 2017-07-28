@@ -1,6 +1,9 @@
+// Спойлер
 $(document).ready(function() {
     $('.js-spoiler-link').click(function(e) {
-        var content = $(this).next('.js-spoiler-content').first();
+        e.preventDefault();
+        var spoiler = $(this).closest('.js-spoiler');
+        var content = spoiler.find('.js-spoiler-content').first();
         content.slideToggle(500);
         return false;
     });
