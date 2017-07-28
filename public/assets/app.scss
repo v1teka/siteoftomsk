@@ -220,6 +220,11 @@ body {
             line-height: 2rem;
         }
     }
+    &-form {
+        &__content {
+            height: 1000px;
+        }
+    }
     &-list {
         padding-top: 25px;
     }

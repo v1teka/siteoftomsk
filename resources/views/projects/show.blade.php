@@ -26,7 +26,16 @@
             <div class="container">
                 {!! $project->content !!}
                 @isset($project->form)
-                    <p><a class="link" href="{{ $project->form }}" target="_blank">Открыть анкету в новом окне</a></p>
+                    <div class="project-form">
+                        <h2 class="title title--xl js-spoiler-link"><a class="link link--dark link--dashed" href="{{ $project->form }}" target="_blank">Анкета</a></h2>
+                        <div class="project-form__content js-spoiler-content">
+                            <iframe
+                                src="{{ $project->form }}?embedded=true"
+                                width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">
+                                Загрузка... <a class="link" href="{{ $project->form }}" target="_blank">Открыть в новом окне</a>
+                            </iframe>
+                        </div>
+                    </div>
                 @endisset
                 <p class="project-content__author">{{ $project->user->full_name }}, {{ $project->created_at->format('d.m.Y') }}</p>
             </div>
