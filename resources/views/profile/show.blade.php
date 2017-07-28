@@ -7,7 +7,7 @@
     <div class="page">
         <div class="page__content">
             <div class="container">
-                <h1 class="title title-xxl">Профиль</h1>
+                <h1 class="title title--xxl">Профиль</h1>
                 <form method="POST" action="{{ route('profile.update') }}">
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
