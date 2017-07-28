@@ -26,7 +26,7 @@
     <select class="select {{ $errors->has('rubric_id') ? 'select_has-error' : '' }}" id="rubric" name="rubric_id">
         <option class="select__option" value="">Без рубрики</option>
         @foreach ($rubrics as $rubric)
-            <option class="select__option" value="{{ $rubric->id }}">{{ $rubric->name }}</option>
+            <option class="select__option" value="{{ $rubric->id }}" {{ (isset($project) && $rubric->id == $project->rubric_id) ? 'selected' : '' }}>{{ $rubric->name }}</option>
         @endforeach
     </select>
     @if($errors->has('rubric_id'))
