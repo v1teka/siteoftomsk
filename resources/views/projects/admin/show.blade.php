@@ -41,12 +41,6 @@
                     <label class="form-group__label">Автор</label>
                     <div class="form-group__value"><a class="link" href="{{ route('users.admin.show', $project->user) }}">{{ $project->user->full_name }}</a></div>
                 </div>
-                @isset ($project->rubric)
-                    <div class="form-group">
-                        <label class="form-group__label">Рубрика</label>
-                        <div class="form-group__value"><a class="link" href="{{ route('rubrics.show', $project->rubric ) }}">{{ $project->rubric->name }}</a></div>
-                    </div>
-                @endisset
                 @isset ($project->form)
                     <div class="form-group">
                         <label class="form-group__label">Анкета</label>
@@ -54,6 +48,7 @@
                     </div>
                 @endisset
                 @include('projects.admin.form')
+                <div class="text"><a class="link" href="{{ route('projects.show', $project) }}">&larr; Открыть страницу проекта</a></div>
             </div>
         </div>
     </div>

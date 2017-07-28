@@ -110,17 +110,20 @@ class ProjectController extends Controller
 
     public function adminShow(Project $project)
     {
+        $rubrics = Rubric::all();
         $project->with('rubric', 'user');
-        return view('projects.admin.show', compact('project'));
+        return view('projects.admin.show', compact('project', 'rubrics'));
     }
 
     public function adminUpdate(Project $project)
     {
         $this->validate(request(), [
+            'rubric_id' => 'nullable|exists:rubrics,id',
             'moderated' => 'nullable|boolean',
             'published' => 'nullable',
         ]);
-
+        
+        $project->rubric_id = request('rubric_id');
         $project->moderated = request('moderated');
         $project->published_at = request()->has('published') ? Carbon::now() : null;
         $project->save();
