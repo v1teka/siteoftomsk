@@ -19,7 +19,8 @@ $gray: #aaa;
 $light-gray: #eee;
 
 $nav-height: 50px;
-$nav-bg-color: #eee;
+$nav-bg-color: #fff;
+$nav-border-bg-color: #eee;
 $breakpoint: 550px;
 
 html {
@@ -388,6 +389,7 @@ body {
 .navigation {
     height: $nav-height;
     background-color: $nav-bg-color;
+    border-bottom: 1px solid $nav-border-bg-color;
 }
 .nav {
     float: right;
@@ -457,6 +459,8 @@ body {
 @media only screen and (max-width: $breakpoint) {
     .nav {
         width: 100%;
+        border-bottom: 1px solid $nav-border-bg-color;
+        margin-bottom: 15px;
         &__menu {
             display: none;
             padding-top: $nav-height;
