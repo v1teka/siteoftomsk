@@ -24,7 +24,9 @@
 
         <div class="page__content project-content">
             <div class="container">
-                {!! $project->content !!}
+                <div class="text">
+                    {!! $project->content !!}
+                </div>
                 @isset($project->form)
                     <div class="project-form js-spoiler">
                         <h2 class="title title--xl"><a class="link link--dark link--dashed js-spoiler-link" href="{{ $project->form }}" target="_blank">Анкета</a></h2>

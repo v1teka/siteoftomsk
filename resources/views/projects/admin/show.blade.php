@@ -21,7 +21,7 @@
                     <div class="form-group__value">
                         <div class="js-spoiler">
                             <a class="link link--dashed js-spoiler-link" href="#">Показать</a>
-                            <div class="project-content js-spoiler-content">
+                            <div class="project-content text js-spoiler-content">
                                 {!! $project->content !!}
                             </div>
                         </div>

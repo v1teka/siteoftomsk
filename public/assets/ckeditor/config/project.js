@@ -15,7 +15,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about', groups: [ 'about' ] },
 		{ name: 'colors', groups: [ 'colors' ] }
 	];
-	config.removeButtons = 'Subscript,Superscript,About,Cut,Copy,Paste,PasteText,PasteFromWord,HorizontalRule,Scayt,Anchor,Format';
+	config.removeButtons = 'Underline,Subscript,Superscript,About,Cut,Copy,Paste,PasteText,PasteFromWord,HorizontalRule,Scayt,Anchor,Format';
 };
 
 // Стили сайта
@@ -25,7 +25,7 @@ CKEDITOR.config.contentsCss = '/assets/app.css';
 CKEDITOR.config.defaultLanguage = 'ru';
 
 // Стили внутренней области редактора
-CKEDITOR.addCss( 'body { padding: 2px 8px; }' );
+CKEDITOR.addCss( 'body { padding: 2px 8px; font-family: serif; font-size: 20px; line-height: 1.6; }' );
 
 // Жирный текст
 CKEDITOR.config.coreStyles_bold =
