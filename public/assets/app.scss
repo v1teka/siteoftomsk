@@ -437,7 +437,7 @@ body {
 }
 
 .navigation {
-    height: $nav-height;
+    min-height: $nav-height;
     background-color: $nav-bg-color;
     border-bottom: 1px solid $nav-border-bg-color;
 }
@@ -507,8 +507,6 @@ body {
 @media only screen and (max-width: $tablet) {
     .nav {
         width: 100%;
-        border-bottom: 1px solid $nav-border-bg-color;
-        margin-bottom: 15px;
         &__menu {
             display: none;
             padding-top: $nav-height;

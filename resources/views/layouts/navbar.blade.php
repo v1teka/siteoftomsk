@@ -1,5 +1,5 @@
 <div class="navigation">
-    <nav class="nav">
+    <div class="nav">
         <div class="nav-brand">
             <a class="nav-brand__link" href="{{ route('pages.index') }}">Томск 7.0</a>
         </div>
@@ -35,5 +35,6 @@
                 @endif
             </div>
         </div>
-    </nav>
+    </div>
+    <div style="clear:both;"></div>
 </div>
