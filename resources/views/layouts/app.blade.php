@@ -14,7 +14,8 @@
 
     {{-- Шрифты
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
-    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Fira+Sans:200,400,500" rel="stylesheet">    
+    <link href="//fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
 
     {{-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}

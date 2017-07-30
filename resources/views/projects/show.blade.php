@@ -5,10 +5,10 @@
 
 @section('content')
     @parent
-    <div class="page">
-        <div class="page__slider project-header" style="background:url('{{ Storage::disk('public')->url($project->image) }}') no-repeat center center; background-size: cover;">
+    <div class="project">
+        <div class="project-header" style="background:url('{{ Storage::disk('public')->url($project->image) }}') no-repeat center center; background-size: cover;">
             <div class="container">
-                <h1 class="title title--xxl project-header__title">{{ $project->title }}</h1>
+                <h1 class="project-header__title title title--xxl">{{ $project->title }}</h1>
                 <p class="project-header__description">{{ $project->description }}</p>
                 @isset($project->rubric)
                     <p><a class="rubric-label rubric-label--light" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a></p>
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="page__content project-content">
+        <div class="project-content">
             <div class="container">
                 <div class="text">
                     {!! $project->content !!}

@@ -1,8 +1,10 @@
 <div class="fotorama">
     <div class="slider-item" data-img="https://pp.userapi.com/c627231/v627231559/2c8f8/fVt8BKPEZjY.jpg">
         <div class="container">
-            <div class="title title--xxl slider-item__title">Будущее Томска</div>
-            <div class="slider-item__content"><a class="link link--light" href="" target="_blank">Пройти анкетирование &rarr;</a></div>
+            <div class="title title--xxl slider-item__title">Томск 7.0</div>
+            <div class="slider-item__content">
+                <p>Технологии и творчество</p>
+            </div>
         </div>
     </div>
     <div class="slider-item slider-item--center" data-img="https://pp.userapi.com/c627231/v627231559/2c901/kpbqrMikGYo.jpg">

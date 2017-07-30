@@ -10,7 +10,7 @@
                 <h1 class="title title--xxl">Рубрики</h1>
                 @foreach ($rubrics as $rubric)
                     <div class="rubric-line">
-                        <h2 class="title title--xl"><a class="link link--dark" href="{{ route('rubrics.show', $rubric) }}" title="Перейти к рубрике">{{ $rubric->name }}</a></h2>
+                        <h2 class="rubric-line__title title title--xl"><a class="link link--dark" href="{{ route('rubrics.show', $rubric) }}" title="{{ $rubric->name }}">{{ $rubric->name }}</a></h2>
                         <div class="row">
                             @foreach ($rubric->projects->take(3) as $project)
                                 @include('projects.includes.card')
