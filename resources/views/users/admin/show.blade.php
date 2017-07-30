@@ -27,7 +27,7 @@
                 </div>
 
                 @include('users.admin.form')
-                
+
             </div>
         </div>
     </div>

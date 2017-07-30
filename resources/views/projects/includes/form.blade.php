@@ -3,22 +3,22 @@
     <label class="form-group__label" for="title">Название</label>
     <input class="input {{ $errors->has('title') ? 'input_has-error' : '' }}" type="text" name="title" id="title" placeholder="Название проекта" value="{{ $project->title or old('title') }}" />
     @if($errors->has('title'))
-        <div class="form-group__message_error">{{ $errors->first('title') }}</div>
+        <div class="form-group__message form-group__message--error">{{ $errors->first('title') }}</div>
     @endif
 </div>
 <div class="form-group">
     <label class="form-group__label" for="description">Описание</label>
     <textarea class="textarea {{ $errors->has('description') ? 'textarea_has-error' : '' }}" name="description" id="description" placeholder="Краткое описание проекта" rows="3">{{ $project->description or old('description') }}</textarea>
     @if($errors->has('description'))
-        <div class="form-group__message_error">{{ $errors->first('description') }}</div>
+        <div class="form-group__message form-group__message--error">{{ $errors->first('description') }}</div>
     @endif
-    <div class="form-group__help">Отображается в карточке проекта. Максимум 255 символов.</div>
+    <div class="form-group__message form-group__message--help">Отображается в карточке проекта. Максимум 255 символов.</div>
 </div>
 <div class="form-group">
     <label class="form-group__label" for="content">Контент</label>
      <textarea class="textarea {{ $errors->has('content') ? 'textarea_has-error' : '' }}" name="content" id="content" placeholder="Побробное описание проекта" rows="6">{{ $project->content or old('content') }}</textarea>
      @if($errors->has('content'))
-         <div class="form-group__message_error">{{ $errors->first('content') }}</div>
+         <div class="form-group__message form-group__message--error">{{ $errors->first('content') }}</div>
      @endif
 </div>
 <div class="form-group">
@@ -30,7 +30,7 @@
         @endforeach
     </select>
     @if($errors->has('rubric_id'))
-        <div class="form-group__message_error">{{ $errors->first('rubric_id') }}</div>
+        <div class="form-group__message form-group__message--error">{{ $errors->first('rubric_id') }}</div>
     @endif
 </div>
 <div class="form-group">
@@ -42,17 +42,17 @@
     @endisset
     <input class="file" type="file" name="image" id="image" accept="image/png,image/jpeg">
      @if($errors->has('image'))
-         <div class="form-group__message_error">{{ $errors->first('image') }}</div>
+         <div class="form-group__message form-group__message--error">{{ $errors->first('image') }}</div>
      @endif
-     <div class="form-group__help">Поддерживаются файлы .jpeg, .jpg и .png шириной от 1200 пикс. и размером не более 2&nbsp;Мб.</div>
+     <div class="form-group__message form-group__message--help">Поддерживаются файлы .jpeg, .jpg и .png шириной от 1200 пикс. и размером не более 2&nbsp;Мб.</div>
 </div>
 <div class="form-group">
     <label class="form-group__label" for="form">Анкета</label>
     <textarea class="textarea {{ $errors->has('form') ? 'textarea_has-error' : '' }}" name="form" id="form" placeholder="Ссылка на форму" rows="3">{{ $project->form or old('form') }}</textarea>
     @if($errors->has('form'))
-        <div class="form-group__message_error">{{ $errors->first('form') }}</div>
+        <div class="form-group__message form-group__message--error">{{ $errors->first('form') }}</div>
     @endif
-    <div class="form-group__help">Рекомендуется использовать <a class="link" href="https://www.google.ru/intl/ru/forms/about/" target="_blank">Google Forms</a>.</div>
+    <div class="form-group__message form-group__message--help">Рекомендуется использовать <a class="link" href="https://www.google.ru/intl/ru/forms/about/" target="_blank">Google Forms</a>.</div>
 </div>
 <div class="form-group">
     <button class="button button_success" type="submit">{{ $submitButtonText }}</button>

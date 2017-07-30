@@ -14,7 +14,7 @@
                 </form>
                 @cannot('administrate', $project)
                     @if(!is_null($project->moderated))
-                        <div class="text text_warning">Изменение информации о данном проекте потребует повторной проверки проекта модератором.</div>
+                        <div class="text">Изменение информации о данном проекте потребует повторной проверки проекта модератором.</div>
                     @endif
                 @endcannot
                 <div class="text"><a class="link" href="{{ route('projects.show', $project) }}">&larr; Вернуться на страницу проекта</a></div>

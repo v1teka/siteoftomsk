@@ -10,7 +10,7 @@
                 @endforeach
             </select>
             @if($errors->has('roles'))
-                <div class="form-group__message_error">{{ $errors->first('roles') }}</div>
+                <div class="form-group__message form-group__message--error">{{ $errors->first('roles') }}</div>
             @endif
         </div>
         <div class="form-group">

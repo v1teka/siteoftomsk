@@ -675,17 +675,14 @@ body {
         display: block;
         margin-top: 5px;
         font-size: 1.4rem;
-        &_error {
+        &--error {
             color: #f00;
         }
-        &_success {
+        &--success {
             color: #0f0;
         }
-    }
-    &__help {
-        display: block;
-        margin-top: 5px;
-        font-size: 1.4rem;
-        color: #888;
+        &--help {
+            color: #888;
+        }
     }
 }

@@ -11,7 +11,7 @@
                 @endforeach
             </select>
             @if($errors->has('rubric_id'))
-                <div class="form-group__message_error">{{ $errors->first('rubric_id') }}</div>
+                <div class="form-group__message form-group__message--error">{{ $errors->first('rubric_id') }}</div>
             @endif
         </div>
         <div class="form-group">
