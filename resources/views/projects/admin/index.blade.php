@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('dashboard.index')
 
 @section('title', 'Список проектов')
 
@@ -7,7 +7,7 @@
     <div class="page">
         <div class="page__content">
             <div class="container">
-                <h1 class="title title--xxl">Список проектов</h1>
+                <!--<h1 class="title title--xxl">Список проектов</h1>-->
                 <table class="table">
                     <thead class="table__head">
                         <tr class="table__row">

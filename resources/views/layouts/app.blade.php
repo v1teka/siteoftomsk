@@ -20,10 +20,19 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
     @stack('head')
     <link rel="stylesheet" href="{{ asset('/assets/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+
+    {{-- Скрипты
+    –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}"></script>
+    @stack('scripts')
+    <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
   </head>
 
   <body>
-    {{-- Верхнее меню
+      {{-- Верхнее меню
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
     @include('layouts.navbar')
 
@@ -36,9 +45,4 @@
     @include('layouts.footer')
   </body>
 
-  {{-- Скрипты
-  –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  @stack('scripts')
-  <script src="{{ asset('/assets/app.js') }}" type="text/javascript"></script>
 </html>

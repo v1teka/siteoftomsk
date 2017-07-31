@@ -10,15 +10,15 @@
   </div>
 
   <div class="section welcome">
-      <div class="container">
-          <div class="title title--xl">Уважаемые посетители портала,</div>
+      <div class="container-fluid">
+          <div class="title h2">Уважаемые посетители портала,</div>
           <p>здесь Вы можете ознакомиться с проектами по социологическим исследованиям в городе Томске. На страницах нашего портала Вы можете принять участие в разных опросах, оставить свои комментарии и просто узнать очень много интересного!</p>
       </div>
   </div>
 
   @if (count($projects))
       <div class="section section--last projects">
-          <div class="container">
+          <div class="container-fluid">
               <h2 class="title title--xl">Проекты</h2>
               @foreach ($projects->chunk(3) as $chunk)
                   <div class="row">
