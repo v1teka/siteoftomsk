@@ -54,7 +54,7 @@
                 <ul class="nav navbar-nav">
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="{{ route('profile.show') }}" class="dropdown-toggle" data-toggle="dropdown">
                             <span class="hidden-xs">{{ isset(Auth::user()->name) ? Auth::user()->name : '' }}</span>
                         </a>
                     </li>

@@ -97,8 +97,14 @@
                 <div class="row">
                     <div class="col-md-1 text-left"><a href="#" class="btn btn-default paddingv0">Анкета</a></div>
                     <div class="col-md-1 text-left"><a href="#" class="btn btn-default paddingv0">Написать</a></div>
-                    <div class="col-md-8 text-center"><strong>{!! isset($title) ? $title : 'Заголовок большой' !!}</strong></div>
-                    <div class="col-md-2 text-right"><a href="#">Вход</a> / <a href="#">Регистрация</a></div>
+                    <div class="col-md-8 text-center"><strong>{!! isset($title) ? $title : 'Пример длинного заголовка' !!}</strong></div>
+                    <div class="col-md-2 text-right">
+                        @if (Auth::check())
+                            <a href="{{ route('profile.show') }}">{{ Auth::user()->name }}</a> / <a href="{{ route('logout') }}">Выход</a>
+                        @else
+                            <a href="{{ route('login') }}">Вход</a> / <a href="{{ route('register') }}">Регистрация</a>
+                        @endif
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 text-center"><a class="btn btn-default paddingv0" href="#">Рубрика 1</a></div>
