@@ -15,6 +15,7 @@ Route::get('/', 'PageController@index')->name('pages.index');
 Route::get('/about', 'PageController@about')->name('pages.about');
 Route::get('/profile', 'ProfileController@show')->name('profile.show')->middleware('auth');
 Route::patch('/profile', 'ProfileController@update')->name('profile.update')->middleware('auth');
+Route::post('upload-image', 'ImgUploadController@upload');
 
 // Проекты
 Route::prefix('projects')->group(function() {

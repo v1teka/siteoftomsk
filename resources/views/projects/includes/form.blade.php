@@ -15,8 +15,8 @@
     <div class="form-group__help">Отображается в карточке проекта. Максимум 255 символов.</div>
 </div>
 <div class="form-group">
-    <label class="form-group__label" for="content">Контент</label>
-     <textarea class="textarea {{ $errors->has('content') ? 'textarea_has-error' : '' }}" name="content" id="content" placeholder="Побробное описание проекта" rows="6">{{ $project->content or old('content') }}</textarea>
+    <label class="form-group__label" for="prj-content">Контент</label>
+     <textarea class="textarea {{ $errors->has('content') ? 'textarea_has-error' : '' }}" name="prj-content" id="prj-content" placeholder="Побробное описание проекта" rows="6">{{ $project->content or old('content') }}</textarea>
      @if($errors->has('content'))
          <div class="form-group__message_error">{{ $errors->first('content') }}</div>
      @endif
@@ -59,10 +59,10 @@
 </div>
 
 @push('scripts')
-    <script src="//cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
+    <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
     <script>
-        CKEDITOR.replace( 'content', {
-            customConfig: '{{ asset("/assets/ckeditor/config/project.js") }}'
-        } );
+        window.onload = function() {
+            CKEDITOR.replace('prj-content');
+        }
     </script>
 @endpush
