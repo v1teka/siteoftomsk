@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('dashboard.index')
 
 @section('title', $project->title)
 
@@ -7,7 +7,6 @@
     <div class="page">
         <div class="page__content">
             <div class="container">
-                <h1 class="title title--xxl">{{ $project->title }}</h1>
                 <div class="form-group">
                     <label class="form-group__label">Название проекта</label>
                     <div class="form-group__value">{{ $project->title }}</div>
@@ -20,7 +19,7 @@
                     <label class="form-group__label">Контент</label>
                     <div class="form-group__value">
                         <div class="js-spoiler">
-                            <a class="link link--dashed js-spoiler-link" href="#">Показать</a>
+                            <!--<a class="link link--dashed js-spoiler-link" href="#">Показать</a>-->
                             <div class="project-content text js-spoiler-content">
                                 {!! $project->content !!}
                             </div>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('dashboard.index')
 
 @section('title', 'Список рубрик')
 
@@ -6,28 +6,28 @@
     @parent
     <div class="page">
         <div class="page__content">
-            <div class="container">
-                <h1 class="title title--xxl">Список рубрик</h1>
-                <table class="table">
-                    <thead class="table__head">
-                        <tr class="table__row">
-                            <td class="table__column">№</td>
-                            <td class="table__column">Название</td>
-                            <td class="table__column">Описание</td>
-                            <td class="table__column">Количество проектов</td>
+            <div class="container-fluid">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Название</th>
+                            <th>Описание</th>
+                            <th>Количество проектов</th>
                         </tr>
                     </thead>
                     <tbody class="table__body">
                         @foreach ($rubrics as $rubric)
-                            <tr class="table__row">
-                                <td class="table__column">{{ $rubric->id }}</td>
-                                <td class="table__column"><a class="link" href="{{ route('rubrics.show', $rubric) }}">{{ $rubric->name }}</td>
-                                <td class="table__column">{{ $rubric->description }}</td>
-                                <td class="table__column">{{ $rubric->projects->count() }}</td>
+                            <tr>
+                                <td>{{ $rubric->id }}</td>
+                                <td><a class="link" href="{{ route('rubrics.show', $rubric) }}">{{ $rubric->name }}</a></td>
+                                <td>{{ $rubric->description }}</td>
+                                <td>{{ $rubric->projects->count() }}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <a href="{{ route('rubrics.create') }}" class="btn btn-success">Добавить рубрику</a>
                 {{ $rubrics->links('layouts.pagination') }}
             </div>
         </div>

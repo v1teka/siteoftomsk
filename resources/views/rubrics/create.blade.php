@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('dashboard.index')
 
 @section('title', 'Добавление рубрики')
 
@@ -7,7 +7,6 @@
     <div class="page">
         <div class="page__content">
             <div class="container">
-                <h1 class="title title--xxl">Добавление рубрики</h1>
                 <form method="POST" action="{{ route('rubrics.store') }}">
                     @include('rubrics.includes.form', ['submitButtonText' => 'Добавить'])
                 </form>
