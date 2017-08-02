@@ -33,6 +33,9 @@ $link-dark-color: $base-color;
 $link-gray-color: #eee;
 $link-light-color: #fff;
 
+$base-indent: 40px;
+$mobile-indent: 20px;
+
 $footer-bg-color: #eee;
 
 $light-gray: #eee;
@@ -119,7 +122,7 @@ body {
     font-weight: 500;
     font-family: $font-style-sans;
     margin-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 0.6em;
     line-height: 1.6;
     &--xxl {
         font-size: 5.0rem;
@@ -234,12 +237,15 @@ body {
 }
 
 .section {
-    padding: 25px 0;
+    padding: ($base-indent / 2) 0;
+    @include respond-to(mobile) { padding: ($mobile-indent / 2) 0; };
     &--first {
-        padding-top: 50px;
+        padding-top: $base-indent;
+        @include respond-to(mobile) { padding: $mobile-indent 0; };
     }
     &--last {
-        padding-bottom: 50px;
+        padding-bottom: $base-indent;
+        @include respond-to(mobile) { padding: $mobile-indent 0; };
     }
 }
 
@@ -253,7 +259,8 @@ body {
         padding: 0;
     }
     &__content {
-        padding: 50px 0;
+        padding: $base-indent 0;
+        @include respond-to(mobile) { padding: $mobile-indent 0; };
     }
 }
 
@@ -291,12 +298,12 @@ body {
             padding-top: 50px;
         }
         &__description {
-            font-weight: 200;
             font-size: 2rem;
         }
     }
     &-content {
         padding: 50px 0;
+        @include respond-to(mobile) { padding: $mobile-indent 0; };
         font-family: $font-style-serif;
         font-size: 1.8rem;
         &__author {
@@ -342,9 +349,7 @@ body {
 
 .rubric {
     &-line {
-        &__title {
-            padding-top: 2rem;
-        }
+        &__title { }
     }
     &-description {
         font-family: $font-style-sans;
@@ -376,7 +381,8 @@ body {
 }
 
 .footer {
-    padding: 50px 0;
+    padding: $base-indent 0;
+    @include respond-to(mobile) { padding: $mobile-indent 0; };
     background-color: $footer-bg-color;
     font-size: 1.5rem;
     @include respond-to(mobile) { font-size: 1.4rem; };
@@ -387,7 +393,7 @@ body {
     }
 
     &__section {
-        padding-top: 25px;
+        padding-top: ($base-indent / 2);
         &:first-child {
             padding-top: 0;
         }
@@ -510,6 +516,7 @@ body {
         &__menu {
             display: none;
             padding-top: $nav-height;
+            padding-bottom: 20px;
         }
         &__item {
             float: none;
