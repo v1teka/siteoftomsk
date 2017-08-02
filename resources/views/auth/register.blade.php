@@ -46,13 +46,13 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <span>Регистрируясь, вы принимаете условия <a class="link" href="">соглашения<a> и даёте право на обработку персональных данных.</span>
+                        <span>Регистрируясь, вы принимаете условия <a class="link" href="">соглашения</a> и даёте право на обработку персональных данных.</span>
                     </div>
                     <div class="form-group">
                         <button class="button button_success" type="submit">Зарегистрирваться</button>
                     </div>
                     <div class="form-group">
-                        <span>Если у вас есть учётная записи, <a class="link" href="{{ route('login') }}">войдите<a>.</span>
+                        <span>Если у вас есть учётная записи, <a class="link" href="{{ route('login') }}">войдите</a>.</span>
                     </div>
                 </form>
             </div>
