@@ -12,7 +12,7 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label class="form-group__label" for="email">Адрес электронной почты</label>
-                        <input class="input {{ $errors->has('email') ? 'input_has-error' : '' }}" type="text" name="email" id="email" placeholder="hi@solopchenko.net" value="{{ old('email') }}"/>
+                        <input class="input {{ $errors->has('email') ? 'input_has-error' : '' }}" type="text" name="email" id="email" placeholder="Электронная почта" value="{{ old('email') }}"/>
                         @if($errors->has('email'))
                             <div class="form-group__message_error">{{ $errors->first('email') }}</div>
                         @endif
