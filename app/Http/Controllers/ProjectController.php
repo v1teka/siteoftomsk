@@ -119,7 +119,7 @@ class ProjectController extends Controller
     // Список проектов (карточками)
     public function index()
     {
-        $projects = Project::moderated()->latest('published_at')->paginate(9);
+        $projects = Project::moderated()->latest()->paginate(9);
         return view('projects.index', compact('projects'));
     }
 
