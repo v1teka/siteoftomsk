@@ -51,9 +51,14 @@ class ProjectController extends Controller
         // Если пользватель может администрировать проекты, то модерация не нужна
         $project->moderated = Auth::user()->can('administrate', $project) ? 1 : null;
         $project->rubric_id = request('rubric_id');
-        $project->image = request()->file('image')->store('projects', 'public');
         $project->form = request('form');
         $project->save();
+
+        // Загрузка изображения
+        if(request()->hasFile('image')) {
+            $image = request()->file('image');
+            $project->uploadImage($image);
+        }
 
         // Загрузка вложений
         $files = request()->file('files');
@@ -91,15 +96,14 @@ class ProjectController extends Controller
         // Если пользватель не может администрировать проекты, то сбрасываем флаг модерации
         $project->moderated = Auth::user()->can('administrate', $project) ? $project->moderated : null;
         $project->rubric_id = request('rubric_id');
-        // Загрузка изображения
-        if(request()->hasFile('image')) {
-            // Удаление старого изображения
-            Storage::disk('public')->delete($project->image);
-            // Загрузка нового изображения
-            $project->image = request()->file('image')->store('projects', 'public');
-        }
         $project->form = request('form');
         $project->save();
+
+        // Загрузка изображения
+        if(request()->hasFile('image')) {
+            $image = request()->file('image');
+            $project->uploadImage($image);
+        }
 
         // Удаление вложений
         if (request()->has('deleted_files')) {

@@ -56,6 +56,17 @@ class Project extends Model
         return $query->whereNotNull('published_at');
     }
 
+    // Загрузка изображения
+    public function uploadImage($image)
+    {
+        if (Storage::disk('public')->exists($this->image)) {
+            Storage::disk('public')->delete($this->image);
+        }
+        // Загрузка нового изображения
+        $this->image = $image->store('projects/' . $this->id, 'public');
+        $this->save();
+    }
+
     // Загрузка вложений
     public function uploadFiles($files)
     {
