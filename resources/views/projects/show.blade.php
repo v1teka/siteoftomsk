@@ -47,7 +47,28 @@
                         </div>
                     </div>
                 @endisset
+            </div>
+        </div>
+        <div class="project-footer">
+            <div class="container">
                 <p class="project-content__author">{{ $project->user->full_name }}, {{ $project->created_at->format('d.m.Y') }}</p>
+
+                <div class="project-social">
+                    <div class="title title--m project-social__title">Расскажите о проекте</div>
+                    <div class="likely">
+                        @push('head')
+                            <link rel="stylesheet" href="{{ asset('/assets/likely/likely.css') }}">
+                        @endpush
+                        <div class="vkontakte">Рассказать</div>
+                        <div class="odnoklassniki">Класс</div>
+                        <div class="facebook">Поделиться</div>
+                        <div class="telegram">Отправить</div>
+                        <div class="twitter">Твитнуть</div>
+                        @push('scripts')
+                            <script src="{{ asset('/assets/likely/likely.js') }}" type="text/javascript"></script>
+                        @endpush
+                    </div>
+                </div>
             </div>
         </div>
     </div>

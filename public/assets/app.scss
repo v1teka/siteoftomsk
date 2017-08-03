@@ -304,11 +304,18 @@ body {
         }
     }
     &-content {
-        padding: 50px 0;
-        @include respond-to(mobile) { padding: $mobile-indent 0; };
         font: $font-serif;
         &__author {
             font-family: $font-style-sans;
+        }
+    }
+    &-footer {
+        padding: $base-indent 0;
+        @include respond-to(mobile) { padding: $mobile-indent 0; };
+    }
+    &-social {
+        &__title {
+            margin-bottom: 0;
         }
     }
     &-form {
