@@ -55,7 +55,7 @@
 
                 <div class="project-social">
                     <div class="title title--m project-social__title">Расскажите о проекте</div>
-                    <div class="likely">
+                    <div class="project-social__buttons likely">
                         @push('head')
                             <link rel="stylesheet" href="{{ asset('/assets/likely/likely.css') }}">
                         @endpush
