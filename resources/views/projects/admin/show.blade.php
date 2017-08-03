@@ -10,7 +10,7 @@
                 <h1 class="title title--xxl">{{ $project->title }}</h1>
                 <div class="form-group">
                     <label class="form-group__label">Название проекта</label>
-                    <div class="form-group__value">{{ $project->title }}</div>
+                    <div class="form-group__value"><a class="link" href="{{ route('projects.show', $project) }}">{{ $project->title }}</a></div>
                 </div>
                 <div class="form-group">
                     <label class="form-group__label">Краткое описание проекта</label>
