@@ -26,6 +26,9 @@ $container-width-desktop-hd: 1200px;
 $font-style-serif: "Noto Serif", Georgia, "Times New Roman", Times, serif;
 $font-style-sans: "Fira Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
+$font-serif: 400 1.8rem/1.8 $font-style-serif;
+$font-sans: 400 1.6rem/1.6 $font-style-sans;
+
 $base-color: #222;
 $link-color: #0065ff;
 $link-color-hover: #f00;
@@ -194,7 +197,6 @@ body {
     }
     &--serif {
         font-family: $font-style-serif;
-        font-size: 1.8rem;
     }
     &--sans {
         font-family: $font-style-sans;
@@ -304,8 +306,7 @@ body {
     &-content {
         padding: 50px 0;
         @include respond-to(mobile) { padding: $mobile-indent 0; };
-        font-family: $font-style-serif;
-        font-size: 1.8rem;
+        font: $font-serif;
         &__author {
             font-family: $font-style-sans;
         }
@@ -695,8 +696,7 @@ body {
     display: inline-block;
     line-height: 1.5em;
     border: none;
-    font-family: $font-style-sans;
-    font-size: 1.6rem;
+    font: $font-sans;
     color: $base-color;
     &:before {
         position: relative;
