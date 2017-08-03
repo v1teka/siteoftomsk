@@ -133,7 +133,7 @@ class ProjectController extends Controller
     public function adminShow(Project $project)
     {
         $rubrics = Rubric::all();
-        $project->with('rubric', 'user');
+        $project->with('rubric', 'user', 'files');
         return view('projects.admin.show', compact('project', 'rubrics'));
     }
 
