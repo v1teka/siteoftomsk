@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use App\Project;
 use App\Rubric;
-use App\File;
 use Auth;
 
 class ProjectController extends Controller
