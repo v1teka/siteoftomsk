@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use App\Project;
 use App\Rubric;
+use App\File;
 use Auth;
 
 class ProjectController extends Controller
@@ -16,7 +17,7 @@ class ProjectController extends Controller
     {
         // Авторизация (политики работают только для аутентифицированного пользователя)
         if($project->moderated || (Auth::check() && (Auth::user()->isModerator() || (Auth::user()->id == $project->user_id)))) {
-            $project->with('rubric');
+            $project->with('rubric', 'user', 'files');
             return view('projects.show', compact('project'));
         }
         return abort(404, 'The resource you are looking for could not be found.');
@@ -39,6 +40,7 @@ class ProjectController extends Controller
             'rubric_id' => 'nullable|exists:rubrics,id',
             'image' => 'required|image|mimes:jpeg,png|dimensions:min_width=1200|max:3072',
             'form' => 'nullable|url',
+            'files.*' => 'nullable|file|mimes:pdf,doc,docx,ppt,pptx,xls,xlsx,png,jpeg|max:3072',
         ]);
 
         $project = new Project;
@@ -52,6 +54,12 @@ class ProjectController extends Controller
         $project->image = request()->file('image')->store('projects', 'public');
         $project->form = request('form');
         $project->save();
+
+        // Загрузка вложений
+        $files = request()->file('files');
+        if (request()->hasFile('attachments')) {
+            $project->uploadFiles($files);
+        }
 
         return redirect()->route('projects.show', $project);
     }
@@ -73,6 +81,8 @@ class ProjectController extends Controller
             'rubric_id' => 'nullable|exists:rubrics,id',
             'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1200|max:3072',
             'form' => 'nullable|url',
+            'deleted_files' => 'nullable',
+            'files.*' => 'nullable|file|mimes:pdf,doc,docx,ppt,pptx,xls,xlsx,png,jpeg|max:3072',
         ]);
 
         $project->title = request('title');
@@ -91,6 +101,18 @@ class ProjectController extends Controller
         $project->form = request('form');
         $project->save();
 
+        // Удаление вложений
+        if (request()->has('deleted_files')) {
+            $deleted_files = array_keys(request('deleted_files'));
+            $project->deleteFiles($deleted_files);
+        }
+
+        // Загрузка вложений
+        $files = request()->file('files');
+        if (request()->hasFile('files')) {
+            $project->uploadFiles($files);
+        }
+
         return redirect()->route('projects.show', $project);
     }
 
@@ -104,7 +126,7 @@ class ProjectController extends Controller
     // Список проектов в админке
     public function adminIndex()
     {
-        $projects = Project::with('user', 'rubric')->paginate(20);
+        $projects = Project::with('user', 'rubric', 'files')->paginate(20);
         return view('projects.admin.index', compact('projects'));
     }
 
@@ -122,7 +144,7 @@ class ProjectController extends Controller
             'moderated' => 'nullable|boolean',
             'published' => 'nullable',
         ]);
-        
+
         $project->rubric_id = request('rubric_id');
         $project->moderated = request('moderated');
         $project->published_at = request()->has('published') ? Carbon::now() : null;

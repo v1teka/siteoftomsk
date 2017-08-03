@@ -55,6 +55,25 @@
     <div class="form-group__message form-group__message--help">Рекомендуется использовать <a class="link" href="https://www.google.ru/intl/ru/forms/about/" target="_blank">Google Forms</a>.</div>
 </div>
 <div class="form-group">
+    <label class="form-group__label" for="files">Файлы</label>
+    @isset($project->files)
+        <div class="form-group__value">
+            @foreach ($project->files as $file)
+                <p>
+                    <input type="checkbox" name="deleted_files[{{ $file->id }}]" id="file-{{ $file->id }}">
+                    <label for="file-{{ $file->id }}">Удалить</label><a class="link file-link file-link--{{$file->extension}}" href="{{ Storage::disk('public')->url($file->path) }}" target="_blank">{{ $file->name }}</a>
+                </p>
+            @endforeach
+        </div>
+    @endisset
+    <input class="file" type="file" name="files[]" id="files" multiple>
+    @if($errors->has('files.*'))
+        <div class="form-group__message form-group__message--error">{{ $errors->first('files.*') }}</div>
+    @endif
+     <div class="form-group__message form-group__message--help">Рекомендуется загружать файлы в формате PDF. Преобразовать файл онлайн можно с помощью сервиса <a class="link" href="https://smallpdf.com/pdf-converter" target="_blank">Smallpdf</a>.</div>
+     <div class="form-group__message form-group__message--help">Поддерживаются документы .pdf, .doc, .docx, .ppt, .pptx, .xls, .xlsx, изображения .jpg и .png размером не более 2&nbsp;Мб.</div>
+</div>
+<div class="form-group">
     <button class="button button_success" type="submit">{{ $submitButtonText }}</button>
 </div>
 

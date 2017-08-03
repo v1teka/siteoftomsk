@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+
+use App\File;
 
 class Project extends Model
 {
@@ -28,6 +31,11 @@ class Project extends Model
         return $this->belongsTo('App\Rubric');
     }
 
+    public function files()
+    {
+        return $this->morphMany('App\File', 'object');
+    }
+
     public function scopeModerated($query)
     {
         return $query->where('moderated', 1);
@@ -46,5 +54,33 @@ class Project extends Model
     public function scopePublished($query)
     {
         return $query->whereNotNull('published_at');
+    }
+
+    // Загрузка вложений
+    public function uploadFiles($files)
+    {
+        foreach ($files as $file) {
+            $path = $file->store('projects/' . $this->id . '/files', 'public');
+            $filename = $file->getClientOriginalName();
+            $entity = new File([
+                'path' => $path,
+                'name' => $filename
+            ]);
+            $this->files()->save($entity);
+        }
+    }
+
+    // Удаление вложений
+    public function deleteFiles($files)
+    {
+        foreach ($files as $id) {
+            $file = $this->files()->find($id);
+            if (isset($file)) {
+                $file->delete();
+                if (Storage::disk('public')->exists($file->path)) {
+                    Storage::disk('public')->delete($file->path);
+                }
+            }
+        }
     }
 }

@@ -31,6 +31,16 @@
                     <label class="form-group__label">Изображение</label>
                     <img class="form-group__image-preview" src="{{ Storage::disk('public')->url($project->image) }}" height="100"/>
                 </div>
+                @if ($project->files->count() > 0)
+                    <div class="form-group">
+                        <label class="form-group__label">Файлы</label>
+                        <div class="form-group__value">
+                            @foreach ($project->files as $file)
+                                <p><a class="link file-link file-link--{{$file->extension}}" href="{{ Storage::disk('public')->url($file->path) }}" target="_blank">{{ $file->name }}</a></p>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
                 <div class="form-group">
                     <label class="form-group__label">Дата создания</label>
                     <div class="form-group__value">{{ $project->created_at->format('d.m.Y H:i:s') }}</div>
