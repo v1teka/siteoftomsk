@@ -51,10 +51,7 @@
         </div>
         <div class="project-footer">
             <div class="container">
-                <p class="project-content__author">{{ $project->user->full_name }}, {{ $project->created_at->format('d.m.Y') }}</p>
-
                 <div class="project-social">
-                    <div class="title title--m project-social__title">Расскажите о проекте</div>
                     <div class="project-social__buttons likely">
                         @push('head')
                             <link rel="stylesheet" href="{{ asset('/assets/likely/likely.css') }}">
@@ -68,6 +65,10 @@
                             <script src="{{ asset('/assets/likely/likely.js') }}" type="text/javascript"></script>
                         @endpush
                     </div>
+                </div>
+                <div class="project-meta">
+                    <span class="project-meta__author">{{ $project->user->full_name }}</span>
+                    <span class="article-footer__date">{{ $project->created_at->format('d.m.Y') }}</span>
                 </div>
             </div>
         </div>

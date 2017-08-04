@@ -314,13 +314,17 @@ body {
         @include respond-to(mobile) { padding: $mobile-indent 0; };
     }
     &-social {
-        &__title {
-            margin-bottom: 0;
-        }
         &__buttons {
             margin: 0;
             width: 100%;
         }
+    }
+    &-meta {
+        margin-top: ($base-indent / 2);
+        &__author {
+            margin-right: 1rem;
+        }
+        &__date { }
     }
     &-form {
         &__content {
