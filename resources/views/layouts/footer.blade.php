@@ -1,6 +1,5 @@
-<div class="footer">
+<footer class="footer">
     <div class="container">
-
         <div class="footer__section footer-partners">
             <div class="footer__title">Партнёры</div>
             <div class="row">
@@ -18,4 +17,4 @@
             <p>Сделал <a class="link link--dark" href="http://solopchenko.net" title="Святослав Солопченко" target="_blank">Святослав Солопченко</a> в 2017 году.</p>
         </div>
     </div>
-</div>
+</footer>

@@ -6,7 +6,7 @@
 @section('content')
     @parent
     <div class="project">
-        <div class="project-header" style="background:url('{{ Storage::disk('public')->url($project->image) }}') no-repeat center center; background-size: cover;">
+        <header class="project-header" style="background:url('{{ Storage::disk('public')->url($project->image) }}') no-repeat center center; background-size: cover;">
             <div class="container">
                 <h1 class="project-header__title title title--xxl">{{ $project->title }}</h1>
                 <p class="project-header__description">{{ $project->description }}</p>
@@ -20,9 +20,9 @@
                     <a class="link link--light" href="{{ route('projects.admin.show', $project) }}">Администрировать</a>
                 @endcan
             </div>
-        </div>
+        </header>
 
-        <div class="project-content">
+        <article class="project-content">
             <div class="container">
                 <div class="text">
                     {!! $project->content !!}
@@ -48,8 +48,8 @@
                     </div>
                 @endisset
             </div>
-        </div>
-        <div class="project-footer">
+        </article>
+        <footer class="project-footer">
             <div class="container">
                 <div class="project-social">
                     <div class="project-social__buttons likely">
@@ -71,6 +71,6 @@
                     <span class="article-footer__date">{{ $project->created_at->format('d.m.Y') }}</span>
                 </div>
             </div>
-        </div>
+        </footer>
     </div>
 @endsection

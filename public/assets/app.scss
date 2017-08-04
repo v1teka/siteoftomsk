@@ -293,6 +293,7 @@ body {
 
 .project {
     &-header {
+        display: block;
         width: 100%;
         height: 400px;
         color: #fff;
@@ -304,12 +305,14 @@ body {
         }
     }
     &-content {
+        display: block;
         font: $font-serif;
         &__author {
             font-family: $font-style-sans;
         }
     }
     &-footer {
+        display: block;
         padding: $base-indent 0;
         @include respond-to(mobile) { padding: $mobile-indent 0; };
     }
@@ -396,6 +399,7 @@ body {
 }
 
 .footer {
+    display: block;
     padding: $base-indent 0;
     @include respond-to(mobile) { padding: $mobile-indent 0; };
     background-color: $footer-bg-color;
