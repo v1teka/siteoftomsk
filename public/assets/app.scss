@@ -305,6 +305,8 @@ body {
         }
     }
     &-content {
+        padding-top: $base-indent;
+        @include respond-to(mobile) { padding-top: $mobile-indent; };
         display: block;
         font: $font-serif;
         &__author {
