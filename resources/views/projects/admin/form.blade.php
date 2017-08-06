@@ -25,7 +25,7 @@
             <div><input type="checkbox" name="published" id="published" {{ ($project->published_at) ? 'checked' : ''  }}><label for="published">Отображать на главной</label></div>
         </div>
         <div class="form-group">
-            <button class="button button_success" type="submit">Сохранить</button>
+            <button class="button button--success" type="submit">Сохранить</button>
         </div>
     </form>
 @endcan

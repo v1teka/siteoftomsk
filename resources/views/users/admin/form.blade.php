@@ -14,7 +14,7 @@
             @endif
         </div>
         <div class="form-group">
-            <button class="button button_success" type="submit">Сохранить</button>
+            <button class="button button--success" type="submit">Сохранить</button>
         </div>
     </form>
 @else

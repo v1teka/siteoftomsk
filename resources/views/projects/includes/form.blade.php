@@ -74,7 +74,7 @@
      <div class="form-group__message form-group__message--help">Поддерживаются документы .pdf, .doc, .docx, .ppt, .pptx, .xls, .xlsx, изображения .jpg и .png размером не более 2&nbsp;Мб.</div>
 </div>
 <div class="form-group">
-    <button class="button button_success" type="submit">{{ $submitButtonText }}</button>
+    <button class="button button--success" type="submit">{{ $submitButtonText }}</button>
 </div>
 
 @push('scripts')

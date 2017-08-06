@@ -644,45 +644,64 @@ body {
 }
 
 .button {
-    font: inherit;
-    outline: none;
     display: inline-block;
-    height: 40px;
-    padding: 0 30px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 0;
+    outline: none;
+    font: $font-sans;
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
-    background-color: transparent;
-    border: 1px solid #ddd;
     cursor: pointer;
-    box-sizing: border-box;
-    &_primary {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    &--s {
+        height: 30px;
+        line-height: 20px;
+        padding: 0 15px;
+    }
+    &--m {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+    }
+    &--l {
+        height: 60px;
+        line-height: 60px;
+        padding: 0 30px;
+        font-size: 2rem;
+    }
+    &--link {
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: transparent;
+        border-color: transparent;
+        color: $link-color;
+        &:hover {
+            color: $link-color-hover;
+        }
+    }
+    &--primary {
         color: #fff;
         background-color: #0275d8;
         border-color: #0275d8;
     }
-    &_success {
+    &--success {
         color: #fff;
         background-color: #5cb85c;
         border-color: #5cb85c;
     }
-    &_warning {
-        color: #fff;
-        background-color: #d9534f;
-        border-color: #d9534f;
-    }
-    &_error {
+    &--error, &--danger {
         color: #fff;
         background-color: #f0ad4e;
         border-color: #f0ad4e;
     }
-    &_link {
-        padding: 0;
-        border: none;
-        color: #0065ff;
-        &:hover {
-            color: #f00;
-        }
+    &--warning {
+        color: #fff;
+        background-color: #d9534f;
+        border-color: #d9534f;
     }
 }
 

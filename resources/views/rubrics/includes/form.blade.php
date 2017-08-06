@@ -22,5 +22,5 @@
     <div class="form-group__message form-group__message--help">Строчные латинские буквы, цифры и тире. Например, smart или smart-city.</div>
 </div>
 <div class="form-group">
-    <button class="button button_success" type="submit">{{ $submitButtonText }}</button>
+    <button class="button button--success" type="submit">{{ $submitButtonText }}</button>
 </div>

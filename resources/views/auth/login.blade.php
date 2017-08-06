@@ -30,11 +30,11 @@
                         </label>
                     </div>
                     <div class="form-group">
-                        <button class="button button_success" type="submit">Войти</button>
-                        <span><a class="link link_button" href="{{ route('password.request') }}">Забыли пароль?<a></span>
+                        <button class="button button--success" type="submit">Войти</button>
+                        <button class="button button--link" href="{{ route('password.request') }}">Забыли пароль?</button>
                     </div>
                     <div class="form-group">
-                        <span>Если у вас нет учётной записи, <a class="link" href="{{ route('register') }}">зарегистрируйтесь<a>.</span>
+                        <span>Если у вас нет учётной записи, <a class="link" href="{{ route('register') }}">зарегистрируйтесь</a>.</span>
                     </div>
                 </form>
             </div>
