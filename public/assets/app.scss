@@ -751,10 +751,11 @@ body {
 }
 
 .likely .likely {
-  font-size: 1.2rem;
   &__widget {
     color: #fff;
     fill: #fff;
+    font-size: 1.4rem;
+    font-family: $font-style-sans;
     text-align: center;
     cursor: pointer;
     background: none;
