@@ -88,9 +88,6 @@ class Project extends Model
             $file = $this->files()->find($id);
             if (isset($file)) {
                 $file->delete();
-                if (Storage::disk('public')->exists($file->path)) {
-                    Storage::disk('public')->delete($file->path);
-                }
             }
         }
     }
