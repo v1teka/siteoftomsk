@@ -125,6 +125,13 @@ class ProjectController extends Controller
         return view('projects.index', compact('projects'));
     }
 
+    // Удаление проекта
+    public function destroy(Project $project)
+    {
+        $project->delete();
+        return redirect()->route('projects.index');
+    }
+
     // Список проектов в админке
     public function adminIndex()
     {

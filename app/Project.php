@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use \App\Observers\ProjectObserver;
 
 use App\File;
 
@@ -20,6 +21,12 @@ class Project extends Model
     protected $dates = [
         'created_at', 'updated_at', 'published_at',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+        parent::observe(new ProjectObserver);
+    }
 
     public function user()
     {
