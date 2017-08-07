@@ -132,7 +132,7 @@
                     <div class="col-md-3 text-center padding0">
                         <div class="dropdown">
                             <button class="btn btn-default dropdown-toggle navbar-btn dropdown-main nav-btn-main padding0" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                <span class="vcenter">Счастливое имя</span>
+                                Счастливое имя
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
@@ -151,6 +151,7 @@
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
                                 <li><a href="#">Студенты</a></li>
                                 <li><a href="#">Одинокие</a></li>
+                                <li><a href="#">Пожилые</a></li>
                                 <li><a href="#">Мигранты</a></li>
                                 <li><a href="#">ЛСОП</a></li>
                                 <li><a href="#">Мамы с маленькими детьми</a></li>

@@ -20,14 +20,21 @@
     text-decoration: none;
     border: 1px solid #ddd;
     background-color: #fff;
-    color: #222; }
+    color: #222;
+}
 .project-card:hover, .project-card:active {
     color: #f00; }
 .project-card__image {
     padding: 0;
-    height: 200px; }
+    height: 200px;
+    transition: 1s;
+}
+.project-card__image:hover {
+    height: 150px;
+}
 .project-card__content {
-    padding: 15px; }
+    padding: 15px;
+}
 .project-card__title {
     font-weight: 600;
     font-size: 1.8rem; }
