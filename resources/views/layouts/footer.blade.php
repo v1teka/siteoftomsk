@@ -1,5 +1,5 @@
 <div class="footer">
-    <div class="container">
+    <div class="container-fluid">
         <div class="footer-partners">
             <div class="footer-partners__title">Партнёры</div>
             <div class="row">

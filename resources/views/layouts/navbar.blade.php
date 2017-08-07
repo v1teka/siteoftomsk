@@ -90,7 +90,7 @@
                             </ul>
                         </li>
                         <li><a href="#">Smart-решения города</a></li>
-                        <li><a href="#">UniverCITerra</a></li>
+                        <li><a href="/projects/7">UniverCITerra</a></li>
                         <li><a href="#">Карта позитива</a></li>
                         <li><a href="#">Комната ЛОВЗ</a></li>
                     </ul>
@@ -113,7 +113,7 @@
                     <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="#">70 Регион</a></div>
                     <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="#">Счастливое имя</a></div>
                     <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="#">СемьЯ</a></div>
-                    <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="#">О проекте</a></div>
+                    <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="/projects/8">О проекте</a></div>
                 </div>
             </div>
         </div>
