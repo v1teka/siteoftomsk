@@ -73,14 +73,22 @@
         <div class="row margin0">
             <div class="col-md-1 col-lg-1 padding0">
                 <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle navbar-btn dropdown-main" type="button" id="dropdownMenu11" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <button class="btn btn-default dropdown-toggle navbar-btn dropdown-main" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Рубрики
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu11">
+                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                         <li><a href="{{ route('pages.index') }}">Главная страница</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Исследование и аналитика</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#">Исследование и аналитика</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Здоровый образ жизни</a></li>
+                                <li><a href="#">Гармония с природой</a></li>
+                                <li><a href="#">Мир без барьеров (интересы ЛСОП)</a></li>
+                                <li><a href="#">"Процветающее общество"</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#">Smart-решения города</a></li>
                         <li><a href="#">UniverCITerra</a></li>
                         <li><a href="#">Карта позитива</a></li>

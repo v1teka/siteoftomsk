@@ -44,7 +44,7 @@ class ProjectController extends Controller
             'description' => 'required|max:255',
             'content' => 'required',
             'rubric_id' => 'nullable|exists:rubrics,id',
-            'image' => 'required|image|mimes:jpeg,png|dimensions:min_width=1200|max:3072',
+            'image' => 'required|image|mimes:jpeg,png|dimensions:min_width=600|max:3072',
             'form' => 'nullable|url',
         ]);
 
