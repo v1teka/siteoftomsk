@@ -8,4 +8,17 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	config.filebrowserUploadUrl = '/upload-image';
+	//config.extraPlugins = 'uploadfile';
+	config.extraPlugins = 'notificationaggregator';
+	config.extraPlugins = 'filetools';
+	config.extraPlugins = 'button';
+	config.extraPlugins = 'toolbar';
+	config.extraPlugins = 'notification';
+	config.extraPlugins = 'clipboard';
+	config.extraPlugins = 'lineutils';
+	config.extraPlugins = 'widgetselection';
+	config.extraPlugins = 'widget';
+	config.extraPlugins = 'uploadwidget';
+	config.extraPlugins = 'uploadimage';
+	config.uploadUrl = '/uploader/upload.php';
 };

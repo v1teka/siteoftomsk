@@ -13,7 +13,7 @@
                     <p class="rubric-description">{{ $rubric->description }}</p>
                 @endisset
                 @can('update', $rubric)
-                    <a class="link" href="{{ route('rubrics.edit', $rubric) }}">Редактировать</a>
+                    <a class="btn btn-success" type="button" href="{{ route('rubrics.edit', $rubric) }}">Редактировать</a>
                 @endcan
                 <div class="rubric-projects">
                     @if (count($projects))
