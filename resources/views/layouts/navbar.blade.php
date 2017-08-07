@@ -83,10 +83,10 @@
                         <li class="dropdown-submenu">
                             <a href="#">Исследование и аналитика</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Здоровый образ жизни</a></li>
-                                <li><a href="#">Гармония с природой</a></li>
-                                <li><a href="#">Мир без барьеров (интересы ЛСОП)</a></li>
-                                <li><a href="#">"Процветающее общество"</a></li>
+                                <li><a href="/projects/3">Здоровый образ жизни</a></li>
+                                <li><a href="/projects/4">Гармония с природой</a></li>
+                                <li><a href="/projects/5">Мир без барьеров (интересы ЛСОП)</a></li>
+                                <li><a href="/projects/6">"Процветающее общество"</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Smart-решения города</a></li>
