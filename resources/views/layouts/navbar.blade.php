@@ -100,20 +100,67 @@
                 <div class="row margin0">
                     <div class="col-md-1 padding0 text-left"><a href="#" class="btn btn-default paddingv0 nav-btn-main">Анкета</a></div>
                     <div class="col-md-1 padding0 text-left"><a href="#" class="btn btn-default paddingv0 nav-btn-main">Написать</a></div>
-                    <div class="col-md-8 padding0 text-center"><strong>{!! isset($title) ? $title : 'Томск 7.0. Творчество и технологии' !!}</strong></div>
+                    <div class="col-md-8 padding0 text-center nav-title">
+                        <span class="nav-title">
+                            {!! isset($title) ? $title : 'Томск 7.0. Творчество и технологии' !!}
+                        </span>
+                    </div>
                     <div class="col-md-2 padding0 text-right">
-                        @if (Auth::check())
-                            <a href="{{ route('profile.show') }}">{{ Auth::user()->name }}</a> / <a href="{{ route('logout') }}">Выход</a>
-                        @else
-                            <a href="{{ route('login') }}">Вход</a> / <a href="{{ route('register') }}">Регистрация</a>
-                        @endif
+                        <span class="vcenter">
+                            @if (Auth::check())
+                                <a href="{{ route('profile.show') }}">{{ Auth::user()->name }}</a> / <a href="{{ route('logout') }}">Выход</a>
+                            @else
+                                <a href="{{ route('login') }}">Вход</a> / <a href="{{ route('register') }}">Регистрация</a>
+                            @endif
+                        </span>
                     </div>
                 </div>
                 <div class="row margin0">
-                    <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="#">70 Регион</a></div>
-                    <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="#">Счастливое имя</a></div>
-                    <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="#">СемьЯ</a></div>
-                    <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="/projects/8">О проекте</a></div>
+                    <div class="col-md-3 text-center padding0">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle navbar-btn dropdown-main nav-btn-main padding0" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                70 Регион
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                                <li><a href="#">Удобная территория</a></li>
+                                <li><a href="#">Экологичное пространство</a></li>
+                                <li><a href="#">Комфортная среда</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center padding0">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle navbar-btn dropdown-main nav-btn-main padding0" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="vcenter">Счастливое имя</span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">Нумерологический паспорт</a></li>
+                                <li><a href="#">Города</a></li>
+                                <li><a href="#">Кейсы</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center padding0">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle navbar-btn dropdown-main nav-btn-main padding0" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                СемьЯ
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">Студенты</a></li>
+                                <li><a href="#">Одинокие</a></li>
+                                <li><a href="#">Мигранты</a></li>
+                                <li><a href="#">ЛСОП</a></li>
+                                <li><a href="#">Мамы с маленькими детьми</a></li>
+                                <li><a href="#">Семьи с разновозрастными детьми</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center padding0">
+                        <a class="btn btn-default paddingv0 nav-btn-main" href="/projects/8">О проекте</a>
+                    </div>
                 </div>
             </div>
         </div>
