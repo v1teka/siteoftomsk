@@ -29,6 +29,13 @@ class ProjectController extends Controller
         return view('projects.create', compact('rubrics'));
     }
 
+    // Форма создания проекта
+    public function adminCreate()
+    {
+        $rubrics = Rubric::all();
+        return view('projects.admin.create', compact('rubrics'));
+    }
+
     // Сохранение проекта
     public function store()
     {

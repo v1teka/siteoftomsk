@@ -42,7 +42,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
-        $moderator = User::create(['name' => 'Святолсав', 'surname' => 'Солопченко', 'email' => 'hi@solopchenko.net', 'password' => bcrypt('password')]);
+        $moderator = User::create(['name' => 'Святослав', 'surname' => 'Солопченко', 'email' => 'hi@solopchenko.net', 'password' => bcrypt('password')]);
         $moderator_role = Role::where('name', 'Модератор')->first();
         $moderator->roles()->attach($moderator_role->id);
     }

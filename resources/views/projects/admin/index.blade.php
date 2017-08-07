@@ -55,6 +55,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                <a href="{{ route('projects.admin.create') }}" class="btn btn-success">Добавить проект</a>
                 {{ $projects->links('layouts.pagination') }}
             </div>
         </div>

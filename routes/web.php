@@ -42,6 +42,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/projects', 'ProjectController@adminIndex')->name('projects.admin.index')->middleware('can:administrate,App\Project');
     Route::get('/projects/{project}', 'ProjectController@adminShow')->name('projects.admin.show')->middleware('can:administrate,App\Project');
     Route::patch('/projects/{project}', 'ProjectController@adminUpdate')->name('projects.admin.update')->middleware('can:administrate,App\Project');
+    Route::get('/projects/create', 'ProjectController@adminCreate')->name('projects.admin.create')->middleware('can:administrate,App\Project');
 
     Route::get('/users', 'UserController@adminIndex')->name('users.admin.index')->middleware('can:administrate,App\User');
     Route::get('/users/{user}', 'UserController@adminShow')->name('users.admin.show')->middleware('can:administrate,App\User');

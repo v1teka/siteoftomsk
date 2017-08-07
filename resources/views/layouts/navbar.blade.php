@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+    <div class="container-fluid padding0">
         <!--<div class="navbar-header">
             <a class="nav-brand__link" href="{{ route('pages.index') }}">Томск 7.0</a>
             <div class="dropdown">
@@ -70,10 +70,10 @@
                 </li>
             </ul>
         </div>-->
-        <div class="row">
-            <div class="col-md-1 col-lg-1">
+        <div class="row margin0">
+            <div class="col-md-1 col-lg-1 padding0">
                 <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle navbar-btn" type="button" id="dropdownMenu11" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <button class="btn btn-default dropdown-toggle navbar-btn dropdown-main" type="button" id="dropdownMenu11" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Рубрики
                         <span class="caret"></span>
                     </button>
@@ -83,22 +83,17 @@
                         <li><a href="#">Исследование и аналитика</a></li>
                         <li><a href="#">Smart-решения города</a></li>
                         <li><a href="#">UniverCITerra</a></li>
-                        <li><a href="#">СемьЯ</a></li>
-                        <li><a href="#">Виртуальная прогулка</a></li>
-                        <li><a href="#">Экономика города</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Новости</a></li>
-                        <li><a href="#">О проекте</a></li>
-                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Карта позитива</a></li>
+                        <li><a href="#">Комната ЛОВЗ</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-11 col-lg-11">
-                <div class="row">
-                    <div class="col-md-1 text-left"><a href="#" class="btn btn-default paddingv0">Анкета</a></div>
-                    <div class="col-md-1 text-left"><a href="#" class="btn btn-default paddingv0">Написать</a></div>
-                    <div class="col-md-8 text-center"><strong>{!! isset($title) ? $title : 'Пример длинного заголовка' !!}</strong></div>
-                    <div class="col-md-2 text-right">
+            <div class="col-md-11 col-lg-11 padding0">
+                <div class="row margin0">
+                    <div class="col-md-1 padding0 text-left"><a href="#" class="btn btn-default paddingv0 nav-btn-main">Анкета</a></div>
+                    <div class="col-md-1 padding0 text-left"><a href="#" class="btn btn-default paddingv0 nav-btn-main">Написать</a></div>
+                    <div class="col-md-8 padding0 text-center"><strong>{!! isset($title) ? $title : 'Томск 7.0. Творчество и технологии' !!}</strong></div>
+                    <div class="col-md-2 padding0 text-right">
                         @if (Auth::check())
                             <a href="{{ route('profile.show') }}">{{ Auth::user()->name }}</a> / <a href="{{ route('logout') }}">Выход</a>
                         @else
@@ -106,10 +101,11 @@
                         @endif
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 text-center"><a class="btn btn-default paddingv0" href="#">Рубрика 1</a></div>
-                    <div class="col-md-4 text-center"><a class="btn btn-default paddingv0" href="#">Рубрика 2</a></div>
-                    <div class="col-md-4 text-center"><a class="btn btn-default paddingv0" href="#">О проекте</a></div>
+                <div class="row margin0">
+                    <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="#">70 Регион</a></div>
+                    <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="#">Счастливое имя</a></div>
+                    <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="#">СемьЯ</a></div>
+                    <div class="col-md-3 text-center padding0"><a class="btn btn-default paddingv0 nav-btn-main" href="#">О проекте</a></div>
                 </div>
             </div>
         </div>

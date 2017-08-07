@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{ asset('/assets/app.css') }}">
     <link rel="stylesheet" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/navbar.css') }}">
+    @stack('css')
 
     {{-- Скрипты
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
