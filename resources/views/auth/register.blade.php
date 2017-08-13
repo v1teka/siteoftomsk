@@ -14,35 +14,35 @@
                         <label class="form-group__label" for="name">Имя</label>
                         <input class="input {{ $errors->has('name') ? 'input_has-error' : '' }}" type="text" name="name" id="name" placeholder="Иван" value="{{ old('name') }}"/>
                         @if($errors->has('name'))
-                            <div class="form-group__message_error">{{ $errors->first('name') }}</div>
+                            <div class="form-group__message form-group__message--error">{{ $errors->first('name') }}</div>
                         @endif
                     </div>
                     <div class="form-group">
                         <label class="form-group__label" for="surname">Фамилия</label>
                         <input class="input {{ $errors->has('surname') ? 'input_has-error' : '' }}" type="text" name="surname" id="surname" placeholder="Иванов" value="{{ old('surname') }}" />
                         @if($errors->has('surname'))
-                            <div class="form-group__message_error">{{ $errors->first('surname') }}</div>
+                            <div class="form-group__message form-group__message--error">{{ $errors->first('surname') }}</div>
                         @endif
                     </div>
                     <div class="form-group">
                         <label class="form-group__label" for="email">Адрес электронной почты</label>
                         <input class="input {{ $errors->has('email') ? 'input_has-error' : '' }}" type="text" name="email" id="email" placeholder="Электронная почта" value="{{ old('email') }}" />
                         @if($errors->has('email'))
-                            <div class="form-group__message_error">{{ $errors->first('email') }}</div>
+                            <div class="form-group__message form-group__message--error">{{ $errors->first('email') }}</div>
                         @endif
                     </div>
                     <div class="form-group">
                         <label class="form-group__label" for="password">Пароль</label>
                         <input class="input {{ $errors->has('password') ? 'input_has-error' : '' }}" type="password" name="password" id="password" placeholder="Пароль" />
                         @if($errors->has('password'))
-                            <div class="form-group__message_error">{{ $errors->first('password') }}</div>
+                            <div class="form-group__message form-group__message--error">{{ $errors->first('password') }}</div>
                         @endif
                     </div>
                     <div class="form-group">
                         <label class="form-group__label" for="password-confirm">Подтверждение пароля</label>
                         <input class="input {{ $errors->has('password_confirmation') ? 'input_has-error' : '' }}" type="password" name="password_confirmation" id="password-confirm" placeholder="Подтверждение пароля" />
                         @if($errors->has('email'))
-                            <div class="form-group__message_error">{{ $errors->first('password_confirmation') }}</div>
+                            <div class="form-group__message form-group__message--error">{{ $errors->first('password_confirmation') }}</div>
                         @endif
                     </div>
                     <div class="form-group">

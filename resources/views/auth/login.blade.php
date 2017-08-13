@@ -14,14 +14,14 @@
                         <label class="form-group__label" for="email">Адрес электронной почты</label>
                         <input class="input {{ $errors->has('email') ? 'input_has-error' : '' }}" type="text" name="email" id="email" placeholder="Электронная почта" value="{{ old('email') }}"/>
                         @if($errors->has('email'))
-                            <div class="form-group__message_error">{{ $errors->first('email') }}</div>
+                            <div class="form-group__message form-group__message--error">{{ $errors->first('email') }}</div>
                         @endif
                     </div>
                     <div class="form-group">
                         <label class="form-group__label" for="password">Пароль</label>
                         <input class="input {{ $errors->has('password') ? 'input_has-error' : '' }}" type="password" name="password" id="password" placeholder="Пароль" />
                         @if($errors->has('password'))
-                            <div class="form-group__message_error">{{ $errors->first('password') }}</div>
+                            <div class="form-group__message form-group__message--error">{{ $errors->first('password') }}</div>
                         @endif
                     </div>
                     <div class="form-group">
