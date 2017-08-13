@@ -12,6 +12,10 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{-- CSRF-Token
+    ___________________________________________________ --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     {{-- Шрифты
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
     <link href="//fonts.googleapis.com/css?family=Fira+Sans:200,400,500" rel="stylesheet">

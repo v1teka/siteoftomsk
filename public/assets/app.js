@@ -1,3 +1,12 @@
+// CSRF токен для AJAX-запросов
+$(document).ready(function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+});
+
 // Спойлер
 $(document).ready(function() {
     $('.js-spoiler-link').click(function(e) {
