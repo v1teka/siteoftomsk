@@ -63,6 +63,9 @@ $(document).ready(function() {
             user_rating = score;
             rating.find('.js-user-rating').text('Ваша оценка: ' + user_rating);
         });
+        request.fail(function(error) {
+            showRatingStars(avg_rating);
+        });
     });
 
     rating.find('.js-rating-star').on('mouseover', function(e) {
