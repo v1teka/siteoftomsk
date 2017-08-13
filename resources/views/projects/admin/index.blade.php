@@ -8,6 +8,7 @@
         <div class="page__content">
             <div class="container">
                 <h1 class="title title--xxl">Список проектов</h1>
+                <p><a class="button button--s button--success" href="{{ route('projects.create') }}">Добавить проект</a></p>
                 <table class="table">
                     <thead class="table__head">
                         <tr class="table__row">
