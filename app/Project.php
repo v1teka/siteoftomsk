@@ -5,11 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use \App\Observers\ProjectObserver;
+use \App\Traits\Ratingable;
 
 use App\File;
 
 class Project extends Model
 {
+    use Ratingable;
+
     protected $table = 'projects';
 
     public $timestamps = true;
@@ -61,6 +64,12 @@ class Project extends Model
     public function scopePublished($query)
     {
         return $query->whereNotNull('published_at');
+    }
+
+    // Оценивание
+    public function rate($score, Model $user)
+    {
+        return (new Rating())->createUniqueRating($this, $score, $user);
     }
 
     // Загрузка изображения

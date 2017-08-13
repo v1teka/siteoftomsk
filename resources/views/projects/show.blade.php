@@ -51,6 +51,28 @@
         </article>
         <footer class="project-footer">
             <div class="container">
+                <div class="project-rating">
+                    <div class="rating js-rating" data-rateable="{{ $project->id }}" data-avg-rating="{{ $project->avg_rating }}" data-user-rating="{{ Auth::check() ? Auth::user()->rating($project) : null }}">
+                        <span class="rating__stars">
+                            @for ($i = 1; $i <= 5; $i++)
+                                <span class="rating__star icon icon--star-empty js-rating-star" data-score="{{ $i }}"></span>
+                            @endfor
+                        </span>
+                        <span class="rating__avg-value">
+                            <span class="js-avg-rating">{{ $project->avg_rating > 0 ? $project->avg_rating : 'Нет оценок' }}</span>
+                        </span>
+                        @if (Auth::check())
+                            <div class="rating__user-value">
+                                <span class="js-user-rating">{{ Auth::user()->rating($project) != null ? 'Ваша оценка: ' . Auth::user()->rating($project) : ''  }}</span>
+                            </div>
+                        @else
+                            <div class="rating__user-value">
+                                Для оценки проекта необходимо <a class="link" href="{{ route('login') }}">войти&nbsp;на&nbsp;сайт</a>.
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
                 <div class="project-social">
                     <div class="project-social__buttons likely">
                         @push('head')

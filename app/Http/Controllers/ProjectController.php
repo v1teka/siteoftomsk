@@ -132,6 +132,16 @@ class ProjectController extends Controller
         return redirect()->route('projects.index');
     }
 
+    // Оценивание проекта
+    public function rate(Project $project)
+    {
+        $this->validate(request(), [
+            'score' => 'required|integer|digits_between:1,5',
+        ]);
+        $project->rate(['score' => request('score')], Auth::user());
+        return request()->ajax() ? $project->avg_rating : redirect()->route('projects.show', $project);
+    }
+
     // Список проектов в админке
     public function adminIndex()
     {

@@ -42,6 +42,7 @@ $mobile-indent: 20px;
 $footer-bg-color: #eee;
 
 $light-gray: #eee;
+$yellow: #ffcc00;
 
 
 $black: #222;
@@ -729,6 +730,26 @@ body {
         &--help {
             color: #888;
         }
+    }
+}
+
+.rating {
+    display: inline-block;
+    font-size: 2rem;
+    &__star {
+        float: left;
+        padding-right: 0.2em;
+        color: $yellow;
+        &:before {
+            margin: 0;
+        }
+    }
+    &__stars {
+        cursor: pointer;
+    }
+    &__avg-value { }
+    &__user-value {
+        font-size: 1.4rem;
     }
 }
 
