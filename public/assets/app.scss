@@ -499,16 +499,13 @@ body {
         }
     }
     &__link {
-        color: $blue;
-        border-bottom: 1px solid rgba($blue, 0.3);
+        color: $base-color;
         text-decoration: none;
         line-height: $nav-height;
         &:hover, &:active {
             color: $red;
-            border-color: rgba($red, 0.3);
         }
         &--dropdown {
-            border-bottom-style: dashed;
             &:after {
                 padding-left: 4px;
                 content: "\25be";
