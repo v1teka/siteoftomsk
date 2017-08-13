@@ -9,6 +9,9 @@
         <div class="nav__menu">
             <div class="nav__item"><a class="nav__link" href="{{ route('projects.index') }}">Проекты</a></div>
             <div class="nav__item"><a class="nav__link" href="{{ route('rubrics.index') }}">Рубрики</a></div>
+            @can('create', 'App\Project')
+                <div class="nav__item"><a class="nav__link" href="{{ route('projects.create') }}">Добавить проект</a></div>
+            @endcan
             @if (Auth::check() && (Auth::user()->can('administrate', 'App\Project') || Auth::user()->can('administrate', 'App\Rubric') || Auth::user()->can('administrate', 'App\User')))
                 <div class="nav__item">
                     <a class="nav__link nav__link--dropdown js-nav-dropdown-link" href="#!">Администрирование</a>

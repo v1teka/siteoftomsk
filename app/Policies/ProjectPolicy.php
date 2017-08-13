@@ -10,6 +10,13 @@ class ProjectPolicy
 {
     use HandlesAuthorization;
 
+    public function create(User $user)
+    {
+        // Для всех авторизированных пользователей
+        // return true;
+        return $user->isModerator();
+    }
+
     // Обновление проекта
     public function update(User $user, Project $project)
     {

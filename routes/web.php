@@ -18,8 +18,8 @@ Route::patch('/profile', 'ProfileController@update')->name('profile.update')->mi
 
 // Проекты
 Route::prefix('projects')->group(function() {
-    Route::get('/create', 'ProjectController@create')->name('projects.create')->middleware('auth');
-    Route::post('/', 'ProjectController@store')->name('projects.store')->middleware('auth');
+    Route::get('/create', 'ProjectController@create')->name('projects.create')->middleware('can:create,App\Project');
+    Route::post('/', 'ProjectController@store')->name('projects.store')->middleware('can:create,App\Project');
     Route::get('/{project}/edit', 'ProjectController@edit')->name('projects.edit')->middleware('can:update,project');
     Route::patch('/{project}', 'ProjectController@update')->name('projects.update')->middleware('can:update,project');
     Route::delete('/{project}', 'ProjectController@destroy')->name('projects.destroy')->middleware('can:update,project');
