@@ -14,12 +14,13 @@
 
     {{-- Шрифты
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
-    <link href="//fonts.googleapis.com/css?family=Fira+Sans:200,400,500" rel="stylesheet">    
+    <link href="//fonts.googleapis.com/css?family=Fira+Sans:200,400,500" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
 
     {{-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
     @stack('head')
+    <link rel="stylesheet" href="{{ asset('/assets/fontello/css/fontello.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/app.css') }}">
   </head>
 
