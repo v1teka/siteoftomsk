@@ -12,7 +12,8 @@
                     {{ method_field('PATCH') }}
                     @include('rubrics.includes.form', ['submitButtonText' => 'Сохранить'])
                 </form>
-                <div class="text"><a class="link" href="{{ route('rubrics.show', $rubric) }}">&larr; Вернуться на страницу рубрики.</a></div>
+                @include('rubrics.includes.deleting_form')
+                <div class="text"><a class="link" href="{{ route('rubrics.show', $rubric) }}">&larr; Вернуться на страницу рубрики</a></div>
             </div>
         </div>
     </div>

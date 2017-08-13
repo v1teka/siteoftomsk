@@ -28,7 +28,7 @@ class CreateProjectsTable extends Migration
         $table->foreign('user_id')->references('id')->on('users');
 
         $table->integer('rubric_id')->unsigned()->nullable();
-        $table->foreign('rubric_id')->references('id')->on('rubrics');
+        $table->foreign('rubric_id')->references('id')->on('rubrics')->onDelete('set null');
       });
     }
 

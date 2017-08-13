@@ -29,6 +29,13 @@ class RubricPolicy
         return $user->isModerator();
     }
 
+    // Удаление рубрики
+    public function delete(User $user, Rubric $rubric)
+    {
+        // доступно только модератору
+        return $user->isModerator();
+    }
+
     // Администрирование рубрик
     public function administrate(User $user)
     {

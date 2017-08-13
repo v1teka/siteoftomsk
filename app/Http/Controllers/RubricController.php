@@ -63,6 +63,12 @@ class RubricController extends Controller
         return redirect()->route('rubrics.show', $rubric);
     }
 
+    public function destroy(Rubric $rubric)
+    {
+        $rubric->delete();
+        return redirect()->route('rubrics.index');
+    }
+
     public function index()
     {
         $rubrics = Rubric::has('projects')->with('projects')->paginate(10);
