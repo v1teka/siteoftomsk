@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<!--<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid padding0">
         <!--<div class="navbar-header">
             <a class="nav-brand__link" href="{{ route('pages.index') }}">Томск 7.0</a>
@@ -70,7 +70,9 @@
                 </li>
             </ul>
         </div>-->
-        <div class="row margin0">
+
+
+        <!--<div class="row margin0">
             <div class="col-md-1 col-lg-1 padding0">
                 <div class="dropdown">
                     <button class="btn btn-default dropdown-toggle navbar-btn dropdown-main" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -169,4 +171,210 @@
 
         </div>
     </div>
-</nav>
+</nav>-->
+
+<div class="ConteinerNameSite">
+
+    <table class="Link">
+        <tr>
+            <td rowspan="2" class="OneMenuText">
+                <p class="MenuText">
+                    Рубрики
+                </p>
+            </td>
+            <td class="OneNameSite">
+                <p class="NameSiteText">
+                    <a class="LinkNameSiteText" href="http://www.tpu.ru"> ТОМСК 7.0. Творчество и технологии </a>
+                </p>
+            </td>
+            <td class="RegCall">
+                @if (Auth::check())
+                    <a href="{{ route('profile.show') }}">{{ Auth::user()->name }}</a> / <a href="{{ route('logout') }}">Выход</a>
+                @else
+                    <a href="{{ route('login') }}">Вход</a> / <a href="{{ route('register') }}">Регистрация</a>
+                @endif
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="NavBar">
+                <table class="Link2">
+                    <td class="MenuText2" onclick="$(this).children('ul').css({'left': $(this).offset().left, 'top': $(this).offset().top + $(this).height() - $(document).scrollTop(), 'width': $(this).width()}); $(this).children('ul').show(300);">
+                        70 Регион
+                        <ul class="UlNavBar">
+                            <a href="">
+                                <li class="LiNavBar">
+                                    Удобная территория
+                                </li>
+                            </a>
+                            <a href="">
+                                <li class="LiNavBar">
+                                    Экологичное пространство
+                                </li>
+                            </a>
+                            <a href="">
+                                <li class="LiNavBar">
+                                    Комфортная среда
+                                </li>
+                            </a>
+                        </ul>
+                    </td>
+
+                    <td class="MenuText2" onclick="$(this).children('ul').css({'left': $(this).offset().left, 'top': $(this).offset().top + $(this).height() - $(document).scrollTop(), 'width': $(this).width()}); $(this).children('ul').show(300);">
+                        Счастливое имя
+                        <ul class="UlNavBar">
+                            <a href="">
+                                <li class="LiNavBar">
+                                    Нумерологический паспорт города
+                                </li>
+                            </a>
+                            <a href="">
+                                <li class="LiNavBar">
+                                    Кейсы
+                                </li>
+                            </a>
+                        </ul>
+                    </td>
+
+                    <td class="MenuText2" onclick="$(this).children('ul').css({'left': $(this).offset().left, 'top': $(this).offset().top + $(this).height() - $(document).scrollTop(), 'width': $(this).width()}); $(this).children('ul').show(300);">
+                        СемьЯ
+                        <ul class="UlNavBar">
+                            <a href="">
+                                <li class="LiNavBar">
+                                    Студенты
+                                </li>
+                            </a>
+                            <a href="">
+                                <li class="LiNavBar">
+                                    Одинокие
+                                </li>
+                            </a>
+                            <a href="">
+                                <li class="LiNavBar">
+                                    Пожилые
+                                </li>
+                            </a>
+                            <a href="">
+                                <li class="LiNavBar">
+                                    Мигранты
+                                </li>
+                            </a>
+                            <a href="">
+                                <li class="LiNavBar">
+                                    ЛСОП
+                                </li>
+                            </a>
+                            <a href="">
+                                <li class="LiNavBar">
+                                    Мамы с маленькими детьми
+                                </li>
+                            </a>
+                            <a href="">
+                                <li class="LiNavBar">
+                                    Семьи с разновозрастными детьми
+                                </li>
+                            </a>
+                        </ul>
+                    </td >
+                    <a href="">
+                        <td class="MenuText2">
+                            О проекте
+                        </td>
+                    </a>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="overlay"></div>
+
+<div class="BigMenu">
+    <ul class="MenuList">
+        <a class="MenuListExitToOne" href="http://www.tpu.ru">
+            <li>
+                Главная страница
+            </li>
+        </a>
+
+        <li class="MenuListExitToALL" onclick="$(this).children('ul').css({'left': $('div.BigMenu').width() + 'px', 'top':$(this).offset().top}); $(this).children('ul').show(300);">
+            Исследование и аналитика
+            <ul class="MenuListTwo">
+                <a  href="http://www.tpu.ru">
+                    <li class="MenuListExitToALLTwo">
+                        <p>
+                            Здоровый образ жизни
+                        </p>
+                    </li>
+                </a>
+                <a  href="http://yandex.ru">
+                    <li class="MenuListExitToALLTwo">
+                        <p>
+                            Гармония с природой
+                        </p>
+                    </li>
+                </a>
+                <a  href="http://rambler.ru">
+                    <li class="MenuListExitToALLTwo">
+                        <p>
+                            Мир без барьеров (интересы ЛСОП)
+                        </p>
+                    </li>
+                </a>
+                <a  href="http://rambler.ru">
+                    <li class="MenuListExitToALLTwo">
+                        <p>
+                            «Процветающее общество»
+                        </p>
+                    </li>
+                </a>
+            </ul>
+        </li>
+
+        <a  href="http://rambler.ru">
+            <li class="MenuListExitToALL">
+                Smart-решения для города
+            </li>
+        </a>
+
+        <a  href="http://rambler.ru">
+            <li class="MenuListExitToALL">
+                UniverCITerra
+            </li>
+        </a>
+
+        <a  href="http://rambler.ru">
+            <li class="MenuListExitToALL">
+                Карта позитива
+            </li>
+        </a>
+
+        <a  href="http://rambler.ru">
+            <li class="MenuListExitToALL">
+                Комната ЛОВЗ
+            </li>
+        </a>
+
+        <a  href="http://rambler.ru">
+            <li class="MenuListExitToALL">
+                Новости
+            </li>
+        </a>
+
+        <a  href="http://rambler.ru">
+            <li class="MenuListExitToALL">
+                О проекте
+            </li>
+        </a>
+
+        <a  href="http://rambler.ru">
+            <li class="MenuListExitToALL">
+                Контакты
+            </li>
+        </a>
+    </ul>
+
+    <div class="BigMenuExit">
+        &times;
+    </div>
+
+</div>

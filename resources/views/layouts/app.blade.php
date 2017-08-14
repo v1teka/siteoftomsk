@@ -23,12 +23,15 @@
     <link rel="stylesheet" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/navbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/NameSite.css" />
     @stack('css')
 
     {{-- Скрипты
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="/js/NameSite.js"></script>
     @stack('scripts')
     <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
   </head>
