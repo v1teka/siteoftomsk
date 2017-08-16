@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('dashboard.index')
 
 @section('title', $user->full_name)
 
@@ -7,8 +7,6 @@
     <div class="page">
         <div class="page__content">
             <div class="container">
-                <h1 class="title title--xxl">{{ $user->full_name }}</h1>
-
                 <div class="form-group">
                     <label class="form-group__label">Имя</label>
                     <div class="form-group__value">{{ $user->name }}</div>

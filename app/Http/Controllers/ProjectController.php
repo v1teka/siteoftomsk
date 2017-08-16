@@ -28,6 +28,13 @@ class ProjectController extends Controller
         return view('projects.create', compact('rubrics'));
     }
 
+    // Форма создания проекта
+    public function adminCreate()
+    {
+        $rubrics = Rubric::all();
+        return view('projects.admin.create', compact('rubrics'));
+    }
+
     // Сохранение проекта
     public function store()
     {
@@ -36,7 +43,7 @@ class ProjectController extends Controller
             'description' => 'required|max:255',
             'content' => 'required',
             'rubric_id' => 'nullable|exists:rubrics,id',
-            'image' => 'required|image|mimes:jpeg,png|dimensions:min_width=1200|max:3072',
+            'image' => 'required|image|mimes:jpeg,png|dimensions:min_width=600|max:3072',
             'form' => 'nullable|url',
             'files.*' => 'nullable|file|mimes:pdf,doc,docx,ppt,pptx,xls,xlsx,png,jpeg|max:3072',
         ]);

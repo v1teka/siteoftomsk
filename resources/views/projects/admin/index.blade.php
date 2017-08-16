@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('dashboard.index')
 
 @section('title', 'Список проектов')
 
@@ -6,36 +6,40 @@
     @parent
     <div class="page">
         <div class="page__content">
-            <div class="container">
-                <h1 class="title title--xxl">Список проектов</h1>
-                <p><a class="button button--s button--success" href="{{ route('projects.create') }}">Добавить проект</a></p>
-                <table class="table">
-                    <thead class="table__head">
-                        <tr class="table__row">
-                            <td class="table__column">№</td>
-                            <td class="table__column">Название</td>
-                            <td class="table__column">Рубрика</td>
-                            <td class="table__column">Автор</td>
-                            <td class="table__column">Дата создания</td>
-                            <td class="table__column">Модерация</td>
-                            <td class="table__column">Опубликован</td>
+            <div class="container-fluid">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Название</th>
+                            <th>Рубрика</th>
+                            <th>Автор</th>
+                            <th>Дата создания</th>
+                            <th>Модерация</th>
+                            <th>Опубликован</th>
                         </tr>
                     </thead>
-                    <tbody class="table__body">
+                    <tbody>
                         @foreach ($projects as $project)
-                            <tr class="table__row">
-                                <td class="table__column">{{ $project->id }}</td>
-                                <td class="table__column"><a class="link" href="{{ route('projects.admin.show', $project) }}">{{ $project->title }}</td>
-                                <td class="table__column">
+                            @if ($project->moderated === null)
+                                <tr>
+                            @elseif ($project->moderated == 1)
+                                <tr class="success">
+                            @else
+                                <tr class="danger">
+                            @endif
+                                <td>{{ $project->id }}</td>
+                                <td><a class="link" href="{{ route('projects.admin.show', $project) }}">{{ $project->title }}</a></td>
+                                <td>
                                     @if($project->rubric)
                                         <a class="link" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a>
                                     @else
                                         Без рубрики
                                     @endif
                                 </td>
-                                <td class="table__column"><a class="link" href="{{ route('users.admin.show', $project->user) }}">{{ $project->user->full_name }}</a></td>
-                                <td class="table__column">{{ $project->created_at->format('d.m.Y H:i:s') }}</td>
-                                <td class="table__column">
+                                <td><a class="link" href="{{ route('users.admin.show', $project->user) }}">{{ $project->user->full_name }}</a></td>
+                                <td>{{ $project->created_at->format('d.m.Y H:i:s') }}</td>
+                                <td>
                                     @if ($project->moderated === null)
                                         Рассматривается
                                     @elseif ($project->moderated == 1)
@@ -44,13 +48,14 @@
                                         Отклонён
                                     @endif
                                 </td>
-                                <td class="table__column">
+                                <td>
                                     {{ $project->published_at ? 'Да' : 'Нет' }}
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <a href="{{ route('projects.admin.create') }}" class="btn btn-success">Добавить проект</a>
                 {{ $projects->links('layouts.pagination') }}
             </div>
         </div>

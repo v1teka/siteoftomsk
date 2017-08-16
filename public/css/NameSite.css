@@ -1,0 +1,336 @@
+.ConteinerNameSite
+{
+	z-index: 99;
+}
+
+.ConteinerNameSite
+{
+
+	position: fixed;
+	left: 0;
+	top: 0px;
+	
+	
+	width: 100%;
+	height: 100px;
+
+	text-align: center;
+    white-space: nowrap;
+   
+    overflow: hidden;
+    
+    z-index: 99;
+}
+
+.Link
+{
+	width: 100%;
+	opacity: 1;
+	line-height: 70px;
+	background-color: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+    white-space: nowrap;
+    overflow: hidden;	
+    border: 0px;
+    border-spacing: 0px;
+    
+    height: 70px; 	
+    
+
+}
+
+.OneMenuText
+{
+	opacity: 1;	
+	line-height: 40px;
+	background-color: rgba(25, 25, 112, 0.6);	
+	cursor: pointer;	
+	vertical-align:  middle;	
+	
+	width: 110px; 	
+}
+
+.OneMenuText:hover {
+	color: Orchid;
+}
+
+.RegCall
+{
+	text-align: center;
+	opacity: 1;
+	background-color: rgba(255, 253, 208, 0.6);
+	vertical-align:  middle;
+	line-height: 20px;
+	cursor: pointer; 
+	color: blue; 
+	
+	width: 125px;	
+	font-size:18px; 	
+}
+
+.MenuText
+{
+	font-family: "Times New Roman", serif;
+	text-align: center;
+	vertical-align: middle;
+	color: white;	
+	
+	font-size: 18pt;
+	line-height: 70px;	
+}
+
+.MenuText:hover {
+	color: Orchid;
+}
+
+.OneNameSite
+{
+	background-color: rgba(0, 128, 0, 0.6);
+	vertical-align:  middle;
+}
+
+.NameSiteText
+{
+	font-family: "Impact", serif;
+	text-align: center;
+	color: white;
+	vertical-align:  middle;
+	
+	opacity: 1;	
+	
+	font-size: 24pt;
+	line-height: 70px;	
+}
+
+.NameSiteText:hover
+{
+	opacity: 0.5;	
+}
+
+a.LinkNameSiteText
+{
+	text-decoration: none;
+	color: white;
+}
+
+.Link, .OneMenuText, .RegCall, .MenuText, .NameSiteText
+{
+	-webkit-transition:  height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease;
+	-o-transition: height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease;  
+	-ms-transition: height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease;
+	-moz-transition: height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease;
+	transition: height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease; 
+}
+   
+@media screen  and (max-width: 700px)
+	{ 
+		.Link
+		{
+			height: 35px;
+		}
+		.OneMenuText
+		{
+			width: 55px;
+		}
+		.RegCall
+		{
+			width: 90px;	
+			font-size:12px; 
+		}
+		.MenuText
+		{
+			font-size: 9pt;
+			line-height: 35px;
+		}
+		.NameSiteText
+		{
+			font-size: 12pt;
+			line-height: 35px;
+		}
+	}
+
+.overlay {
+	background: #000;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1000;
+	opacity: .3;
+	visibility: hidden;
+}
+
+.BigMenu
+{
+	width: 300px;
+	
+	z-index: 2000;
+
+	background-color: Lavender;
+	position: fixed;
+	left: -300px;
+	top: 0;
+	text-align: center;	
+	
+	-webkit-transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s;
+	-o-transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s;  
+	-ms-transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s; 
+	-moz-transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s; 
+	transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s; 	
+}
+
+.MenuList
+{
+	list-style-type: none;
+	line-height:30px;
+	margin-left: 30px;
+	margin-top: 20px;
+	margin-right: 20px;
+
+	padding: 0;
+}
+
+.MenuList a
+{
+	text-decoration: none;
+}
+
+.MenuListExitToALL, .MenuListExitToALLTwo, .MenuListExitToOne
+{
+	text-align: left;		
+	color: MidnightBlue;
+	background-color: Lavender;
+	cursor: pointer;
+}
+
+.MenuListExitToALL, .MenuListExitToALLTwo
+{
+	font-size: 14pt;
+}
+
+.MenuListExitToOne
+{
+
+	margin-bottom: 10px;
+	font-size: 17pt;
+	font-weight: bold;
+}
+
+.MenuListExitToALLTwo
+{
+	white-space: nowrap;
+	padding: 6px 0 6px 0;
+}
+
+li.MenuListExitToALLTwo:hover
+{
+	color: white;
+	background-color: DimGray;	
+}
+
+.MenuListTwo
+{
+	position:absolute;
+	list-style-type: none;
+	display:none;
+	
+	background: yellow;
+}
+
+.MenuListExitToALLTwo p
+{
+	margin-left: 20px;	
+	margin-right:  20px;
+	
+}
+
+.NavBar
+{
+	line-height: 30px;
+	font-size: 20px; 
+	height: 30px;	
+
+	vertical-align: middle;
+	padding: 0;
+	margin: 0;
+	
+	z-index: 2000;
+}
+
+.NavBar table
+{
+	width: 100%;
+}
+
+.UlNavBar
+{
+	position: fixed;
+	display: none;	
+	list-style-type: none;	
+}
+
+.UlNavBar a{
+	text-decoration: none;	
+}
+
+.UlNavBar li
+{
+	text-align: left;
+	padding: 0 10px 0 10px;;
+}
+
+.LiNavBar
+{
+	font-size: 12pt;	
+	background-color: rgba(169, 169, 169, 0.9);
+	color: #000080;
+	cursor: pointer;
+	
+	white-space: normal;
+	line-height: 30px;
+}
+
+.MenuText2
+{
+	color: #000080;	
+	width: 25%;
+	background-color: rgba(169, 169, 169, 0.6);
+	cursor: pointer;
+}
+
+.MenuText2:hover
+{
+	background-color: rgba(128, 128, 128, 1);
+	color: white;
+}
+
+li.LiNavBar:hover
+{
+	background-color: rgba(128, 128, 128, 1);
+	color: white;	
+}
+
+.Link2
+{
+	width: 100%;
+	height: 100%;
+	border: 0px;
+    border-spacing: 0px;
+}
+
+.BigMenuExit
+{	
+	font-size: 24pt;
+	font-family: "Times New Roman", serif;
+	line-height: 35px;
+	position: absolute;
+	left: 270px;
+	top: 0px;
+	cursor: pointer;
+}
+
+
+
