@@ -20,13 +20,11 @@
       <div class="section section--last projects">
           <div class="container-fluid">
               <h2 class="title title--xl">Проекты</h2>
-              @foreach ($projects->chunk(3) as $chunk)
-                  <div class="row">
-                      @foreach ($chunk as $project)
-                          @include('projects.includes.card')
-                      @endforeach
-                  </div>
-              @endforeach
+              <div class="GrossGroup">
+                  @foreach ($projects as $project)
+                      @include('projects.includes.card')
+                  @endforeach
+              </div>
           </div>
       </div>
   @endif

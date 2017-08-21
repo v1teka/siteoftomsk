@@ -32,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/NameSite.css" />
     @stack('css')
+    <link rel="stylesheet" type="text/css" href="/css/ProLink.css" />
 
     {{-- Скрипты
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
@@ -40,9 +41,10 @@
     <script type="text/javascript" src="/js/NameSite.js"></script>
     @stack('scripts')
     <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/ProLink.js"></script>
   </head>
 
-  <body>
+  <body class="body">
       {{-- Верхнее меню
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
     @include('layouts.navbar')

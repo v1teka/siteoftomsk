@@ -8,15 +8,13 @@
         <div class="page__content">
             <div class="container">
                 <h1 class="title title--xxl">Проекты</h1>
-                <div class="project-list">
-                    @foreach ($projects->chunk(3) as $chunk)
-                        <div class="row">
-                            @foreach ($chunk as $project)
-                                @include('projects.includes.card')
-                            @endforeach
-                        </div>
+                <!--<div class="project-list">-->
+                <div class="GrossGroup">
+                    @foreach ($projects as $project)
+                        @include('projects.includes.card')
                     @endforeach
                 </div>
+                <!--</div>-->
 
                 {{ $projects->links('layouts.pagination') }}
 
