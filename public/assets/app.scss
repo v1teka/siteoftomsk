@@ -131,6 +131,7 @@ body {
     &--xxl {
         font-size: 5.0rem;
         line-height: 1.2;
+        padding-top: 70px;
         @include respond-to(mobile) { font-size: 4.0rem };
     }
     &--xl {

@@ -302,28 +302,28 @@
         <li class="MenuListExitToALL" onclick="$(this).children('ul').css({'left': $('div.BigMenu').width() + 'px', 'top':$(this).offset().top}); $(this).children('ul').show(300);">
             Исследование и аналитика
             <ul class="MenuListTwo">
-                <a  href="http://www.tpu.ru">
+                <a  href="{{ route('projects.show', 3) }}">
                     <li class="MenuListExitToALLTwo">
                         <p>
                             Здоровый образ жизни
                         </p>
                     </li>
                 </a>
-                <a  href="http://yandex.ru">
+                <a  href="{{ route('projects.show', 4) }}">
                     <li class="MenuListExitToALLTwo">
                         <p>
                             Гармония с природой
                         </p>
                     </li>
                 </a>
-                <a  href="http://rambler.ru">
+                <a  href="{{ route('projects.show', 5) }}">
                     <li class="MenuListExitToALLTwo">
                         <p>
                             Мир без барьеров (интересы ЛСОП)
                         </p>
                     </li>
                 </a>
-                <a  href="http://rambler.ru">
+                <a  href="{{ route('projects.show', 6) }}">
                     <li class="MenuListExitToALLTwo">
                         <p>
                             «Процветающее общество»
@@ -339,7 +339,7 @@
             </li>
         </a>
 
-        <a  href="http://rambler.ru">
+        <a  href="{{ route('projects.show', 7) }}">
             <li class="MenuListExitToALL">
                 UniverCITerra
             </li>
@@ -363,7 +363,7 @@
             </li>
         </a>
 
-        <a  href="http://rambler.ru">
+        <a  href="{{ route('projects.show', 8) }}">
             <li class="MenuListExitToALL">
                 О проекте
             </li>

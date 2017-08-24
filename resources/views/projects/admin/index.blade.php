@@ -29,7 +29,7 @@
                                 <tr class="danger">
                             @endif
                                 <td>{{ $project->id }}</td>
-                                <td><a class="link" href="{{ route('projects.admin.show', $project) }}">{{ $project->title }}</a></td>
+                                <td><a class="link" href="{{ route('projects.edit', $project) }}">{{ $project->title }}</a></td>
                                 <td>
                                     @if($project->rubric)
                                         <a class="link" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a>
