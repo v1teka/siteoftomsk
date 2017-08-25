@@ -82,8 +82,8 @@
     <script>
         window.onload = function() {
             CKEDITOR.replace('content', {
-		customConfig: '{{ asset("/assets/ckeditor/config/project.js") }}'
-	    });
+		        //customConfig: '{{ asset("/assets/ckeditor/config/project.js") }}' // Не могу понять причину, почему не подключаются модули (например, загрузки изображений) в случае, если используется этот конфиг, даже с аналогичными настройками внутри
+	        });
         }
     </script>
 @endpush

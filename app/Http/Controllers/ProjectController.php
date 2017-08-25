@@ -57,7 +57,6 @@ class ProjectController extends Controller
         $project->moderated = Auth::user()->can('administrate', $project) ? 1 : null;
         $project->rubric_id = request('rubric_id');
         $project->form = request('form');
-        $project->save();
 
         // Загрузка изображения
         if(request()->hasFile('image')) {
@@ -70,6 +69,8 @@ class ProjectController extends Controller
         if (request()->hasFile('attachments')) {
             $project->uploadFiles($files);
         }
+
+        $project->save();
 
         return redirect()->route('projects.show', $project);
     }
