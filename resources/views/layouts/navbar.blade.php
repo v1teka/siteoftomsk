@@ -204,17 +204,17 @@
                     <td class="MenuText2" onclick="$(this).children('ul').css({'left': $(this).offset().left, 'top': $(this).offset().top + $(this).height() - $(document).scrollTop(), 'width': $(this).width()}); $(this).children('ul').show(300);">
                         70 Регион
                         <ul class="UlNavBar">
-                            <a href="">
+                            <a href="{{ route('projects.show', 14) }}">
                                 <li class="LiNavBar">
                                     Удобная территория
                                 </li>
                             </a>
-                            <a href="">
+                            <a href="{{ route('projects.show', 15) }}">
                                 <li class="LiNavBar">
                                     Экологичное пространство
                                 </li>
                             </a>
-                            <a href="">
+                            <a href="{{ route('projects.show', 16) }}">
                                 <li class="LiNavBar">
                                     Комфортная среда
                                 </li>
@@ -225,12 +225,12 @@
                     <td class="MenuText2" onclick="$(this).children('ul').css({'left': $(this).offset().left, 'top': $(this).offset().top + $(this).height() - $(document).scrollTop(), 'width': $(this).width()}); $(this).children('ul').show(300);">
                         Счастливое имя
                         <ul class="UlNavBar">
-                            <a href="">
+                            <a href="{{ route('projects.show', 17) }}">
                                 <li class="LiNavBar">
                                     Нумерологический паспорт города
                                 </li>
                             </a>
-                            <a href="">
+                            <a href="{{ route('projects.show', 18) }}">
                                 <li class="LiNavBar">
                                     Кейсы
                                 </li>
@@ -241,44 +241,44 @@
                     <td class="MenuText2" onclick="$(this).children('ul').css({'left': $(this).offset().left, 'top': $(this).offset().top + $(this).height() - $(document).scrollTop(), 'width': $(this).width()}); $(this).children('ul').show(300);">
                         СемьЯ
                         <ul class="UlNavBar">
-                            <a href="">
+                            <a href="{{ route('projects.show', 19) }}">
                                 <li class="LiNavBar">
                                     Студенты
                                 </li>
                             </a>
-                            <a href="">
+                            <a href="{{ route('projects.show', 20) }}">
                                 <li class="LiNavBar">
                                     Одинокие
                                 </li>
                             </a>
-                            <a href="">
+                            <a href="{{ route('projects.show', 21) }}">
                                 <li class="LiNavBar">
                                     Пожилые
                                 </li>
                             </a>
-                            <a href="">
+                            <a href="{{ route('projects.show', 22) }}">
                                 <li class="LiNavBar">
                                     Мигранты
                                 </li>
                             </a>
-                            <a href="">
+                            <a href="{{ route('projects.show', 23) }}">
                                 <li class="LiNavBar">
                                     ЛСОП
                                 </li>
                             </a>
-                            <a href="">
+                            <a href="{{ route('projects.show', 24) }}">
                                 <li class="LiNavBar">
                                     Мамы с маленькими детьми
                                 </li>
                             </a>
-                            <a href="">
+                            <a href="{{ route('projects.show', 25) }}">
                                 <li class="LiNavBar">
                                     Семьи с разновозрастными детьми
                                 </li>
                             </a>
                         </ul>
                     </td >
-                    <a href="">
+                    <a href="{{ route('projects.show', 8) }}">
                         <td class="MenuText2">
                             О проекте
                         </td>
@@ -293,7 +293,7 @@
 
 <div class="BigMenu">
     <ul class="MenuList">
-        <a class="MenuListExitToOne" href="http://www.tpu.ru">
+        <a class="MenuListExitToOne" href="{{ route('pages.index') }}">
             <li>
                 Главная страница
             </li>
@@ -333,7 +333,7 @@
             </ul>
         </li>
 
-        <a  href="http://rambler.ru">
+        <a  href="{{ route('projects.show', 10) }}">
             <li class="MenuListExitToALL">
                 Smart-решения для города
             </li>
@@ -345,19 +345,19 @@
             </li>
         </a>
 
-        <a  href="http://rambler.ru">
+        <a  href="{{ route('projects.show', 11) }}">
             <li class="MenuListExitToALL">
                 Карта позитива
             </li>
         </a>
 
-        <a  href="http://rambler.ru">
+        <a  href="{{ route('projects.show', 12) }}">
             <li class="MenuListExitToALL">
                 Комната ЛОВЗ
             </li>
         </a>
 
-        <a  href="http://rambler.ru">
+        <a  href="{{ route('projects.show', 26) }}">
             <li class="MenuListExitToALL">
                 Новости
             </li>
@@ -369,7 +369,7 @@
             </li>
         </a>
 
-        <a  href="http://rambler.ru">
+        <a  href="{{ route('projects.show', 13) }}">
             <li class="MenuListExitToALL">
                 Контакты
             </li>
