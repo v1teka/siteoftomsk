@@ -6,19 +6,22 @@
 @section('content')
     @parent
     <div class="project">
-        <header class="project-header" style="background: #222 url('{{ Storage::disk('public')->url($project->image) }}') no-repeat center center; background-size: cover;">
-            <div class="container">
-                <h1 class="project-header__title title title--xxl">{{ $project->title }}</h1>
-                <p class="project-header__description">{{ $project->description }}</p>
-                @isset($project->rubric)
-                    <p><a class="rubric-label rubric-label--light" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a></p>
-                @endisset
-                @can('update', $project)
-                    <a class="link link--light" href="{{ route('projects.edit', $project) }}">Редактировать</a>
-                @endcan
-                @can('administrate', $project)
-                    <a class="link link--light" href="{{ route('projects.admin.show', $project) }}">Администрировать</a>
-                @endcan
+        <header class="project-header">
+            <div class="project-header__image" style="background: #222 url('{{ Storage::disk('public')->url($project->image) }}') no-repeat center center; background-size: cover;"></div>
+            <div class="project-header__content">
+                <div class="container">
+                    <h1 class="project-header__title title title--xxl">{{ $project->title }}</h1>
+                    <p class="project-header__description">{{ $project->description }}</p>
+                    @isset($project->rubric)
+                        <p><a class="rubric-label rubric-label--light" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a></p>
+                    @endisset
+                    @can('update', $project)
+                        <a class="link link--light" href="{{ route('projects.edit', $project) }}">Редактировать</a>
+                    @endcan
+                    @can('administrate', $project)
+                        <a class="link link--light" href="{{ route('projects.admin.show', $project) }}">Администрировать</a>
+                    @endcan
+                </div>
             </div>
         </header>
 
