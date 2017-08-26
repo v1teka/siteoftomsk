@@ -7,16 +7,13 @@ $desktop-hd: 1600px;
         @media only screen and (max-width: $mobile) { @content; }
     }
     @else if $media == tablet {
-        @media only screen and (min-width: $mobile + 1) and (max-width: $tablet - 1) { @content; }
+        @media only screen and (min-width: $mobile + 1) and (max-width: $tablet) { @content; }
     }
     @else if $media == desktop {
-        @media only screen and (min-width: $tablet) and (max-width: $desktop - 1) { @content; }
-    }
-    @else if $media == desktop {
-        @media only screen and (min-width: $desktop) and (max-width: $desktop-hd - 1) { @content; }
+        @media only screen and (min-width: $tablet + 1) and (max-width: $desktop) { @content; }
     }
     @else if $media == desktop-hd {
-        @media only screen and (min-width: $desktop-hd) { @content; }
+        @media only screen and (min-width: $desktop + 1) { @content; }
     }
 }
 
