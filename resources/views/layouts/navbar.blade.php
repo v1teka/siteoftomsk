@@ -1,43 +1,63 @@
-<div class="navigation">
-    <div class="nav">
+<nav class="nav">
+    <div class="nav-lead">
+        <div class="nav-toggle js-nav-toggle">
+            <span class="nav-toggle__burger"></span>
+        </div>
         <div class="nav-brand">
-            <a class="nav-brand__link" href="{{ route('pages.index') }}">Томск 7.0</a>
+            <a class="nav__link" href="{{ route('pages.index') }}" title="Томск 7.0">
+                <span class="nav-brand__text">Томск 7.0</span>
+                <span class="nav-brand__text nav-brand__text--sub">Технологии и творчество</span>
+            </a>
         </div>
-        <div class="nav-mobile js-nav-mobile-toggle">
-            <a class="nav-mobile__toggle" href="#"><span class="nav-mobile__content"></span></a>
-        </div>
-        <div class="nav__menu">
-            <div class="nav__item"><a class="nav__link" href="{{ route('projects.index') }}">Проекты</a></div>
-            <div class="nav__item"><a class="nav__link" href="{{ route('rubrics.index') }}">Рубрики</a></div>
-            @can('create', 'App\Project')
-                <div class="nav__item"><a class="nav__link" href="{{ route('projects.create') }}">Добавить проект</a></div>
-            @endcan
-            @if (Auth::check() && (Auth::user()->can('administrate', 'App\Project') || Auth::user()->can('administrate', 'App\Rubric') || Auth::user()->can('administrate', 'App\User')))
-                <div class="nav__item">
-                    <a class="nav__link nav__link--dropdown js-nav-dropdown-link" href="#!">Администрирование</a>
-                    <div class="nav__dropdown js-nav-dropdown-content">
-                        @can('administrate', 'App\Project')
-                            <div class="nav__item nav__item--sub"><a class="nav__link" href="{{ route('projects.admin.index') }}">Проекты</a></div>
-                        @endcan
-                        @can('administrate', 'App\Rubric')
-                            <div class="nav__item nav__item--sub"><a class="nav__link" href="{{ route('rubrics.admin.index') }}">Рубрики</a></div>
-                        @endcan
-                        @can('administrate', 'App\User')
-                            <div class="nav__item nav__item--sub"><a class="nav__link" href="{{ route('users.admin.index') }}">Пользователи</a></div>
-                        @endcan
-                    </div>
-                </div>
+        <div class="nav-login">
+            @if (Auth::check())
+                <a class="nav__link" href="{{ route('profile.show') }}" title="Профиль"><span class="icon icon--user"></span></a>
+                <a class="nav__link" href="{{ route('logout') }}" title="Выйти"><span class="icon icon--logout"></span></a>
+            @else
+                <a class="nav__link" href="{{ route('login') }}" title="Вход"><span class="icon icon--login"></span></a>
+                <a class="nav__link" href="{{ route('register') }}" title="Регистрация"><span class="icon icon--user-add"></span></a>
             @endif
-            <div class="nav__item nav__item--login">
-                @if (Auth::check())
-                    <div class="nav__item"><a class="nav__link" href="{{ route('profile.show') }}">{{ Auth::user()->name }}</a></div>
-                    <div class="nav__item"><a class="nav__link" href="{{ route('logout') }}">Выйти</a></div>
-                @else
-                    <div class="nav__item"><a class="nav__link" href="{{ route('login') }}">Вход</a></div>
-                    <div class="nav__item"><a class="nav__link" href="{{ route('register') }}">Регистрация</a></div>
-                @endif
-            </div>
         </div>
     </div>
-    <div style="clear:both;"></div>
-</div>
+
+    <div class="nav-menu js-nav-toggle-content">
+        <div class="nav__item">
+            <a class="nav__link js-nav-dropdown-link" href="">70 регион</a>
+            <div class="nav__dropdown js-nav-dropdown-content">
+                <a class="nav__link nav__link--sub" href="">Удобная территория</a>
+                <a class="nav__link nav__link--sub" href="">Экологичное пространство</a>
+                <a class="nav__link nav__link--sub" href="">Комфортная среда</a>
+            </div>
+        </div>
+        <div class="nav__item">
+            <a class="nav__link js-nav-dropdown-link" href="">Счастливое имя</a>
+            <div class="nav__dropdown js-nav-dropdown-content">
+                <a class="nav__link nav__link--sub" href="">Нумерологический паспорт города</a>
+                <a class="nav__link nav__link--sub" href="">Кейсы</a>
+            </div>
+        </div>
+        <div class="nav__item">
+            <a class="nav__link js-nav-dropdown-link" href="">СемьЯ</a>
+            <div class="nav__dropdown js-nav-dropdown-content">
+                <a class="nav__link nav__link--sub" href="">Студенты</a>
+                <a class="nav__link nav__link--sub" href="">Одинокие</a>
+                <a class="nav__link nav__link--sub" href="">Пожилые</a>
+                <a class="nav__link nav__link--sub" href="">Мигранты</a>
+                <a class="nav__link nav__link--sub" href="">ЛСОП</a>
+                <a class="nav__link nav__link--sub" href="">Мамы с маленькими детьми</a>
+                <a class="nav__link nav__link--sub" href="">Семьи с разновозрастными детьми</a>
+            </div>
+        </div>
+        <div class="nav__item">
+            <a class="nav__link js-nav-dropdown-link" href="">Рубрики</a>
+            <div class="nav__dropdown js-nav-dropdown-content">
+                <a class="nav__link nav__link--sub" href="">Исследование и аналитика</a>
+                <a class="nav__link nav__link--sub" href="">Умные решения для города</a>
+                <a class="nav__link nav__link--sub" href="">Карта позитива</a>
+            </div>
+        </div>
+        <div class="nav__item">
+            <a class="nav__link" href="{{ route('pages.about') }}">О проекте</a>
+        </div>
+    </div>
+</nav>

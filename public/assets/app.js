@@ -25,19 +25,15 @@ $(document).ready(function() {
         $(this).siblings('.js-nav-dropdown-content').slideToggle();
         e.stopPropagation();
     });
-
+    
     $('html').click(function() {
         $('.js-nav-dropdown-content').slideUp();
     });
 
-    $('.js-nav-mobile-toggle').on('click', function(e) {
+    $('.js-nav-toggle').on('click', function(e) {
         e.preventDefault();
-        $(this).find('.nav-mobile__content').toggleClass('nav-mobile__content--active');
-    });
-
-    $('.js-nav-mobile-toggle').click(function(e) {
-        e.preventDefault();
-        $('.nav__menu').toggle();
+        $(this).find('.nav-toggle__burger').toggleClass('nav-toggle__burger--active');
+        $('.js-nav-toggle-content').slideToggle();
     });
 });
 
