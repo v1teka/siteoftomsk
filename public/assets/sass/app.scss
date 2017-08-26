@@ -444,6 +444,9 @@ body {
 }
 
 .fotorama {
+    &__img {
+        @include filter(brightness, 0.6);
+    }
     &__arr {
         width: 31px;
         height: 60px;
