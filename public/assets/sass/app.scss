@@ -1,29 +1,6 @@
-$mobile: 550px;
-$tablet: 750px;
-$desktop: 1000px;
-$desktop-hd: 1600px;
-@mixin respond-to($media) {
-    @if $media == mobile {
-        @media only screen and (max-width: $mobile) { @content; }
-    }
-    @else if $media == tablet {
-        @media only screen and (min-width: $mobile + 1) and (max-width: $tablet) { @content; }
-    }
-    @else if $media == desktop {
-        @media only screen and (min-width: $tablet + 1) and (max-width: $desktop) { @content; }
-    }
-    @else if $media == desktop-hd {
-        @media only screen and (min-width: $desktop + 1) { @content; }
-    }
-}
 
-@mixin filter($filter-type,$filter-amount) {
-    -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
-    -moz-filter: $filter-type+unquote('(#{$filter-amount})');
-    -ms-filter: $filter-type+unquote('(#{$filter-amount})');
-    -o-filter: $filter-type+unquote('(#{$filter-amount})');
-    filter: $filter-type+unquote('(#{$filter-amount})');
-}
+@import 'mixins/_responsive-to';
+@import 'mixins/_filter';
 
 $container-width: 960px;
 $container-width-desktop-hd: 1200px;

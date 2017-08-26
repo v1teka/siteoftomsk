@@ -25,7 +25,7 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
     @stack('head')
     <link rel="stylesheet" href="{{ asset('/assets/fontello/css/fontello.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/sass/app.css') }}">
   </head>
 
   <body>
