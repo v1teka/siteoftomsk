@@ -115,7 +115,7 @@ class ProjectController extends Controller
             $project->uploadFiles($files);
         }
 
-        return redirect()->route('projects.edit', $project);
+        return redirect()->route('projects.show', $project);
     }
 
     // Список проектов (карточками)
