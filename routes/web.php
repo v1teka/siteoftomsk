@@ -49,6 +49,8 @@ Route::patch('/admin/users/{user}', 'UserController@adminUpdate')->name('users.a
 Route::get('/admin/rubrics', 'RubricController@adminIndex')->name('rubrics.admin.index')->middleware('can:administrate,App\Rubric');
 
 
+Route::post('uploads/ckeditor/image', 'UploadController@storeCKEditorImage')->name('uploads.ckeditor.image');
+
 
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');

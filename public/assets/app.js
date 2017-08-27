@@ -25,7 +25,7 @@ $(document).ready(function() {
         $(this).siblings('.js-nav-dropdown-content').slideToggle();
         e.stopPropagation();
     });
-    
+
     $('html').click(function() {
         $('.js-nav-dropdown-content').slideUp();
     });

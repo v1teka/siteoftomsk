@@ -81,7 +81,8 @@
     <script src="//cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
     <script>
         CKEDITOR.replace( 'content', {
-            customConfig: '{{ asset("/assets/ckeditor/config/project.js") }}'
+            customConfig: '{{ asset("/assets/ckeditor/config/project.js") }}',
+            filebrowserImageUploadUrl : '{{ route("uploads.ckeditor.image",["_token" => csrf_token()]) }}',
         } );
     </script>
 @endpush
