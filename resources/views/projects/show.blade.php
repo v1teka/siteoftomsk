@@ -70,7 +70,7 @@
                             </div>
                         @else
                             <div class="rating__user-value">
-                                Для оценки проекта необходимо <a class="link" href="{{ route('login') }}">войти&nbsp;на&nbsp;сайт</a>.
+                                <a class="link link--dark" href="{{ route('login') }}">Войдите</a>, чтобы оценить.
                             </div>
                         @endif
                     </div>
