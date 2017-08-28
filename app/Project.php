@@ -18,7 +18,7 @@ class Project extends Model
     public $timestamps = true;
 
     protected $fillable = [
-      'title', 'description', 'content', 'image', 'form', 'rubric_id', 'published_at',
+      'title', 'description', 'content', 'image', 'form', 'rubric_id', 'published_at', 'show_on_main_page'
     ];
 
     protected $dates = [
@@ -64,6 +64,10 @@ class Project extends Model
     public function scopePublished($query)
     {
         return $query->whereNotNull('published_at');
+    }
+
+    public function scopeOnMainPage($query) {
+        return $query->where('show_on_main_page', 1);
     }
 
     // Оценивание

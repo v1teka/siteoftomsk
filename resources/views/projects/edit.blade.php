@@ -13,7 +13,7 @@
                     @include('projects.includes.form', ['submitButtonText' => 'Сохранить'])
                 </form>
 
-                @include('projects.includes.deleting_form')
+                {{-- @include('projects.includes.deleting_form') --}}
 
                 @cannot('administrate', $project)
                     @if(!is_null($project->moderated))

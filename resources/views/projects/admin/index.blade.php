@@ -17,6 +17,7 @@
                             <th>Дата создания</th>
                             <th>Модерация</th>
                             <th>Опубликован</th>
+                            <th>Показывать на главной странице</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,6 +51,14 @@
                                 </td>
                                 <td>
                                     {{ $project->published_at ? 'Да' : 'Нет' }}
+                                </td>
+                                <td>
+                                    @if ($project->show_on_main_page > 0)
+                                        Да ({{ $project->show_on_main_page }})
+                                    @else
+                                        Нет
+                                    @endif
+
                                 </td>
                             </tr>
                         @endforeach

@@ -57,6 +57,7 @@ class ProjectController extends Controller
         $project->moderated = Auth::user()->can('administrate', $project) ? 1 : null;
         $project->rubric_id = request('rubric_id');
         $project->form = request('form');
+        $project->show_on_main_page = request('show_on_main_page');
 
         // Загрузка изображения
         if(request()->hasFile('image')) {
@@ -103,6 +104,7 @@ class ProjectController extends Controller
         $project->moderated = Auth::user()->can('administrate', $project) ? $project->moderated : null;
         $project->rubric_id = request('rubric_id');
         $project->form = request('form');
+        $project->show_on_main_page = request('show_on_main_page');
         $project->save();
 
         // Загрузка изображения
