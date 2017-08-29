@@ -299,7 +299,7 @@
             </li>
         </a>
 
-        <li class="MenuListExitToALL" onclick="$(this).children('ul').css({'left': $('div.BigMenu').width() + 'px', 'top':$(this).offset().top}); $(this).children('ul').show(300);">
+        <li class="MenuListExitToALL" onclick="$(this).children('ul').css({'left': $('div.BigMenu').width() + 'px', 'top':$(this).offset().top - $(document).scrollTop()}); $(this).children('ul').show(300);">
             Исследование и аналитика
             <ul class="MenuListTwo">
                 <a  href="{{ route('projects.show', 3) }}">
