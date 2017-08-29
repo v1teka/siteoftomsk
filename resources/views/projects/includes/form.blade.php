@@ -36,9 +36,9 @@
 <div class="form-group">
     <label for="show_on_main_page">Показывать на главной странице</label>
     <select class="form-control {{ $errors->has('show_on_main_page') ? 'select_has-error' : '' }}" id="show_on_main_page" name="show_on_main_page">
-        <option class="select__option" value="0" {{ $project->show_on_main_page == 0 ? 'selected' : '' }}>Нет</option>
+        <option class="select__option" value="0" {{ (isset($project) && $project->show_on_main_page == 0) ? 'selected' : '' }}>Нет</option>
         @for ($i = 1 ; $i < 12; $i++)
-            <option class="select__option" value="{{ $i }}" {{ $project->show_on_main_page == $i ? 'selected' : '' }}>{{ $i }}</option>
+            <option class="select__option" value="{{ $i }}" {{ (isset($project) && $project->show_on_main_page == $i) ? 'selected' : '' }}>{{ $i }}</option>
         @endfor
     </select>
     @if($errors->has('show_on_main_page'))
@@ -88,14 +88,15 @@
 <div class="form-group">
     <button class="btn btn-success" type="submit" style="float: left;">{{ $submitButtonText }}</button>
 </div>
-<form method="POST" action="{{ route('projects.destroy', $project) }}" enctype="multipart/form-data" style="float: left;">
-    {{ method_field('DELETE') }}
-    {{ csrf_field() }}
-    <div class="form-group">
-        <button class="btn btn-danger" type="submit">Удалить проект</button>
-    </div>
-</form>
-
+@isset($project)
+    <form method="POST" action="{{ route('projects.destroy', $project) }}" enctype="multipart/form-data" style="float: left;">
+        {{ method_field('DELETE') }}
+        {{ csrf_field() }}
+        <div class="form-group">
+            <button class="btn btn-danger" type="submit">Удалить проект</button>
+        </div>
+    </form>
+@endisset
 
 @push('scripts')
     <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
