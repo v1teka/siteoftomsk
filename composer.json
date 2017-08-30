@@ -9,6 +9,7 @@
         "almasaeed2010/adminlte": "^2.3",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
+        "makeusabrew/bootbox": "dev-master",
         "twbs/bootstrap": "^3.3"
     },
     "require-dev": {

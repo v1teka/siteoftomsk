@@ -39,6 +39,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="/js/NameSite.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
     @stack('scripts')
     <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
     <script type="text/javascript" src="/js/ProLink.js"></script>

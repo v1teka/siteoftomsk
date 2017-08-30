@@ -187,7 +187,7 @@
             </td>
             <td class="OneNameSite">
                 <p class="NameSiteText">
-                    <a class="LinkNameSiteText" href="http://www.tpu.ru"> ТОМСК 7.0. Творчество и технологии </a>
+                    <a class="LinkNameSiteText" href="/"> ТОМСК 7.0. Творчество и технологии </a>
                 </p>
             </td>
             <td class="RegCall">
