@@ -363,12 +363,6 @@
             </li>
         </a>
 
-        <a  href="{{ route('projects.show', 8) }}">
-            <li class="MenuListExitToALL">
-                О проекте
-            </li>
-        </a>
-
         <a  href="{{ route('projects.show', 13) }}">
             <li class="MenuListExitToALL">
                 Контакты

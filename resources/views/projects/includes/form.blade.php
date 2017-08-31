@@ -1,4 +1,5 @@
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" action="{{ route('projects.update', $project) }}" enctype="multipart/form-data">
+    {{ method_field('PATCH') }}
     {{ csrf_field() }}
     <div class="form-group">
         <label for="title">Название</label>
@@ -13,7 +14,7 @@
         @if($errors->has('description'))
             <div class="form-group__message form-group__message--error">{{ $errors->first('description') }}</div>
         @endif
-        <div class="form-group__message form-group__message--help">Отображается в карточке проекта. Максимум 255 символов.</div>
+        <div class="help-block">Отображается в карточке проекта. Максимум 255 символов.</div>
     </div>
     <div class="form-group">
         <label for="prj-content">Контент</label>
@@ -57,7 +58,7 @@
          @if($errors->has('image'))
              <div class="form-group__message form-group__message--error">{{ $errors->first('image') }}</div>
          @endif
-         <div class="form-group__message form-group__message--help">Поддерживаются файлы .jpeg, .jpg и .png шириной от 1200 пикс. и размером не более 2&nbsp;Мб.</div>
+         <div class="help-block">Поддерживаются файлы .jpeg, .jpg и .png шириной от 1200 пикс. и размером не более 2&nbsp;Мб.</div>
     </div>
     <div class="form-group">
         <label for="form">Анкета</label>
@@ -65,7 +66,7 @@
         @if($errors->has('form'))
             <div class="form-group__message form-group__message--error">{{ $errors->first('form') }}</div>
         @endif
-        <div class="form-group__message form-group__message--help">Рекомендуется использовать <a class="link" href="https://www.google.ru/intl/ru/forms/about/" target="_blank">Google Forms</a>.</div>
+        <div class="help-block">Рекомендуется использовать <a class="link" href="https://www.google.ru/intl/ru/forms/about/" target="_blank">Google Forms</a>.</div>
     </div>
     <div class="form-group">
         <label class="form-group__label" for="files">Файлы</label>
@@ -83,8 +84,8 @@
         @if($errors->has('files.*'))
             <div class="form-group__message form-group__message--error">{{ $errors->first('files.*') }}</div>
         @endif
-         <div class="form-group__message form-group__message--help">Рекомендуется загружать файлы в формате PDF. Преобразовать файл онлайн можно с помощью сервиса <a class="link" href="https://smallpdf.com/pdf-converter" target="_blank">Smallpdf</a>.</div>
-         <div class="form-group__message form-group__message--help">Поддерживаются документы .pdf, .doc, .docx, .ppt, .pptx, .xls, .xlsx, изображения .jpg и .png размером не более 2&nbsp;Мб.</div>
+         <div class="help-block">Рекомендуется загружать файлы в формате PDF. Преобразовать файл онлайн можно с помощью сервиса <a class="link" href="https://smallpdf.com/pdf-converter" target="_blank">Smallpdf</a>.</div>
+         <div class="help-block">Поддерживаются документы .pdf, .doc, .docx, .ppt, .pptx, .xls, .xlsx, изображения .jpg и .png размером не более 2&nbsp;Мб.</div>
     </div>
     <div class="form-group">
         <button class="btn btn-success" type="submit" style="float: left;">{{ $submitButtonText }}</button>
