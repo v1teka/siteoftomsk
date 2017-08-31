@@ -278,11 +278,11 @@
                             </a>
                         </ul>
                     </td >
-                    <a href="{{ route('projects.show', 8) }}">
-                        <td class="MenuText2">
+                    <td class="MenuText2">
+                        <a href="{{ route('projects.show', 8) }}" style="color:inherit;">
                             О проекте
-                        </td>
-                    </a>
+                        </a>
+                    </td>
                 </table>
             </td>
         </tr>
