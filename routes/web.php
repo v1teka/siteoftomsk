@@ -24,7 +24,7 @@ Route::prefix('projects')->group(function() {
     Route::get('/create', 'ProjectController@create')->name('projects.create')->middleware('auth');
     Route::get('/{project}', 'ProjectController@show')->name('projects.show');
     Route::get('/{project}/edit', 'ProjectController@edit')->name('projects.edit')->middleware('can:update,project');
-    Route::patch('/{project}', 'ProjectController@update')->name('projects.update')->middleware('can:update,project');
+    Route::post('/{project}', 'ProjectController@update')->name('projects.update')->middleware('can:update,project');
     Route::delete('/{project}', 'ProjectController@destroy')->name('projects.destroy')->middleware('can:update,project');
     Route::post('/{project}/rate', 'ProjectController@rate')->name('projects.rate')->middleware('auth');
 

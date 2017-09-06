@@ -8,9 +8,12 @@
         <div class="page__content">
             <div class="container">
                 <h1 class="title title--xxl">Добавление проекта</h1>
-                <form method="POST" action="{{ route('projects.store') }}" enctype="multipart/form-data">
-                    @include('projects.includes.form', ['submitButtonText' => 'Добавить'])
-                </form>
+                @include('projects.includes.form',
+                    [
+                        'submitButtonText' => 'Добавить',
+                        'actionPath' => route('projects.store')
+                    ]
+                )
             </div>
         </div>
     </div>

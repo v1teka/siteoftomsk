@@ -67,7 +67,7 @@ class Project extends Model
     }
 
     public function scopeOnMainPage($query) {
-        return $query->where('show_on_main_page', 1);
+        return $query->where('show_on_main_page', '>', 0);
     }
 
     // Оценивание
