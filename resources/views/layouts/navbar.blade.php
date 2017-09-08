@@ -10,7 +10,7 @@
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu11">
                     <li><a href="{{ route('pages.index') }}">Главная страница</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Исследование и аналитика</a></li>
+                    <li><a href="#">Исследования и аналитика</a></li>
                     <li><a href="#">Smart-решения города</a></li>
                     <li><a href="#">UniverCITerra</a></li>
                     <li><a href="#">СемьЯ</a></li>
@@ -86,7 +86,7 @@
                         <li><a href="{{ route('pages.index') }}">Главная страница</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-submenu">
-                            <a href="#">Исследование и аналитика</a>
+                            <a href="#">Исследования и аналитика</a>
                             <ul class="dropdown-menu">
                                 <li><a href="/projects/3">Здоровый образ жизни</a></li>
                                 <li><a href="/projects/4">Гармония с природой</a></li>
@@ -300,7 +300,7 @@
         </a>
 
         <li class="MenuListExitToALL" onclick="$(this).children('ul').css({'left': $('div.BigMenu').width() + 'px', 'top':$(this).offset().top - $(document).scrollTop()}); $(this).children('ul').show(300);">
-            Исследование и аналитика
+            Исследования и аналитика
             <ul class="MenuListTwo">
                 <a  href="{{ route('projects.show', 3) }}">
                     <li class="MenuListExitToALLTwo">
