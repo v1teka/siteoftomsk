@@ -13,7 +13,7 @@
         @if($errors->has('description'))
             <div class="form-group__message form-group__message--error">{{ $errors->first('description') }}</div>
         @endif
-        <div class="help-block">Отображается в карточке проекта. Максимум 255 символов.</div>
+        <div class="help-block">Отображается в карточке проекта.</div>
     </div>
     <div class="form-group">
         <label for="prj-content">Контент</label>

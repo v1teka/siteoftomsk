@@ -9,7 +9,7 @@
         <header class="project-header" style="background: #222 url('{{ Storage::disk('public')->url($project->image) }}') no-repeat center center; background-size: cover;">
             <div class="container">
                 <h1 class="project-header__title title title--xxl">{{ $project->title }}</h1>
-                <p class="project-header__description">{{ $project->description }}</p>
+                <!--<p class="project-header__description">{{ $project->description }}</p>-->
                 @isset($project->rubric)
                     <p><a class="rubric-label rubric-label--light" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a></p>
                 @endisset

@@ -40,7 +40,7 @@ class ProjectController extends Controller
     {
         $this->validate(request(), [
             'title' => 'required|max:255',
-            'description' => 'required|max:255',
+            'description' => 'required',
             'content' => 'required',
             'rubric_id' => 'nullable|exists:rubrics,id',
             'image' => 'required|image|mimes:jpeg,png|dimensions:min_width=600|max:3072',
@@ -88,7 +88,7 @@ class ProjectController extends Controller
     {
         $this->validate(request(), [
             'title' => 'required',
-            'description' => 'required|max:255',
+            'description' => 'required',
             'content' => 'required',
             'rubric_id' => 'nullable|exists:rubrics,id',
             'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1200|max:3072',
