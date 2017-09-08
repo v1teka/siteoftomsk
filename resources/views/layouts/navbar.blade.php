@@ -241,37 +241,37 @@
                     <td class="MenuText2" onclick="$(this).children('ul').css({'left': $(this).offset().left, 'top': $(this).offset().top + $(this).height() - $(document).scrollTop(), 'width': $(this).width()}); $(this).children('ul').show(300);">
                         СемьЯ
                         <ul class="UlNavBar">
-                            <a href="{{ route('projects.show', 19) }}">
+                            <a href="{{ route('rubrics.show', 'studenty') }}">
                                 <li class="LiNavBar">
                                     Студенты
                                 </li>
                             </a>
-                            <a href="{{ route('projects.show', 20) }}">
+                            <a href="{{ route('rubrics.show', 'odinokie') }}">
                                 <li class="LiNavBar">
                                     Одинокие
                                 </li>
                             </a>
-                            <a href="{{ route('projects.show', 21) }}">
+                            <a href="{{ route('rubrics.show', 'pozhilye') }}">
                                 <li class="LiNavBar">
                                     Пожилые
                                 </li>
                             </a>
-                            <a href="{{ route('projects.show', 22) }}">
+                            <a href="{{ route('rubrics.show', 'migranty') }}">
                                 <li class="LiNavBar">
                                     Мигранты
                                 </li>
                             </a>
-                            <a href="{{ route('projects.show', 23) }}">
+                            <a href="{{ route('rubrics.show', 'lsop') }}">
                                 <li class="LiNavBar">
                                     ЛСОП
                                 </li>
                             </a>
-                            <a href="{{ route('projects.show', 24) }}">
+                            <a href="{{ route('rubrics.show', 'mamy-s-malenkimi-detmi') }}">
                                 <li class="LiNavBar">
                                     Мамы с маленькими детьми
                                 </li>
                             </a>
-                            <a href="{{ route('projects.show', 25) }}">
+                            <a href="{{ route('rubrics.show', 'semi-s-raznovozrastnymi-detmi') }}">
                                 <li class="LiNavBar">
                                     Семьи с разновозрастными детьми
                                 </li>
