@@ -403,7 +403,7 @@ body {
         padding-top: $base-indent;
         @include respond-to(mobile) { padding-top: $mobile-indent; };
         display: block;
-        font: $font-serif;
+        font: 400 1rem/1.8 $font-style-serif;
         &__author {
             font-family: $font-style-sans;
         }

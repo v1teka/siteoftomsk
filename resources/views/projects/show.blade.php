@@ -23,7 +23,7 @@
         </header>
 
         <article class="project-content">
-            <div class="container">
+            <div class="container-main">
                 <div class="text">
                     {!! $project->content !!}
                 </div>
@@ -50,7 +50,7 @@
             </div>
         </article>
         <footer class="project-footer">
-            <div class="container">
+            <div class="container-main">
                 <div class="project-rating">
                     <div class="rating js-rating" data-rateable="{{ $project->id }}" data-avg-rating="{{ $project->avg_rating }}" data-user-rating="{{ Auth::check() ? Auth::user()->rating($project) : null }}">
                         <span class="rating__stars">
