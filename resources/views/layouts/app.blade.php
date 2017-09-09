@@ -24,11 +24,11 @@
     {{-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
     @stack('head')
-    <link rel="stylesheet" href="{{ asset('/assets/fontello/css/fontello.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/navbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/fontello/css/fontello.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/navbar.css') }}">
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/NameSite.css" />
     @stack('css')
@@ -36,13 +36,14 @@
 
     {{-- Скрипты
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="/js/NameSite.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/NameSite.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/bootbox.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/ZoomNamePage.js') }}" type="text/javascript"></script>
     @stack('scripts')
-    <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
-    <script type="text/javascript" src="/js/ProLink.js"></script>
+    <script type="text/javascript" src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('/js/ProLink.js') }}"></script>
   </head>
 
   <body class="body">
