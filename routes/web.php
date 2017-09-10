@@ -51,6 +51,22 @@ Route::get('/admin/rubrics', 'RubricController@adminIndex')->name('rubrics.admin
 
 Route::post('uploads/ckeditor/image', 'UploadController@storeCKEditorImage')->name('uploads.ckeditor.image');
 
+// Форум
+Route::get('/forum', 'ForumController@index')->name('forum.index');
+// Форум разделы
+Route::get('/forum/sections/create', 'ForumController@createSection')->name('forum.sections.create')->middleware('can:moderate,App\ForumSection');
+Route::post('/forum/sections', 'ForumController@storeSection')->name('forum.sections.store')->middleware('can:moderate,App\ForumSection');
+Route::get('/forum/sections/{section}/edit', 'ForumController@editSection')->name('forum.sections.edit')->middleware('can:moderate,App\ForumSection');
+Route::patch('/forum/sections/{section}', 'ForumController@updateSection')->name('forum.sections.update')->middleware('can:moderate,App\ForumSection');
+// Форум темы
+Route::get('/forum/topics/create', 'ForumController@createTopic')->name('forum.topics.create')->middleware('can:create,App\ForumTopic');
+Route::post('/forum/topics', 'ForumController@storeTopic')->name('forum.topics.store')->middleware('can:create,App\ForumTopic');
+Route::get('/forum/topics/{topic}/edit', 'ForumController@editTopic')->name('forum.topics.edit')->middleware('can:update,topic');
+Route::patch('/forum/topics/{topic}', 'ForumController@updateTopic')->name('forum.topics.update')->middleware('can:update,topic');
+Route::get('/forum/topics/{topic}', 'ForumController@showTopic')->name('forum.topics.show');
+// Форум сообщения
+Route::post('/forum/messages/{topic}', 'ForumController@sendMessage')->name('forum.messages.send')->middleware('can:send,App\ForumMessage');
+Route::delete('/forum/messages/{message}', 'ForumController@deleteMessage')->name('forum.messages.delete')->middleware('can:delete,message');
 
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');

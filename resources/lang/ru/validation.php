@@ -137,5 +137,7 @@ return [
         'rubric_id' => 'рубрика',
         'files.*' => 'файлы',
         'upload' => 'файл',
+        'message' => 'сообщение',
+        'forum_section_id' => 'раздел форума',
     ],
 ];

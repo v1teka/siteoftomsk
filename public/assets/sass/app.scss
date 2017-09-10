@@ -167,7 +167,8 @@ body {
     &--dashed {
         border-bottom-style: dashed;
     }
-    &--without-underline {
+    &--without-underline,
+    &--without-underline:hover {
         border-color: transparent;
     }
 }
@@ -663,8 +664,8 @@ body {
         font-size: 2rem;
     }
     &--link {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 0;
+        padding-right: 0;
         background-color: transparent;
         border-color: transparent;
         color: $link-color;
@@ -837,4 +838,50 @@ body {
     display: inline-block;
     @include respond-to(mobile) { display: none; }
   }
+}
+
+.forum-section {
+    padding: 10px 0;
+    &__title {
+        font-size: 3.0rem;
+        margin-bottom: 0;
+    }
+}
+
+.forum-topic {
+    padding: 10px 0;
+    &__title {
+        font-size: 2rem;
+        margin-bottom: 0;
+    }
+    &__date {
+        font-size: 1.4rem;
+        color: $gray;
+    }
+}
+
+.forum-message {
+    margin: 10px 0;
+    &--border {
+        padding: 10px 10px 25px 10px;
+        border: 1px solid $light-gray;
+    }
+    &__date {
+        font-size: 1.4rem;
+        color: $gray;
+    }
+}
+
+.breadcrumb {
+    padding: 10px 0;
+    &__item {
+        &:after {
+            content: ' \2192';
+        }
+        &--current {
+            &:after {
+                content: none;
+            }
+        }
+    }
 }
