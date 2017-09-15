@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname', 'email', 'password',
+        'name', 'surname', 'email', 'password', 'access_forum',
     ];
 
     /**
@@ -75,4 +75,10 @@ class User extends Authenticatable
     {
         return $this->hasRole('Модератор');
     }
+
+    public function isAdmin()
+    {
+        return $this->hasRole('Администратор');
+    }
+
 }

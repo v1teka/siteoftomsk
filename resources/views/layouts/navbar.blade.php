@@ -351,7 +351,7 @@
             </li>
         </a>
 
-        <a  href="{{ route('projects.show', 12) }}">
+        <a  href="{{ route('forum.index') }}">
             <li class="MenuListExitToALL">
                 Комната ЛОВЗ
             </li>

@@ -27,6 +27,7 @@ class UserController extends Controller
         ]);
 
         $user->roles()->sync(request('roles'));
+        $user->access_forum = request('access_forum') ? '1' : '0';
         $user->save();
 
         return redirect()->route('users.admin.show', $user);

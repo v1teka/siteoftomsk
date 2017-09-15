@@ -130,4 +130,8 @@ class ForumController extends Controller
 
         return view('forum.topics.show', compact('topic', 'messages'));
     }
+
+    public function forumAccessDenied() {
+        return view('forum.access_denied');
+    }
 }

@@ -14,7 +14,11 @@
             @endif
         </div>
         <div class="form-group">
-            <button class="button button--success" type="submit">Сохранить</button>
+            <label class="form-group__label" for="access_forum">Доступ до форума ЛОВЗ</label>
+            <input type="checkbox" name="access_forum" id="access_forum" {{ $user->access_forum ? 'checked="checked"' : '' }}>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">Сохранить</button>
         </div>
     </form>
 @else
