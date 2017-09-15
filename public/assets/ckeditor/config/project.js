@@ -79,3 +79,6 @@ CKEDITOR.stylesSet.add( 'default', [
     // Строчные элементы
     { name: 'Жёлтый маркер', element: 'span', attributes: { 'class': 'text text--marker' } },
 ]);
+
+// Загрузка файлов
+CKEDITOR.config.filebrowserImageUploadUrl = '/uploads/ckeditor/image';

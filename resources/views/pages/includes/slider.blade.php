@@ -28,7 +28,8 @@
         $(function () {
             $('.fotorama').fotorama({
                 width: '100%',
-                height: 500,
+                maxheight: 500,
+                ratio: '16/9',
                 fit: 'cover',
                 loop: true,
                 nav: false,
