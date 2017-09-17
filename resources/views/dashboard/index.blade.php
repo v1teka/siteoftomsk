@@ -75,9 +75,13 @@
         <section class="sidebar">
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li><a href="{{ route('rubrics.admin.index') }}"><i class="fa fa-bars text-red"></i> <span>Рубрики</span></a></li>
+                @if (Auth::User()->isAdmin())
+                    <li><a href="{{ route('rubrics.admin.index') }}"><i class="fa fa-bars text-red"></i> <span>Рубрики</span></a></li>
+                @endif
                 <li><a href="{{ route('users.admin.index') }}"><i class="fa fa-user text-yellow"></i> <span>Пользователи</span></a></li>
                 <li><a href="{{ route('projects.admin.index') }}"><i class="fa fa-building-o text-aqua"></i> <span>Проекты</span></a></li>
+                <li><a href="{{ route('smart.sections.admin.index') }}"><i class="fa fa-lightbulb-o text-maroon"></i> <span>Разделы Smart решений</span></a></li>
+                <li><a href="{{ route('smart.solutions.admin.index') }}"><i class="fa fa-lightbulb-o text-yellow"></i> <span>Smart решения</span></a></li>
             </ul>
         </section>
         <!-- /.sidebar -->

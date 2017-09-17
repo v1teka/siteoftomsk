@@ -53,8 +53,23 @@ Route::prefix('admin')->group(function() {
     Route::patch('/users/{user}', 'UserController@adminUpdate')->name('users.admin.update')->middleware('can:update,user');
 
     Route::get('/rubrics', 'RubricController@adminIndex')->name('rubrics.admin.index')->middleware('can:administrate,App\Rubric');
+
+    Route::prefix('smart')->group(function() {
+        Route::get('/sections', 'SmartSectionController@adminIndex')->name('smart.sections.admin.index')->middleware('can:administrate,App\SmartSection');
+        Route::get('/sections/create', 'SmartSectionController@create')->name('smart.sections.create.admin.index')->middleware('can:create,App\SmartSection');
+        Route::post('/sections/store', 'SmartSectionController@store')->name('smart.sections.store.admin.index')->middleware('can:create,App\SmartSection');
+        Route::get('/sections/edit/{smartSection}', 'SmartSectionController@edit')->name('smart.sections.edit.admin.index');//->middleware('can:update,App\SmartSection');
+        Route::post('/sections/update/{smartSection}', 'SmartSectionController@update')->name('smart.sections.update.admin.index');//->middleware('can:update,App\SmartSection');
+
+        Route::get('/solutions', 'SmartSolutionController@adminIndex')->name('smart.solutions.admin.index')->middleware('can:administrate,App\SmartSolution');
+        Route::get('/solutions/create', 'SmartSolutionController@create')->name('smart.solutions.create.admin.index')->middleware('can:create,App\SmartSolution');
+        Route::post('/solutions/store', 'SmartSolutionController@store')->name('smart.solutions.store.admin.index')->middleware('can:create,App\SmartSolution');
+        Route::get('/solutions/edit/{smartSolution}', 'SmartSolutionController@edit')->name('smart.solutions.edit.admin.index');//->middleware('can:update,App\SmartSection');
+        Route::post('/solutions/update/{smartSolution}', 'SmartSolutionController@update')->name('smart.solutions.update.admin.index');//->middleware('can:update,App\SmartSection');
+    });
 });
 
+Route::get('/smart', 'SmartSectionController@index')->name('smart.index');
 
 Route::post('uploads/ckeditor/image', 'UploadController@storeCKEditorImage')->name('uploads.ckeditor.image');
 

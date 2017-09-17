@@ -20,6 +20,8 @@ class AuthServiceProvider extends ServiceProvider
         'App\ForumTopic' => 'App\Policies\ForumTopicPolicy',
         'App\ForumMessage' => 'App\Policies\ForumMessagePolicy',
         'App\ForumSection' => 'App\Policies\ForumSectionPolicy',
+        'App\SmartSection' => 'App\Policies\SmartSectionPolicy',
+        'App\SmartSolution' => 'App\Policies\SmartSolutionPolicy',
     ];
 
     /**

@@ -333,7 +333,7 @@
             </ul>
         </li>
 
-        <a  href="{{ route('projects.show', 10) }}">
+        <a  href="{{ route('smart.index') }}">
             <li class="MenuListExitToALL">
                 Smart-решения для города
             </li>

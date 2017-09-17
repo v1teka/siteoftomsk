@@ -76,3 +76,33 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.smart-section-container {
+    float: left;
+    width: 33%;
+    margin: 0;
+    padding: 0;
+}
+
+.smart-img-container {
+    width: 310px;
+    height: 310px;
+}
+
+.smart-img-title {
+    width: 310px;
+    height: 310px;
+}
+
+.smart-title-container {
+    text-align: center;
+    width: 310px;
+    background-color: #00c0ef;
+}
+
+.smart-title {
+    font-family: serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #eeeeee;
+}

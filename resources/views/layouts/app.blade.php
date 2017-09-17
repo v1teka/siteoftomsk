@@ -43,6 +43,7 @@
     <script type="text/javascript" src="{{ asset('/js/ZoomNamePage.js') }}" type="text/javascript"></script>
     @stack('scripts')
     <script type="text/javascript" src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('/assets/app.js') }}" type="text/javascript"></script>
     <script type="text/javascript" src="{{ asset('/js/ProLink.js') }}"></script>
   </head>
 

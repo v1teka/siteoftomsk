@@ -29,7 +29,7 @@ class UserPolicy
     // Администрирование пользователей
     public function administrate(User $current_user)
     {
-        // доступно только модератору
-        return $current_user->isModerator();
+        // доступно только модератору и администратору
+        return (($current_user->isModerator()) || ($current_user->isAdmin()));
     }
 }

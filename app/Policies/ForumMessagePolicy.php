@@ -19,7 +19,7 @@ class ForumMessagePolicy
     public function delete(User $user, ForumMessage $message)
     {
         // Разрешено только автору.
-        // Исключение для модераторов.
-        return  ($user->id == $message->user_id) || $user->isModerator();
+        // Исключение для модераторов и администраторов.
+        return  ($user->id == $message->user_id) || $user->isModerator() || $user->isAdmin();
     }
 }

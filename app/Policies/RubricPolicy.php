@@ -18,28 +18,28 @@ class RubricPolicy
     // Создание рубрики
     public function create(User $user)
     {
-        // доступно только модератору
-        return $user->isModerator();
+        // доступно только администратору
+        return $user->isAdmin();
     }
 
     // Обновление рубрики
     public function update(User $user, Rubric $rubric)
     {
-        // доступно только модератору
-        return $user->isModerator();
+        // доступно только администратору
+        return $user->isAdmin();
     }
 
     // Удаление рубрики
     public function delete(User $user, Rubric $rubric)
     {
-        // доступно только модератору
-        return $user->isModerator();
+        // доступно только администратору
+        return $user->isAdmin();
     }
 
     // Администрирование рубрик
     public function administrate(User $user)
     {
-        // доступно только модератору
-        return $user->isModerator();
+        // доступно только администратору
+        return $user->isAdmin();
     }
 }

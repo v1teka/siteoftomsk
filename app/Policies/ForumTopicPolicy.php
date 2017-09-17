@@ -20,6 +20,6 @@ class ForumTopicPolicy
     {
         // Разрешено только создателю.
         // Исключение для модераторов.
-        return  ($user->id == $topic->user_id) || $user->isModerator();
+        return  ($user->id == $topic->user_id) || $user->isModerator() || $user->isAdmin();
     }
 }

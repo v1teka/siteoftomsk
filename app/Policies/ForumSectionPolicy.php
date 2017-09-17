@@ -13,7 +13,7 @@ class ForumSectionPolicy
 
     public function moderate(User $user)
     {
-        // Для модераторов
-        return $user->isModerator();
+        // Для модераторов и администраторов
+        return $user->isModerator() || $user->isAdmin();
     }
 }

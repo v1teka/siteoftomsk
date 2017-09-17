@@ -21,14 +21,14 @@ class ProjectPolicy
     public function update(User $user, Project $project)
     {
         // разрешено только автору, и только проекты в статусе рассматривается (null) и отклонён (0).
-        // Исключение для модераторов.
-        return  (($user->id == $project->user_id) && ($project->moderated == false)) || $user->isModerator();
+        // Исключение для модераторов и администраторов.
+        return  (($user->id == $project->user_id) && ($project->moderated == false)) || $user->isModerator() || $user->isAdmin();
     }
 
     // Администрирование проектов
     public function administrate(User $user)
     {
-        // разрешено модератору
-        return $user->isModerator();
+        // доступно только модератору и администратору
+        return (($user->isModerator()) || ($user->isAdmin()));
     }
 }
