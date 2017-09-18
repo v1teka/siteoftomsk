@@ -1,3 +1,7 @@
 <div class="solution-container">
-    <span class="solution">{{ $smartSolution->description }}</span>
+    <ul class="solution-ul">
+        <li class="solution-li">
+            <span class="solution">{{ $smartSolution->description }}</span>
+        </li>
+    </ul>
 </div>

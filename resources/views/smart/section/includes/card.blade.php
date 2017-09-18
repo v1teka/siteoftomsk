@@ -3,7 +3,9 @@
         <img class="smart-img-title" src="{{ Storage::disk('public')->url($smartSection->img_path) }}" />
     </div>
     <div class="smart-title-container">
-        <span class="smart-title">{{ $smartSection->title }}</span>
+        <div class="smart-title">
+            <span class="smart-title-span">{{ $smartSection->title }}</span>
+        </div>
     </div>
     @foreach($smartSection->solutions as $smartSolution)
         @include('smart.solution.includes.card')
