@@ -13,7 +13,7 @@
                     <div class="clear-both"></div>
                 @endif
                 @include('smart.section.includes.card')
-                <?php $chunk_num++; if ($chunk_num > 3) {$chunk_num = 0;}; ?>
+                <?php $chunk_num++; if ($chunk_num > 3) {$chunk_num = 1;}; ?>
             @endforeach
         </div>
     </div>
