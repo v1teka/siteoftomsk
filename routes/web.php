@@ -69,7 +69,10 @@ Route::prefix('admin')->group(function() {
     });
 });
 
-Route::get('/smart', 'SmartSectionController@index')->name('smart.index');
+Route::prefix('smart')->group(function() {
+    Route::get('/', 'SmartSectionController@index')->name('smart.index');
+    Route::post('/{smartSolution}/rate', 'SmartSolutionController@rate')->name('smartsolution.rate')->middleware('auth');
+});
 
 Route::post('uploads/ckeditor/image', 'UploadController@storeCKEditorImage')->name('uploads.ckeditor.image');
 

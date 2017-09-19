@@ -3,6 +3,10 @@
 @section('title', 'Smart-решения для города')
 @section('description', '')
 
+@push('scripts')
+    <script type="text/javascript" src="{{ asset('/js/SmartSolution.js') }}" type="text/javascript"></script>
+@endpush
+
 @section('content')
     <div class="page__content">
         <div class="container">

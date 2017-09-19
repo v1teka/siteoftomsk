@@ -115,6 +115,10 @@
     width: 290px;
 }
 
+.smart-rating-container {
+    text-align: center;
+}
+
 .clear-both {
     clear: both;
 }

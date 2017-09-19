@@ -3,6 +3,10 @@
 @section('title', $project->title)
 @section('description', $project->description)
 
+@push('scripts')
+    <script type="text/javascript" src="{{ asset('/js/Project.js') }}" type="text/javascript"></script>
+@endpush
+
 @section('content')
     @parent
     <div class="project">

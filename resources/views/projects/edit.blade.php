@@ -6,7 +6,7 @@
     @parent
     <div class="page">
         <div class="page__content">
-            <div class="container">
+            <div class="container-main">
                 <h1 class="title title--xxl">Редактирование проекта</h1>
                 @include('projects.includes.form',
                     [

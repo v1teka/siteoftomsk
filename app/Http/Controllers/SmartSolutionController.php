@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\SmartSection;
 use App\SmartSolution;
 use Illuminate\Http\Request;
+use Auth;
 
 class SmartSolutionController extends Controller
 {
@@ -116,5 +117,15 @@ class SmartSolutionController extends Controller
     {
         $smartSolutions = SmartSolution::with('section')->get();
         return view('smart.solution.admin', compact('smartSolutions'));
+    }
+
+    // Оценивание Smart-решения
+    public function rate(SmartSolution $smartSolution)
+    {
+        $this->validate(request(), [
+            'score' => 'required|integer|digits_between:1,5',
+        ]);
+        $smartSolution->rate(['score' => request('score')], Auth::user());
+        return request()->ajax() ? $smartSolution->avg_rating : redirect()->route('projects.show', $smartSolution);
     }
 }
