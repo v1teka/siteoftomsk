@@ -12,14 +12,14 @@
                 @endfor
             </span>
             <span class="rating__avg-value">
-                <span class="js-avg-rating">{{ $smartSolution->avg_rating > 0 ? $smartSolution->avg_rating : 'Нет оценок' }}</span>
+                <span class="js-avg-rating" data-rateable="{{ $smartSolution->id }}">{{ $smartSolution->avg_rating > 0 ? $smartSolution->avg_rating : 'Нет оценок' }}</span>
             </span>
             @if (Auth::check())
                 <div class="rating__user-value">
-                    <span class="js-user-rating">{{ Auth::user()->rating($smartSolution) != null ? 'Ваша оценка: ' . Auth::user()->rating($smartSolution) : ''  }}</span>
+                    <span class="js-user-rating" data-rateable="{{ $smartSolution->id }}">{{ Auth::user()->rating($smartSolution) != null ? 'Ваша оценка: ' . Auth::user()->rating($smartSolution) : ''  }}</span>
                 </div>
             @else
-                <div class="rating__user-value">
+                <div class="rating__user-value" data-rateable="{{ $smartSolution->id }}">
                     <a class="link link--dark" href="{{ route('login') }}">Войдите</a>, чтобы оценить.
                 </div>
             @endif
