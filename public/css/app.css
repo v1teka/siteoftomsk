@@ -77,6 +77,14 @@
     margin-right: auto;
 }
 
+.container-main-ckeditor {
+    width: 1186px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .smart-section-container {
     float: left;
     width: 310px;

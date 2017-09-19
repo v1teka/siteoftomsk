@@ -6,7 +6,7 @@
     @parent
     <div class="page">
         <div class="page__content">
-            <div class="container-main">
+            <div class="container-main-ckeditor">
                 <h1 class="title title--xxl">Редактирование проекта</h1>
                 @include('projects.includes.form',
                     [

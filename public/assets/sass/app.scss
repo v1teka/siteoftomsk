@@ -868,6 +868,26 @@ body {
     }
 }
 
+.rating_smart_solution {
+    display: inline-block;
+    font-size: 18px;
+    &__star {
+        float: left;
+        padding-right: 0.2em;
+        color: $yellow;
+        &:before {
+            margin: 0;
+        }
+    }
+    &__stars {
+        cursor: pointer;
+    }
+    &__avg-value { }
+    &__user-value {
+        font-size: 1.4rem;
+    }
+}
+
 .file-link {
     display: inline-block;
     line-height: 1.5em;
