@@ -4,7 +4,7 @@
             <div class="title title--xxl slider-item__title">Томск 7.0</div>
             <div class="slider-item__content">
                 <p>Технологии и творчество</p>
-                <a href="https://goo.gl/forms/YwgnGCsbY2nunFAq2" class="questioning-link">Пройти анкетирование</a>
+                <a target="_blank" href="https://goo.gl/forms/YwgnGCsbY2nunFAq2" class="questioning-link">Пройти анкетирование</a>
             </div>
         </div>
     </div>

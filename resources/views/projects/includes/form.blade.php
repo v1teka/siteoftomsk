@@ -57,7 +57,7 @@
         @if($errors->has('image'))
             <div class="form-group__message form-group__message--error">{{ $errors->first('image') }}</div>
         @endif
-        <div class="help-block">Поддерживаются файлы .jpeg, .jpg и .png шириной от 1200 пикс. и размером не более 2&nbsp;Мб.</div>
+        <div class="help-block">Поддерживаются файлы .jpeg, .jpg и .png шириной от 1200 пикс. и размером не более 30&nbsp;Мб.</div>
     </div>
     <div class="form-group">
         <label for="form">Анкета</label>
