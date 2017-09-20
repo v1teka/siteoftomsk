@@ -84,7 +84,7 @@
             <div class="form-group__message form-group__message--error">{{ $errors->first('files.*') }}</div>
         @endif
         <div class="help-block">Рекомендуется загружать файлы в формате PDF. Преобразовать файл онлайн можно с помощью сервиса <a class="link" href="https://smallpdf.com/pdf-converter" target="_blank">Smallpdf</a>.</div>
-        <div class="help-block">Поддерживаются документы .pdf, .doc, .docx, .ppt, .pptx, .xls, .xlsx, изображения .jpg и .png размером не более 2&nbsp;Мб.</div>
+        <div class="help-block">Поддерживаются документы .pdf, .doc, .docx, .ppt, .pptx, .xls, .xlsx, изображения .jpg и .png размером не более 30&nbsp;Мб.</div>
     </div>
     <div class="form-group">
         <button class="btn btn-success" type="submit" style="float: left;">{{ $submitButtonText }}</button>

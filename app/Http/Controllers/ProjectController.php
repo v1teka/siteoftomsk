@@ -45,7 +45,7 @@ class ProjectController extends Controller
             'rubric_id' => 'nullable|exists:rubrics,id',
             'image' => 'required|image|mimes:jpeg,png|dimensions:min_width=600|max:3072',
             'form' => 'nullable|url',
-            'files.*' => 'nullable|file|mimes:pdf,doc,docx,ppt,pptx,xls,xlsx,png,jpeg|max:3072',
+            'files.*' => 'nullable|file|mimes:pdf,doc,docx,ppt,pptx,xls,xlsx,png,jpeg|max:30720',
         ]);
 
         $project = new Project;
@@ -94,7 +94,7 @@ class ProjectController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1200|max:3072',
             'form' => 'nullable|url',
             'deleted_files' => 'nullable',
-            'files.*' => 'nullable|file|mimes:pdf,doc,docx,ppt,pptx,xls,xlsx,png,jpeg|max:3072',
+            'files.*' => 'nullable|file|mimes:pdf,doc,docx,ppt,pptx,xls,xlsx,png,jpeg|max:30720',
         ]);
 
         $project->title = request('title');
