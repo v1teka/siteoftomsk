@@ -21,4 +21,5 @@ CKEDITOR.editorConfig = function( config ) {
 	config.extraPlugins = 'uploadwidget';
 	config.extraPlugins = 'uploadimage';
 	config.uploadUrl = '/uploader/upload.php';
+	config.allowedContent = true;
 };
