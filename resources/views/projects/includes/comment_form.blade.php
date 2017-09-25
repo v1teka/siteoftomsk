@@ -14,6 +14,12 @@
             </div>
         </form>
     </div>
+@elseif ($canComment == 2)
+    <div class="container-main" xmlns="http://www.w3.org/1999/html">
+        <div class="alert alert-info">
+            Для того, чтобы оставлять комментарии, необходимо <a href="{{ route('login') }}">авторизоваться</a>.
+        </div>
+    </div>
 @else
     <div class="container-main" xmlns="http://www.w3.org/1999/html">
         <div class="alert alert-success">

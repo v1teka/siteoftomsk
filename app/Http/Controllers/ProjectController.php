@@ -18,13 +18,16 @@ class ProjectController extends Controller
         if($project->moderated || (Auth::check() && (Auth::user()->isModerator() || (Auth::user()->id == $project->user_id)))) {
             $comments = $project->scopePublishedCommentsFirst()->get();
             $canComment = 1;
-            if (isset(Comment::where('created_by', '=', Auth::user()->id)->orderByDesc('created_by')->first()->created_at)) {
-                $lastCommentTime =  Comment::where('created_by', '=', Auth::user()->id)->orderByDesc('created_by')->first()->created_at;
-                if (Carbon::now()->diffInMinutes($lastCommentTime) <= 5) {
-                    $canComment = 0;
-                };
+            if (null !== Auth::user()) {
+                if (isset(Comment::where('created_by', '=', Auth::user()->id)->orderByDesc('created_by')->first()->created_at)) {
+                    $lastCommentTime =  Comment::where('created_by', '=', Auth::user()->id)->orderByDesc('created_by')->first()->created_at;
+                    if (Carbon::now()->diffInMinutes($lastCommentTime) <= 5) {
+                        $canComment = 0;
+                    };
+                }
+            } else {
+                $canComment = 2;
             }
-
 
             $project->with('rubric', 'user', 'files');
             return view('projects.show', compact(['project', 'comments', 'canComment']));
