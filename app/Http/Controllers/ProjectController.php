@@ -17,12 +17,15 @@ class ProjectController extends Controller
         // Авторизация (политики работают только для аутентифицированного пользователя)
         if($project->moderated || (Auth::check() && (Auth::user()->isModerator() || (Auth::user()->id == $project->user_id)))) {
             $comments = $project->scopePublishedCommentsFirst()->get();
-            $lastCommentTime = Comment::where('created_by', '=', Auth::user()->id)->orderByDesc('created_by')->first()->created_at;
-            if (Carbon::now()->diffInMinutes($lastCommentTime) > 5) {
-                $canComment = 1;
-            } else {
-                $canComment = 0;
-            };
+            $canComment = 1;
+            if (isset(Comment::where('created_by', '=', Auth::user()->id)->orderByDesc('created_by')->first()->created_at)) {
+                $lastCommentTime =  Comment::where('created_by', '=', Auth::user()->id)->orderByDesc('created_by')->first()->created_at;
+                if (Carbon::now()->diffInMinutes($lastCommentTime) <= 5) {
+                    $canComment = 0;
+                };
+            }
+
+
             $project->with('rubric', 'user', 'files');
             return view('projects.show', compact(['project', 'comments', 'canComment']));
         }
