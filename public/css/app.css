@@ -138,3 +138,43 @@
 .solution-ul {
     list-style-position: inside;
 }
+
+.comment-container {
+    border-left: solid 5px #191970;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    border-right: solid 1px black;
+    margin-bottom: -1px;
+    padding-left: 10px;
+    border-top-right-radius: 10px;
+}
+
+.comment-name {
+    font-weight: bold;
+    float: left;
+    color: #191970;
+}
+
+.comment-datetime {
+    color: #555555;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.comment-footer {
+    height: 5px;
+}
+
+.comment-message {
+    clear: both;
+    background-color: #dddddd;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+
+.comment-usertype {
+    float: left;
+    padding-right: 10px;
+}

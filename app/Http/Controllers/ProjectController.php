@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Project;
@@ -15,8 +16,15 @@ class ProjectController extends Controller
     {
         // Авторизация (политики работают только для аутентифицированного пользователя)
         if($project->moderated || (Auth::check() && (Auth::user()->isModerator() || (Auth::user()->id == $project->user_id)))) {
+            $comments = $project->scopePublishedCommentsFirst()->get();
+            $lastCommentTime = Comment::where('created_by', '=', Auth::user()->id)->orderByDesc('created_by')->first()->created_at;
+            if (Carbon::now()->diffInMinutes($lastCommentTime) > 5) {
+                $canComment = 1;
+            } else {
+                $canComment = 0;
+            };
             $project->with('rubric', 'user', 'files');
-            return view('projects.show', compact('project'));
+            return view('projects.show', compact(['project', 'comments', 'canComment']));
         }
         return abort(404, 'The resource you are looking for could not be found.');
     }

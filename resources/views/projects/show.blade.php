@@ -98,5 +98,12 @@
                 </div>
             </div>
         </footer>
+        <div class="container-main">
+            @foreach($comments as $comment)
+                @include ('projects.includes.comment', $comment)
+            @endforeach
+        </div>
+        @include ('projects.includes.comment_form')
+        <div class="comment-footer"></div>
     </div>
 @endsection

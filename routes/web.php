@@ -27,7 +27,7 @@ Route::prefix('projects')->group(function() {
     Route::post('/{project}', 'ProjectController@update')->name('projects.update')->middleware('can:update,project');
     Route::delete('/{project}', 'ProjectController@destroy')->name('projects.destroy')->middleware('can:update,project');
     Route::post('/{project}/rate', 'ProjectController@rate')->name('projects.rate')->middleware('auth');
-
+    Route::post('/{project}/addcomment', 'CommentController@store')->name('projects.addcomment')->middleware('auth');
 });
 
 // Рубрики

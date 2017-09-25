@@ -111,4 +111,16 @@ class Project extends Model
             }
         }
     }
+
+    public function comments() {
+        return $this->hasMany('App\Comment')->orderByDesc('created_at');
+    }
+
+    public function scopeCommentsFirst() {
+        return $this->hasMany('App\Comment')->whereNull('comment_id')->orderByDesc('created_at');
+    }
+
+    public function scopePublishedCommentsFirst() {
+        return $this->hasMany('App\Comment')->whereNull('comment_id')->where('is_published', '>', '0')->orderByDesc('created_at');
+    }
 }
