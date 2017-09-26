@@ -30,7 +30,46 @@ class CommentController extends Controller
         } else {
             return redirect()->back()->withErrors(['error' => 'Проверка reCAPTCHA не пройдена.']);
         }
+    }
 
-        
+    public function editAjax() {
+        $comment = Comment::findOrFail(request('id'));
+        $comment->message = request('message');
+        $comment->save();
+
+        $result = [
+            'result' => 'Комментарий успешно изменен!',
+            'result_type' => 'success',
+        ];
+        return \Response::json($result);
+    }
+
+    public function editProcessAjax() {
+        $comment = Comment::findOrFail(request('id'));
+        $comment->is_processed = request('checked') ? '1' : '0';
+        $comment->save();
+
+        $result = [
+            'result' => 'Состояние успешно обновлено!',
+            'result_type' => 'info',
+        ];
+        return \Response::json($result);
+    }
+
+    public function editPublishAjax() {
+        $comment = Comment::findOrFail(request('id'));
+        $comment->is_published = request('published') ? '1' : '0';
+        $comment->save();
+
+        $result = [
+            'result' => 'Состояние успешно обновлено!',
+            'result_type' => 'info',
+        ];
+        return \Response::json($result);
+    }
+
+    public function adminIndex() {
+        $comments = Comment::with(['project', 'createdBy', 'updatedBy'])->paginate(10);
+        return view('dashboard.comments.index', compact('comments'));
     }
 }

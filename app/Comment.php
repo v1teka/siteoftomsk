@@ -19,11 +19,11 @@ class Comment extends Model
     ];
 
     public function createdBy() {
-        return $this->hasOne('App\User', 'created_by');
+        return $this->belongsTo('App\User', 'created_by');
     }
 
     public function updatedBy() {
-        return $this->hasOne('App\User', 'updated_by');
+        return $this->belongsTo('App\User', 'updated_by');
     }
 
     public function commentFor() {
@@ -35,6 +35,6 @@ class Comment extends Model
     }
 
     public function project() {
-        return $this->hasOne('App\Project', 'peoject_id');
+        return $this->belongsTo('App\Project');
     }
 }

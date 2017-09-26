@@ -22,6 +22,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\ForumSection' => 'App\Policies\ForumSectionPolicy',
         'App\SmartSection' => 'App\Policies\SmartSectionPolicy',
         'App\SmartSolution' => 'App\Policies\SmartSolutionPolicy',
+        'App\Comment' => 'App\Policies\CommentPolicy',
     ];
 
     /**

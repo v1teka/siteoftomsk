@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/navbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/NameSite.css" />
     @stack('css')
@@ -41,6 +42,9 @@
     <script type="text/javascript" src="{{ asset('/js/NameSite.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/bootbox.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/ZoomNamePage.js') }}" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::render() !!}
     @stack('scripts')
     <script type="text/javascript" src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
     <script type="text/javascript" src="{{ asset('/assets/app.js') }}" type="text/javascript"></script>

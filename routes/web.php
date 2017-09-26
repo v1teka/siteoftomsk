@@ -43,6 +43,11 @@ Route::prefix('rubrics')->group(function() {
 
 // Администрирование
 Route::prefix('admin')->group(function() {
+    Route::get('/comment', 'CommentController@adminIndex')->name('comments.admin.index')->middleware('can:administrate,App\Comment');
+    Route::post('/comment/update/ajax', 'CommentController@editAjax')->name('comment.admin.update.ajax')->middleware('can:update,App\Comment');
+    Route::post('/comment/process/update/ajax', 'CommentController@editProcessAjax')->name('comment.process.admin.update.ajax')->middleware('can:update,App\Comment');
+    Route::post('/comment/publish/update/ajax', 'CommentController@editPublishAjax')->name('comment.publish.admin.update.ajax')->middleware('can:update,App\Comment');
+    
     Route::get('/projects', 'ProjectController@adminIndex')->name('projects.admin.index')->middleware('can:administrate,App\Project');
     Route::get('/projects/{project}', 'ProjectController@adminShow')->name('projects.admin.show')->middleware('can:administrate,App\Project');
     Route::patch('/projects/{project}', 'ProjectController@adminUpdate')->name('projects.admin.update')->middleware('can:administrate,App\Project');

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     @stack('head')
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -23,6 +24,9 @@
     <script src="{{ asset('adminlte/js/app.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('adminlte/js/demo.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::render() !!}
     @stack('scripts')
 
     <!-- Theme style -->
@@ -80,6 +84,7 @@
                 @endif
                 <li><a href="{{ route('users.admin.index') }}"><i class="fa fa-user text-yellow"></i> <span>Пользователи</span></a></li>
                 <li><a href="{{ route('projects.admin.index') }}"><i class="fa fa-building-o text-aqua"></i> <span>Проекты</span></a></li>
+                <li><a href="{{ route('comments.admin.index') }}"><i class="fa fa-commenting-o text-yellow"></i> <span>Проекты</span></a></li>
                 <li><a href="{{ route('smart.sections.admin.index') }}"><i class="fa fa-lightbulb-o text-maroon"></i> <span>Разделы Smart решений</span></a></li>
                 <li><a href="{{ route('smart.solutions.admin.index') }}"><i class="fa fa-lightbulb-o text-yellow"></i> <span>Smart решения</span></a></li>
             </ul>
