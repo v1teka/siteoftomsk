@@ -84,7 +84,7 @@
                 @endif
                 <li><a href="{{ route('users.admin.index') }}"><i class="fa fa-user text-yellow"></i> <span>Пользователи</span></a></li>
                 <li><a href="{{ route('projects.admin.index') }}"><i class="fa fa-building-o text-aqua"></i> <span>Проекты</span></a></li>
-                <li><a href="{{ route('comments.admin.index') }}"><i class="fa fa-commenting-o text-yellow"></i> <span>Проекты</span></a></li>
+                <li><a href="{{ route('comments.admin.index') }}"><i class="fa fa-commenting-o text-yellow"></i> <span>Комментарии</span></a></li>
                 <li><a href="{{ route('smart.sections.admin.index') }}"><i class="fa fa-lightbulb-o text-maroon"></i> <span>Разделы Smart решений</span></a></li>
                 <li><a href="{{ route('smart.solutions.admin.index') }}"><i class="fa fa-lightbulb-o text-yellow"></i> <span>Smart решения</span></a></li>
             </ul>
