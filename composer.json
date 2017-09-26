@@ -11,7 +11,9 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "makeusabrew/bootbox": "dev-master",
-        "twbs/bootstrap": "^3.3"
+        "twbs/bootstrap": "^3.3",
+        "unikent/curl": "^5.0",
+        "oriceon/toastr-5-laravel": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
