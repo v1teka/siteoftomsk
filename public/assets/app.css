@@ -118,6 +118,11 @@ body {
     font-size: 3.2rem;
     line-height: 1.25;
     letter-spacing: -.1rem; }
+  .title-files--xl {
+    font-size: 1.6rem;
+    line-height: 1.25;
+    letter-spacing: -.1rem;
+  }
   .title--l {
     font-size: 2.8rem;
     line-height: 1.3;

@@ -105,7 +105,7 @@ class ProjectController extends Controller
             'description' => 'required',
             'content' => 'required',
             'rubric_id' => 'nullable|exists:rubrics,id',
-            'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1200|max:3072',
+            'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1000|max:3072',
             'form' => 'nullable|url',
             'deleted_files' => 'nullable',
             'files.*' => 'nullable|file|mimes:pdf,doc,docx,ppt,pptx,xls,xlsx,png,jpeg|max:30720',

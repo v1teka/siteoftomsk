@@ -33,7 +33,7 @@
                 </div>
 
                 @if ($project->files->count() > 0)
-                    <h2 class="title title--xl">Файлы</h2>
+                    <h2 class="title title-files--xl">Файлы</h2>
                     @foreach ($project->files as $file)
                         <p><a class="link file-link file-link--{{$file->extension}}" href="{{ Storage::disk('public')->url($file->path) }}" target="_blank">{{ $file->name }}</a></p>
                     @endforeach

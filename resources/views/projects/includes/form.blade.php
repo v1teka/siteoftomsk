@@ -57,7 +57,7 @@
         @if($errors->has('image'))
             <div class="form-group__message form-group__message--error">{{ $errors->first('image') }}</div>
         @endif
-        <div class="help-block">Поддерживаются файлы .jpeg, .jpg и .png шириной от 1200 пикс. и размером не более 30&nbsp;Мб.</div>
+        <div class="help-block">Поддерживаются файлы .jpeg, .jpg и .png шириной от 1000 пикс. и размером не более 30&nbsp;Мб.</div>
     </div>
     <div class="form-group">
         <label for="form">Анкета</label>
@@ -92,7 +92,7 @@
 </form>
 @if (isset($project))
     <!--<form method="POST" action="{{ route('projects.destroy', $project) }}" enctype="multipart/form-data" style="float: left;">-->
-    <form id="project_delete_form" action="#" method="POST">
+    <form id="project_delete_form" action="{{ route('projects.destroy', $project) }}" method="POST">
         {{ method_field('DELETE') }}
         {{ csrf_field() }}
         <div class="form-group">
