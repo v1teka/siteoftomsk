@@ -13,7 +13,8 @@ body
 	/*color: #333;*/
 
 	/* Remove the background color to make it transparent */
-	background-color: #fff;
+	/*background-color: #fff;*/
+	background-color: #bbb;
 
 	margin: 0px;
 	padding: 0px;
@@ -29,7 +30,8 @@ body
 	/* Fix for missing scrollbars with RTL texts. (#10488) */
 	word-wrap: break-word;
 	overflow-y: always;
-	
+
+	background-color: #bbb;
 }
 
 blockquote

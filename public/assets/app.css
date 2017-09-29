@@ -278,6 +278,7 @@ body {
 .project-content {
   font-family: serif;
   font-size: 2rem;
+  border: 1px solid #000000;
   }
   .project-content__author {
     font-family: sans-serif;

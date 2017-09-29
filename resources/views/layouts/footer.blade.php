@@ -3,9 +3,9 @@
         <div class="footer__section footer-partners">
             <div class="footer__title">Партнёры</div>
             <div class="row">
-                <div class="row__col row__col--size-3 footer-partners__partner">
+                <!--<div class="row__col row__col--size-3 footer-partners__partner">
                     <a href="http://tomsk.gov.ru" target="_blank" title="Администрация Томской области"><img class="footer-partners__img" src="/assets/images/tomsk_partner.png"/></a>
-                </div>
+                </div>-->
                 <div class="row__col row__col--size-3 footer-partners__partner">
                     <a href="http://tpu.ru" target="_blank" title="Томский политехнический университет"><img class="footer-partners__img" src="/assets/images/tpu_partner.png"/></a>
                 </div>

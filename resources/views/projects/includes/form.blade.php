@@ -17,7 +17,7 @@
     </div>
     <div class="form-group">
         <label for="prj-content">Контент</label>
-        <textarea class="form-control {{ $errors->has('content') ? 'textarea_has-error' : '' }}" name="content" id="content" placeholder="Побробное описание проекта" rows="6">{{ isset($project->content) ? $project->content : old('content') }}</textarea>
+        <textarea class="form-control project-content {{ $errors->has('content') ? 'textarea_has-error' : '' }}" name="content" id="content" placeholder="Побробное описание проекта" rows="6">{{ isset($project->content) ? $project->content : old('content') }}</textarea>
         @if($errors->has('content'))
             <div class="form-group__message form-group__message--error">{{ $errors->first('content') }}</div>
         @endif

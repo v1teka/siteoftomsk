@@ -113,7 +113,7 @@ body {
     margin-bottom: 0.6em;
     line-height: 1.6;
     &--xxl {
-        font-size: 5.0rem;
+        font-size: 3.0rem;
         line-height: 1.2;
         padding-top: 70px;
         color: #FFFFFF;
@@ -399,6 +399,7 @@ body {
         @include respond-to(mobile) { padding-top: $mobile-indent; };
         display: block;
         font: 400 1rem/1.8 $font-style-serif;
+        border: 1px solid #000000;
         &__author {
             font-family: $font-style-sans;
         }
