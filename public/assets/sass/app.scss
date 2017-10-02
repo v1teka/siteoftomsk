@@ -112,6 +112,45 @@ body {
     margin-top: 0;
     margin-bottom: 0.6em;
     line-height: 1.6;
+    &--projects{
+        font-size: 3.0rem;
+        line-height: 1.2;
+        color: #FFFFFF;
+        text-shadow:
+                -0   -3px 0   #333333,
+                0   -3px 0   #333333,
+                -0    3px 0   #333333,
+                0    3px 0   #333333,
+                -3px -0   0   #333333,
+                3px -0   0   #333333,
+                -3px  0   0   #333333,
+                3px  0   0   #333333,
+                -1px -3px 0   #333333,
+                1px -3px 0   #333333,
+                -1px  3px 0   #333333,
+                1px  3px 0   #333333,
+                -3px -1px 0   #333333,
+                3px -1px 0   #333333,
+                -3px  1px 0   #333333,
+                3px  1px 0   #333333,
+                -2px -3px 0   #333333,
+                2px -3px 0   #333333,
+                -2px  3px 0   #333333,
+                2px  3px 0   #333333,
+                -3px -2px 0   #333333,
+                3px -2px 0   #333333,
+                -3px  2px 0   #333333,
+                3px  2px 0   #333333,
+                -3px -3px 0   #333333,
+                3px -3px 0   #333333,
+                -3px  3px 0   #333333,
+                3px  3px 0   #333333,
+                -3px -3px 0   #333333,
+                3px -3px 0   #333333,
+                -3px  3px 0   #333333,
+                3px  3px 0   #333333;
+        @include respond-to(mobile) { font-size: 4.0rem };
+    }
     &--questionnaire{
         font-size: 1.2rem;
     }

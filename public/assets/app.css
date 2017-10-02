@@ -668,4 +668,42 @@ text-shadow:
 .title--questionnaire {
   font-size: 1.2rem;
 }
+.title--projects {
+  font-size: 3.0rem;
+  line-height: 1.2;
+  color: #FFFFFF;
+  text-shadow:
+          -0   -3px 0   #333333,
+          0   -3px 0   #333333,
+          -0    3px 0   #333333,
+          0    3px 0   #333333,
+          -3px -0   0   #333333,
+          3px -0   0   #333333,
+          -3px  0   0   #333333,
+          3px  0   0   #333333,
+          -1px -3px 0   #333333,
+          1px -3px 0   #333333,
+          -1px  3px 0   #333333,
+          1px  3px 0   #333333,
+          -3px -1px 0   #333333,
+          3px -1px 0   #333333,
+          -3px  1px 0   #333333,
+          3px  1px 0   #333333,
+          -2px -3px 0   #333333,
+          2px -3px 0   #333333,
+          -2px  3px 0   #333333,
+          2px  3px 0   #333333,
+          -3px -2px 0   #333333,
+          3px -2px 0   #333333,
+          -3px  2px 0   #333333,
+          3px  2px 0   #333333,
+          -3px -3px 0   #333333,
+          3px -3px 0   #333333,
+          -3px  3px 0   #333333,
+          3px  3px 0   #333333,
+          -3px -3px 0   #333333,
+          3px -3px 0   #333333,
+          -3px  3px 0   #333333,
+          3px  3px 0   #333333;
+}
 /*# sourceMappingURL=app.css.map */
