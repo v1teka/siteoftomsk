@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('mobile', function() {return view('errors.indeveloping');})->name('mobile');
+
 Route::get('/', 'PageController@index')->name('pages.index');
 Route::get('/about', 'PageController@about')->name('pages.about');
 Route::get('/profile', 'ProfileController@show')->name('profile.show')->middleware('auth');

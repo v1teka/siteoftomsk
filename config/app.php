@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Unikent\Curl\Providers\CurlServiceProvider::class,
         Kamaln7\Toastr\ToastrServiceProvider::class,
+        \App\Providers\MobileVerifyProvider::class,
 
     ],
 
