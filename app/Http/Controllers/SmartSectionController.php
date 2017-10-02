@@ -74,6 +74,7 @@ class SmartSectionController extends Controller
      */
     public function edit(SmartSection $smartSection)
     {
+        $smartSection->with('solutions');
         return view('smart.section.edit', compact('smartSection'));
     }
 

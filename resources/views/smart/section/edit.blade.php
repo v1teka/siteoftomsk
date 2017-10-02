@@ -33,6 +33,21 @@
                         <button class="btn btn-success" type="submit">Изменить</button>
                     </div>
                 </form>
+                <h4>Список Smart-решений</h4>
+                <table class="table table-hover" id="smart-solutions">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Smart-решение</th>
+                        </tr>
+                    </thead>
+                    @foreach ($smartSection->solutions as $smartSolutionNum => $smartSolution)
+                        <tr>
+                            <td>{!! $smartSolutionNum + 1 !!}</td>
+                            <td><a href="{{ route('smart.solutions.edit.admin.index', $smartSolution) }}">{{ $smartSolution->description }}</a></td>
+                        </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </div>
