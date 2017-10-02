@@ -41,7 +41,12 @@
 
                 @isset($project->form)
                     <div class="project-form js-spoiler">
-                        <h2 class="title title--xl"><a class="link link--dark link--dashed js-spoiler-link" href="{{ $project->form }}" target="_blank">Анкета</a></h2>
+                        <h2 class="title title--questionnaire">
+                            <a class="link link--dark link--dashed js-spoiler-link" href="{{ $project->form }}" target="_blank">
+                                <img src="{{ asset('/assets/images/anketa.png') }}">
+                                Пройти анкетирование
+                            </a>
+                        </h2>
                         <div class="project-form__content js-spoiler-content">
                             <iframe
                                 src="{{ $project->form }}?embedded=true"

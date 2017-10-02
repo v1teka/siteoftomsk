@@ -112,6 +112,9 @@ body {
     margin-top: 0;
     margin-bottom: 0.6em;
     line-height: 1.6;
+    &--questionnaire{
+        font-size: 1.2rem;
+    }
     &--xxl {
         font-size: 3.0rem;
         line-height: 1.2;
