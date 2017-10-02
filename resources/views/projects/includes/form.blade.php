@@ -74,7 +74,7 @@
                 @foreach ($project->files as $file)
                     <p>
                         <input type="checkbox" name="deleted_files[{{ $file->id }}]" id="file-{{ $file->id }}">
-                        <label for="file-{{ $file->id }}">Удалить</label><a class="link file-link file-link--{{$file->extension}}" href="{{ Storage::disk('public')->url($file->path) }}" target="_blank">{{ $file->name }}</a>
+                        <label for="file-{{ $file->id }}">Удалить</label>&nbsp;<a class="link file-link file-link--{{$file->extension}}" href="{{ Storage::disk('public')->url($file->path) }}" target="_blank">{{ $file->name }}</a>
                     </p>
                 @endforeach
             </div>

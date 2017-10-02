@@ -153,7 +153,7 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return redirect()->route('projects.index');
+        return redirect()->route('projects.admin.index');
     }
 
     // Оценивание проекта

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 use \App\Observers\ProjectObserver;
 use \App\Traits\Ratingable;
@@ -12,6 +13,7 @@ use App\File;
 class Project extends Model
 {
     use Ratingable;
+    use SoftDeletes;
 
     protected $table = 'projects';
 
@@ -22,7 +24,7 @@ class Project extends Model
     ];
 
     protected $dates = [
-        'created_at', 'updated_at', 'published_at',
+        'created_at', 'updated_at', 'published_at', 'deleted_at',
     ];
 
     public static function boot()

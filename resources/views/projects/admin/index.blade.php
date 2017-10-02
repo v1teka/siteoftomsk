@@ -18,6 +18,7 @@
                             <th>Модерация</th>
                             <th>Опубликован</th>
                             <th>Показывать на главной странице</th>
+                            <th>Удалить</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,6 +61,11 @@
                                     @endif
 
                                 </td>
+                                <td>
+                                    <a href="{{ route('projects.destroy', $project) }}" title="Удалить проект" class="confirm">
+                                        <i class="fa fa-close text-red icon-big"></i>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -71,3 +77,32 @@
     </div>
 
 @endsection
+
+@push('scripts')
+<script>
+    window.onload = function() {
+        $('.confirm').bind('click', (function(e) {
+            var currentLink = this;
+            e.preventDefault();
+            bootbox.confirm({
+                message: "Вы действительно хотите удалить проект?",
+                buttons: {
+                    confirm: {
+                        label: 'Да, удалить',
+                        className: 'btn-danger'
+                    },
+                    cancel: {
+                        label: 'Нет',
+                        className: 'btn-success'
+                    }
+                },
+                callback: function (result) {
+                    if (result) {
+                        document.location.href = currentLink.href;
+                    }
+                }
+            })
+        }));
+    };
+</script>
+@endpush
