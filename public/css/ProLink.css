@@ -82,12 +82,12 @@
 {
 	.DivIn h1
 		{
-			font-size: calc(36.8px * 0.8);
+			font-size: 36.8px;
 		}
 
 	.DivIn h3
 		{
-			font-size: calc(27.6px * 0.8);
+			font-size: 27.6px;
 		}
 	.DivOut
 		{
@@ -99,17 +99,21 @@
 		{
 		width: 100%;
 		}
+	.GrossGroup
+		{
+			padding: 0;
+		}
 }
 
 @media screen and (min-width: 615px) and (max-width: 768px) {
 	.DivIn h1
 		{
-			font-size: calc((36.8px + (46 - 36.8) * ( (100vw - 615px) / ( 768 - 615) )) * 0.8);
+			font-size: calc(36.8px + (46 - 36.8) * ( (100vw - 615px) / ( 768 - 615) ));
 		}
 
 	.DivIn h3
 		{
-			font-size: calc((27.6px + (34.5 - 27.6) * ( (100vw - 615px) / (768 - 615) )) * 0.8);
+			font-size: calc(27.6px + (34.5 - 27.6) * ( (100vw - 615px) / (768 - 615) ));
 		}
 	.DivOut
 		{
@@ -121,18 +125,22 @@
 		{
 		width: 100%;
 		}
+	.GrossGroup
+		{
+			padding: 0;
+		}		
 }
 
 @media screen  and (min-width: 768px) and (max-width: 950px)
 {
 	.DivIn h1
 		{
-			font-size: calc((30.8px + (38 - 30.8) * ( (100vw - 768px) / (950 - 768) )) * 0.8);
+			font-size: calc(30.8px + (38 - 30.8) * ( (100vw - 768px) / (950 - 768) ));
 		}
 
 	.DivIn h3
 		{
-			font-size: calc((21.5px + (26.5 - 21.5) * ( (100vw - 768px) / (950 - 768) )) * 0.8);
+			font-size: calc(21.5px + (26.5 - 21.5) * ( (100vw - 768px) / (950 - 768) ));
 		}
 	.DivOut
 		{
@@ -140,18 +148,22 @@
 			width: 43.75%;
 			margin: 3.125% 3.125% 3.125% 3.125%;
 		}
+	.GrossGroup
+		{
+			padding: 0;
+		}
 }
 
 @media screen  and (min-width: 950px) and (max-width: 1200px)
 {
 	.DivIn h1
 		{
-			font-size: calc((23.8px + (30 - 23.8) * ( (100vw - 950px) / (1200 - 950) )) * 0.8);
+			font-size: calc(23.8px + (30 - 23.8) * ( (100vw - 950px) / (1200 - 950) ));
 		}
 
 	.DivIn h3
 		{
-			font-size: calc((17.8px + (22.5 - 17.8) * ( (100vw - 950px) / (1200 - 950) )) * 0.8);
+			font-size: calc(17.8px + (22.5 - 17.8) * ( (100vw - 950px) / (1200 - 950) ));
 		}
 	.DivOut
 		{
@@ -159,18 +171,22 @@
 			width: 30.29%;
 			margin: 1.52% 1.52% 1.52% 1.52%;
 		}
+	.GrossGroup
+		{
+			padding: 0;
+		}
 }
 
 @media screen  and (min-width: 1200px) and (max-width: 1600px)
 {
 	.DivIn h1
 		{
-			font-size: calc((22.5px + (30 - 22.5) * ( (100vw - 1200px) / (1600 - 1200) )) * 0.8);
+			font-size: calc(22.5px + (30 - 22.5) * ( (100vw - 1200px) / (1600 - 1200) ));
 		}
 
 	.DivIn h3
 		{
-			font-size: calc((16.9px + (22.5 - 16.9) * ( (100vw - 1200px) / (1600 - 1200) )) * 0.8);
+			font-size: calc(16.9px + (22.5 - 16.9) * ( (100vw - 1200px) / (1600 - 1200) ));
 		}
 	.DivOut
 		{
@@ -178,29 +194,61 @@
 			width: 22.7%;
 			margin: 1.15% 1.15% 1.15% 1.15%;
 		}
+	.GrossGroup
+		{
+			padding: 0;
+		}
 }
 
-@media screen  and (min-width: 1600px)
+@media screen  and (min-width: 1600px) and (max-width: 2000px)
 {
 	.DivIn h1
 		{
-			font-size: calc(24px * 0.8);
+			font-size: calc(22.5px + (30 - 22.5) * ( (100vw - 1600px) / (2000 - 1600) ));
 		}
 
 	.DivIn h3
 		{
-			font-size: calc(18px * 0.8);
+			font-size: calc(16.9px + (22.5 - 16.9) * ( (100vw - 1600px) / (2000 - 1600) ));
 		}
 	.DivOut
 		{
-			height: 250px;
-			width: 22.7%;
-			margin: 1.15% 1.15% 1.15% 1.15%;
+			height: calc(280px + (350 - 280) * ( (100vw - 1600px) / (2000 - 1600) ));
+			width: 17.8%;
+			margin: 1.1% 1.1% 1.1% 1.1%;
+		}
+	.GrossGroup
+		{
+			padding: 0;
+		}
+}
+
+@media screen  and (min-width: 2000px)
+{
+	.DivIn h1
+		{
+			font-size: 30px;
+		}
+
+	.DivIn h3
+		{
+			font-size: 22.5px;
+		}
+	.DivOut
+		{
+			height: 350px;
+			width: 356px;
+			margin: 1% 1% 1% 1%;
 		}
 	.ImgPL
-	{
-		width: 100%;
-	}
+		{
+			width: 100%;
+		}
+	.GrossGroup
+		{
+			padding: 0 calc((100vw - (356px + ((100vw / 100) * 1.2) * 2) * 5) / 2) 0 calc((100vw - (356px + ((100vw / 100) * 1.2) * 2) * 5) / 2);
+		}
+
 }
 
 
