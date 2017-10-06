@@ -78,20 +78,49 @@
 	display: block;
 }
 
-@media screen and (max-width: 615px)
+
+@media screen and (max-width: 300px)
 {
 	.DivIn h1
 		{
-			font-size: 36.8px;
+			font-size: 27.6pxpx;
 		}
 
 	.DivIn h3
 		{
-			font-size: 27.6px;
+			font-size: 22px;
 		}
 	.DivOut
 		{
-	height: 416px;
+	height: 330px;
+	width: 274px;
+	margin: 13 13 13 13;
+		}
+	.ImgPL
+		{
+		width: 100%;
+		}
+	.GrossGroup
+		{
+			padding: 0;
+		}
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 615px)
+{
+	.DivIn h1
+		{
+			font-size: calc(27.8px + (36.8 - 27.6) * ( (100vw - 300px) / (615 - 300) ));
+		}
+
+	.DivIn h3
+		{
+			font-size: calc(22px + (27.6 - 22) * ( (100vw - 300px) / (615 - 300) ));
+		}
+	.DivOut
+		{
+	height: calc(330px + (416 - 330) * ( (100vw - 300px) / (615 - 300) ));
 	width: 91%;
 	margin: 4.5% 4.5% 4.5% 4.5%;
 		}
