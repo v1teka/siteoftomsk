@@ -33,7 +33,7 @@
                 </div>
 
                 @if ($project->files->count() > 0)
-                    <h2 class="title title-files--xl">Файлы</h2>
+                    <h2 class="title title-files--xl">Информация для скачивания</h2>
                     @foreach ($project->files as $file)
                         <p><a class="link file-link file-link--{{$file->extension}}" href="{{ Storage::disk('public')->url($file->path) }}" target="_blank">{{ $file->name }}</a></p>
                     @endforeach
@@ -42,7 +42,7 @@
                 @isset($project->form)
                     <div class="project-form js-spoiler">
                         <h2 class="title title--questionnaire">
-                            <a class="link link--dark link--dashed js-spoiler-link" href="{{ $project->form }}" target="_blank">
+                            <a class="link link--dark js-spoiler-link" href="{{ $project->form }}" target="_blank">
                                 <img src="{{ asset('/assets/images/anketa.png') }}">
                                 Пройти анкетирование
                             </a>
