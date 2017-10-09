@@ -113,6 +113,13 @@ class Project extends Model
             }
         }
     }
+    
+    // Переименование
+    public function renameFile($id, $new_filename) {
+        $curFile = $this->files()->findOrFail($id);
+        $curFile->name = $new_filename;
+        $curFile->save();
+    }
 
     public function comments() {
         return $this->hasMany('App\Comment')->orderByDesc('created_at');

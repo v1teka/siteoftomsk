@@ -68,16 +68,45 @@
         <div class="help-block">Рекомендуется использовать <a class="link" href="https://www.google.ru/intl/ru/forms/about/" target="_blank">Google Forms</a>.</div>
     </div>
     <div class="form-group">
-        <label class="form-group__label" for="files">Файлы</label>
+        <label class="form-group__label" for="files">Информация для скачивания</label>
         @if (isset($project->files))
-            <div class="form-group__value">
+            <table class="table-hidden">
                 @foreach ($project->files as $file)
-                    <p>
-                        <input type="checkbox" name="deleted_files[{{ $file->id }}]" id="file-{{ $file->id }}">
-                        <label for="file-{{ $file->id }}">Удалить</label>&nbsp;<a class="link file-link file-link--{{$file->extension}}" href="{{ Storage::disk('public')->url($file->path) }}" target="_blank">{{ $file->name }}</a>
-                    </p>
+                    <tr>
+                        <td style="width: 72px;">
+                            Удалить<input type="checkbox" name="deleted_files[{{ $file->id }}]" id="file[{{ $file->id }}]">
+                        </td>
+                        <td>
+                            <div class="form-group margin0">
+                                <input class="form-control {{ $errors->has("filename[" . $file->id . "]") ? 'input_has-error' : '' }}"
+                                       type="text"
+                                       name="filename[{{ $file->id }}]"
+                                       id="filename[{{ $file->id }}]"
+                                       placeholder="Название подписи к файлу"
+                                       value="{{ isset($file->name) ? $file->name : '' }}" />
+                            </div>
+                        </td>
+                    </tr>
                 @endforeach
-            </div>
+            </table>
+            {{--<div class="form-horizontal">
+                @foreach ($project->files as $file)
+                    <div class="form-group">
+                        <label for="file[{{ $file->id }}]">Удалить</label>&nbsp;
+                        <input type="checkbox" name="deleted_files[{{ $file->id }}]" id="file[{{ $file->id }}]">
+                    </div>
+                    <div class="form-group">
+                        <label for="filename[{{ $file->id }}]"><input type="checkbox" name="deleted_files[{{ $file->id }}]" id="file[{{ $file->id }}]">&nbsp;Удалить</label>
+                        <input class="form-control {{ $errors->has("filename[" . $file->id . "]") ? 'input_has-error' : '' }}"
+                               type="text"
+                               name="filename[{{ $file->id }}]"
+                               id="filename[{{ $file->id }}]"
+                               placeholder="Название подписи к файлу"
+                               value="{{ isset($file->name) ? $file->name : '' }}" />
+                    </div>
+                    <!--<a class="link file-link file-link--{{$file->extension}}" href="{{ Storage::disk('public')->url($file->path) }}" target="_blank">{{ $file->name }}</a>-->
+                @endforeach
+            </div>--}}
         @endif
         <input class="file" type="file" name="files[]" id="files" multiple>
         @if($errors->has('files.*'))

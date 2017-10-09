@@ -108,6 +108,7 @@ class ProjectController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1000|max:3072',
             'form' => 'nullable|url',
             'deleted_files' => 'nullable',
+            'filename' => 'nullable',
             'files.*' => 'nullable|file|mimes:pdf,doc,docx,ppt,pptx,xls,xlsx,png,jpeg|max:30720',
         ]);
 
@@ -131,6 +132,13 @@ class ProjectController extends Controller
         if (request()->has('deleted_files')) {
             $deleted_files = array_keys(request('deleted_files'));
             $project->deleteFiles($deleted_files);
+        }
+
+        // Переименование файлов
+        if (request()->has('filename')) {
+            foreach (request('filename') as $id => $filename) {
+                $project->renameFile($id, $filename);
+            }
         }
 
         // Загрузка вложений

@@ -32,7 +32,7 @@
                 </div>
                 @if ($project->files->count() > 0)
                     <div class="form-group">
-                        <label class="form-group__label">Файлы</label>
+                        <label class="form-group__label">Информация для скачивания</label>
                         <div class="form-group__value">
                             @foreach ($project->files as $file)
                                 <p><a class="link file-link file-link--{{$file->extension}}" href="{{ Storage::disk('public')->url($file->path) }}" target="_blank">{{ $file->name }}</a></p>
