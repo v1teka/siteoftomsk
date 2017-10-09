@@ -128,17 +128,17 @@ class ProjectController extends Controller
             $project->uploadImage($image);
         }
 
-        // Удаление вложений
-        if (request()->has('deleted_files')) {
-            $deleted_files = array_keys(request('deleted_files'));
-            $project->deleteFiles($deleted_files);
-        }
-
         // Переименование файлов
         if (request()->has('filename')) {
             foreach (request('filename') as $id => $filename) {
                 $project->renameFile($id, $filename);
             }
+        }
+
+        // Удаление вложений
+        if (request()->has('deleted_files')) {
+            $deleted_files = array_keys(request('deleted_files'));
+            $project->deleteFiles($deleted_files);
         }
 
         // Загрузка вложений
