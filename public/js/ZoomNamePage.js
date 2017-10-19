@@ -21,8 +21,12 @@ function Zoom (argument) {
 	
 	h_Header = $("header.project-header").height();
 	h_H1 = $("h1.project-header__title").height();
+
+	if (h_Header == undefined) {return;}
+    if (h_H1 == undefined) {return;}
 		
-	while (($("h1.project-header__title").css("fontSize").replace("px", "") < fontSize_H1) && ($("h1.project-header__title").height() <= ($("header.project-header").height() - $("h1.project-header__title").css("padding-top").replace("px", "")))) 
+	while (($("h1.project-header__title").css("fontSize").replace("px", "") < fontSize_H1)
+		&& ($("h1.project-header__title").height() <= ($("header.project-header").height() - $("h1.project-header__title").css("padding-top").replace("px", ""))))
 	{
 		new_fontSize_H1 = $("h1.project-header__title").css("fontSize").replace("px", "") * 1.05;
 		new_lineHeight_H1 = $("h1.project-header__title").css("lineHeight").replace("px", "") * 1.05;
