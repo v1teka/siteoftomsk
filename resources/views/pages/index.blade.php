@@ -21,7 +21,7 @@
   @if (count($projects))
       <div class="section section--last projects">
           <div class="container-fluid">
-              <h2 class="title title--projects">Проекты</h2>
+              <h2 class="title title--projects">Наиболее обсуждаемые проекты</h2>
               <div class="GrossGroup">
                   @foreach ($projects as $project)
                       @include('projects.includes.card')

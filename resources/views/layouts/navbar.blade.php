@@ -187,7 +187,7 @@
             </td>
             <td class="OneNameSite">
                 <p class="NameSiteText">
-                    <a class="LinkNameSiteText" href="/"> ТОМСК 7.0. Творчество и технологии </a>
+                    <a class="LinkNameSiteText" href="/"> Творчество и технологии. ТОМСК 7.0 </a>
                 </p>
             </td>
             <td class="RegCall">
@@ -351,11 +351,11 @@
             </li>
         </a>
 
-        <a  href="{{ route('forum.index') }}">
+        <!--<a  href="{{ route('forum.index') }}">
             <li class="MenuListExitToALL">
                 Комната ЛОВЗ
             </li>
-        </a>
+        </a>-->
 
         <a  href="{{ route('projects.show', 26) }}">
             <li class="MenuListExitToALL">

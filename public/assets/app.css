@@ -8,7 +8,8 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: Roboto, "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; }
+  color: #222;
+  min-width: 1000px;}
 
 @media (min-width: 550px) {
   .row__col {
@@ -70,7 +71,7 @@ body {
     clear: both; } }
 .title {
   font-weight: 700;
-  font-family: sans-serif;
+  font-family: "HelveticaNeue","Helvetica Neue",Arial,sans-serif;
   margin-top: 0;
   margin-bottom: 2rem; }
   .title--xxl {
@@ -145,8 +146,9 @@ body {
   text-decoration: none;
   border-bottom: 1px solid rgba(0, 101, 255, 0.3); }
   .link:hover, .link:active {
-    color: #f00;
-    border-color: #f00; }
+    color: #191970;
+    border-color: #191970;
+    text-decoration: none;}
   .link--light {
     color: #fff;
     border-color: #fff; }
