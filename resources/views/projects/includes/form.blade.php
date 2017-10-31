@@ -122,7 +122,6 @@
 @if (isset($project))
     <!--<form method="POST" action="{{ route('projects.destroy', $project) }}" enctype="multipart/form-data" style="float: left;">-->
     <form id="project_delete_form" action="{{ route('projects.destroy', $project) }}" method="POST">
-        {{ method_field('DELETE') }}
         {{ csrf_field() }}
         <div class="form-group">
             <button class="btn btn-danger" type="submit" id="project_delete_btn">Удалить проект</button>
