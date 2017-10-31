@@ -25,7 +25,7 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– --}}
     @stack('head')
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/fontello/css/fontello.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/sass/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/navbar.css') }}">

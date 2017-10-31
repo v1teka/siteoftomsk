@@ -1,13 +1,12 @@
 <div class="fotorama">
     <div class="slider-item" data-img="https://pp.userapi.com/c627231/v627231559/2c8f8/fVt8BKPEZjY.jpg">
         <div class="container">
-            <div class="title title--xxl slider-item__title">Томск 7.0</div>
+            <div class="title title--xxl slider-item__title">Добро пожаловать в Томск 7.0</div>
             <div class="slider-item__content">
                 <!--<p>Технологии и творчество</p>-->
                 <p class="slider_info">Уважаемые посетители!</p>
                 <p class="slider_small">На нашем портале вы можете получить информацию и выразить свое мнение по вопросам,</p>
-                <p class="slider_small">связанным с формированием комфортной и безопасной городской среды, отслеживать динамику</p>
-                <p class="slider_small">процесса формирования Томска как города равных возможностей.</p>
+                <p class="slider_small">связанным с формированием комфортной и безопасной городской среды</p>
                 <div class="slider_questioning_container">
                     <div class="slider_questioning_left_div">
                         <a class="slider_questioning_left_a" target="_blank" href="https://goo.gl/forms/YwgnGCsbY2nunFAq2" class="questioning-link">Пройти анкетирование</a>
@@ -44,7 +43,7 @@
         $(function () {
             $('.fotorama').fotorama({
                 width: '100%',
-                maxheight: 500,
+                maxheight: 650,
                 ratio: '16/9',
                 fit: 'cover',
                 loop: true,

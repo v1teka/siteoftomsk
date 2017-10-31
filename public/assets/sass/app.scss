@@ -583,7 +583,9 @@ body {
         &--center {
             text-align: center;
         }
-        &__title { }
+        &__title {
+            margin-top: 140px;
+        }
         &__content {
             text-shadow:
                     -0   -2px 0   #333333,

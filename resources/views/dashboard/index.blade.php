@@ -37,7 +37,7 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('adminlte/css/skins/_all-skins.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/sass/app.css') }}">
     @stack('css')
 </head>
 <!-- ADD THE CLASS layout-boxed TO GET A BOXED LAYOUT -->
