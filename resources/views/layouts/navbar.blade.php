@@ -9,7 +9,7 @@
             </td>
             <td class="OneNameSite">
                 <p class="NameSiteText">
-                    <a class="LinkNameSiteText" href="/"> Творчество и технологии. ТОМСК 7.0 </a>
+                    <a class="LinkNameSiteText" href="/"> ТОМСК 7.0. Технологии и творчество</a>
                 </p>
             </td>
             <td class="RegCall">
