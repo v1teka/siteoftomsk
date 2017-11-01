@@ -1,7 +1,7 @@
 <div class="fotorama">
     <div class="slider-item" data-img="https://pp.userapi.com/c627231/v627231559/2c8f8/fVt8BKPEZjY.jpg">
         <div class="container">
-            <div class="title title--xxl slider-item__title">Добро пожаловать в Томск 7.0</div>
+            <div class="title title--xxl slider-item__title">ДОБРО ПОЖАЛОВАТЬ В ТОМСК 7.0</div>
             <div class="slider-item__content">
                 <!--<p>Технологии и творчество</p>-->
                 <p class="slider_info">Уважаемые посетители!</p>

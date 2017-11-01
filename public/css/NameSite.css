@@ -9,17 +9,17 @@
 	position: fixed;
 	left: 0;
 	top: 0px;
-	
-	
+
+
 	width: 100%;
 	height: 100px;
 
 	text-align: center;
-    white-space: nowrap;
-   
-    overflow: hidden;
-    
-    z-index: 99;
+	white-space: nowrap;
+
+	overflow: hidden;
+
+	z-index: 99;
 }
 
 .Link
@@ -31,25 +31,25 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-    white-space: nowrap;
-    overflow: hidden;	
-    border: 0px;
-    border-spacing: 0px;
-    
-    height: 70px; 	
-    
+	white-space: nowrap;
+	overflow: hidden;
+	border: 0px;
+	border-spacing: 0px;
+
+	height: 70px;
+
 
 }
 
 .OneMenuText
 {
-	opacity: 1;	
+	opacity: 1;
 	line-height: 40px;
-	background-color: rgba(25, 25, 112, 0.6);	
-	cursor: pointer;	
-	vertical-align:  middle;	
-	
-	width: 110px; 	
+	background-color: rgba(247, 121, 30, 0.6);
+	cursor: pointer;
+	vertical-align:  middle;
+
+	width: 110px;
 }
 
 .OneMenuText:hover {
@@ -60,14 +60,14 @@
 {
 	text-align: center;
 	opacity: 1;
-	background-color: rgba(255, 253, 208, 0.6);
+	background-color: rgba(247, 121, 30, 0.6);
 	vertical-align:  middle;
 	line-height: 20px;
-	cursor: pointer; 
-	color: blue; 
-	
-	width: 125px;	
-	font-size:18px; 	
+	cursor: pointer;
+	color: blue;
+
+	width: 125px;
+	font-size:18px;
 }
 
 .MenuText
@@ -75,19 +75,19 @@
 	font-family: "Times New Roman", serif;
 	text-align: center;
 	vertical-align: middle;
-	color: white;	
-	
+	color: white;
+
 	font-size: 18pt;
-	line-height: 70px;	
+	line-height: 70px;
 }
 
 .MenuText:hover {
-	color: Orchid;
+	color: #071672;
 }
 
 .OneNameSite
 {
-	background-color: rgba(0, 128, 0, 0.6);
+	background-color: rgba(90, 95, 182, 0.6);
 	vertical-align:  middle;
 }
 
@@ -97,16 +97,16 @@
 	text-align: center;
 	color: white;
 	vertical-align:  middle;
-	
-	opacity: 1;	
-	
+
+	opacity: 1;
+
 	font-size: 24pt;
-	line-height: 70px;	
+	line-height: 70px;
 }
 
 .NameSiteText:hover
 {
-	opacity: 0.5;	
+	opacity: 0.5;
 }
 
 a.LinkNameSiteText
@@ -118,38 +118,38 @@ a.LinkNameSiteText
 .Link, .OneMenuText, .RegCall, .MenuText, .NameSiteText
 {
 	-webkit-transition:  height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease;
-	-o-transition: height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease;  
+	-o-transition: height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease;
 	-ms-transition: height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease;
 	-moz-transition: height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease;
-	transition: height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease; 
+	transition: height 0.8s ease, width 0.8s ease, font-size 0.8s ease, line-height 0.8s ease, color 0.4s ease, opacity 0.4s ease;
 }
-   
+
 @media screen  and (max-width: 700px)
-	{ 
-		.Link
-		{
-			height: 35px;
-		}
-		.OneMenuText
-		{
-			width: 55px;
-		}
-		.RegCall
-		{
-			width: 90px;	
-			font-size:12px; 
-		}
-		.MenuText
-		{
-			font-size: 9pt;
-			line-height: 35px;
-		}
-		.NameSiteText
-		{
-			font-size: 12pt;
-			line-height: 35px;
-		}
+{
+	.Link
+	{
+		height: 35px;
 	}
+	.OneMenuText
+	{
+		width: 55px;
+	}
+	.RegCall
+	{
+		width: 90px;
+		font-size:12px;
+	}
+	.MenuText
+	{
+		font-size: 9pt;
+		line-height: 35px;
+	}
+	.NameSiteText
+	{
+		font-size: 12pt;
+		line-height: 35px;
+	}
+}
 
 .overlay {
 	background: #000;
@@ -165,21 +165,28 @@ a.LinkNameSiteText
 
 .BigMenu
 {
-	width: 300px;
-	
+	width: 340px;
+	height: 100%;
+
 	z-index: 2000;
+
+	/*font-family: "HelveticaNeue","Helvetica Neue",Arial,sans-serif;*/
 
 	background-color: Lavender;
 	position: fixed;
-	left: -300px;
+
+	overflow: auto;
+
+	left: -340px;
 	top: 0;
-	text-align: center;	
-	
+	text-align: center;
+
+
 	-webkit-transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s;
-	-o-transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s;  
-	-ms-transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s; 
-	-moz-transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s; 
-	transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s; 	
+	-o-transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s;
+	-ms-transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s;
+	-moz-transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s;
+	transition: left 0.5s cubic-bezier(0.25,0.1,0.25,1) 0s;
 }
 
 .MenuList
@@ -188,7 +195,9 @@ a.LinkNameSiteText
 	line-height:30px;
 	margin-left: 30px;
 	margin-top: 20px;
-	margin-right: 0px;
+	margin-right: 20px;
+	background-color: Lavender;
+	border: none;
 
 	padding: 0;
 }
@@ -200,15 +209,32 @@ a.LinkNameSiteText
 
 .MenuListExitToALL, .MenuListExitToALLTwo, .MenuListExitToOne
 {
-	text-align: left;		
+	text-align: left;
 	color: MidnightBlue;
 	background-color: Lavender;
 	cursor: pointer;
 }
 
+.MenuListExitToALL a
+{
+	color: MidnightBlue;
+}
+
 .MenuListExitToALL, .MenuListExitToALLTwo
 {
 	font-size: 14pt;
+}
+
+li.MenuListExitToALL:hover
+{
+	margin-right: 0px;
+	background-color: DimGray;
+	color: white;
+	/*	padding: 6px 0 6px 20px;*/
+}
+
+.MenuListExitToOne > li {
+	background-color: Lavender;
 }
 
 .MenuListExitToOne
@@ -223,40 +249,42 @@ a.LinkNameSiteText
 {
 	white-space: nowrap;
 	padding: 6px 0 6px 0;
+	line-height:12px;
+	font-size: 12pt;
 }
 
 li.MenuListExitToALLTwo:hover
 {
 	color: white;
-	background-color: DimGray;	
+	background-color: DimGray;
 }
 
 .MenuListTwo
 {
-	position:absolute;
+	padding: 0;
 	list-style-type: none;
-	display:none;
-	
-	background: yellow;
+
+
+	/*	background: yellow;*/
 }
 
 .MenuListExitToALLTwo p
 {
-	margin-left: 20px;	
+	margin-left: 20px;
 	margin-right:  20px;
-	
+
 }
 
 .NavBar
 {
 	line-height: 30px;
-	font-size: 20px; 
-	height: 30px;	
+	font-size: 20px;
+	height: 30px;
 
 	vertical-align: middle;
 	padding: 0;
 	margin: 0;
-	
+
 	z-index: 2000;
 }
 
@@ -268,12 +296,12 @@ li.MenuListExitToALLTwo:hover
 .UlNavBar
 {
 	position: fixed;
-	display: none;	
-	list-style-type: none;	
+	display: none;
+	list-style-type: none;
 }
 
 .UlNavBar a{
-	text-decoration: none;	
+	text-decoration: none;
 }
 
 .UlNavBar li
@@ -284,22 +312,21 @@ li.MenuListExitToALLTwo:hover
 
 .LiNavBar
 {
-	font-size: 12pt;	
+	font-size: 12pt;
 	background-color: rgba(169, 169, 169, 0.9);
 	color: #000080;
 	cursor: pointer;
-	
+
 	white-space: normal;
 	line-height: 30px;
 }
 
 .MenuText2
 {
-	color: #000080;	
+	color: #000080;
 	width: 25%;
 	background-color: rgba(169, 169, 169, 0.6);
 	cursor: pointer;
-	font-weight: bold;
 }
 
 .MenuText2:hover
@@ -311,7 +338,7 @@ li.MenuListExitToALLTwo:hover
 li.LiNavBar:hover
 {
 	background-color: rgba(128, 128, 128, 1);
-	color: white;	
+	color: white;
 }
 
 .Link2
@@ -319,19 +346,52 @@ li.LiNavBar:hover
 	width: 100%;
 	height: 100%;
 	border: 0px;
-    border-spacing: 0px;
+	border-spacing: 0px;
 }
 
 .BigMenuExit
-{	
+{
 	font-size: 24pt;
 	font-family: "Times New Roman", serif;
 	line-height: 35px;
 	position: absolute;
-	left: 270px;
+	left: 290px;
 	top: 0px;
 	cursor: pointer;
 }
 
+.HRLine
+{
+	border: none; /* Убираем границу для браузера Firefox */
+	color: red; /* Цвет линии для остальных браузеров */
+	background-color: red; /* Цвет линии для браузера Firefox и Opera */
+	height: 2px; /* Толщина линии */
+}
 
 
+@keyframes bounce
+{
+
+	0%, 20%, 60%, 100%
+	{
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40%
+	{
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+
+	80%
+	{
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+}
+
+ul.MenuListTwo a li:hover
+{
+	animation: bounce 1s;
+}

@@ -199,15 +199,18 @@
 .slider_small {
     font-size: 16px;
     font-family: "HelveticaNeue","Helvetica Neue",Arial,sans-serif;
+    text-align: center;
 }
 
 .slider_info {
     font-size: 32px;
     font-family: "HelveticaNeue","Helvetica Neue",Arial,sans-serif;
+    margin-top: 180px;
+    text-align: center;
 }
 
 .slider_questioning_container {
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 .slider_questioning_left_div {
@@ -242,4 +245,10 @@
 .slider_questioning_right_a:hover {
     text-decoration: none;
     color: #cccccc;
+}
+
+.madeby {
+    margin-top: 50px;
+    font-size: 12pt;
+    text-align: right;
 }

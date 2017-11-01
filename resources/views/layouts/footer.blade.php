@@ -14,7 +14,9 @@
         <div class="footer__section footer-copyright">
             <p>&copy; <a class="link link--dark" href="{{ route('pages.index') }}">Томск 7.0 Технологии и творчество</a>, {{ date('Y') }}.</p>
             <p>При полном или частичном использовании материалов сайта ссылка&nbsp;обязательна.</p>
-            <p>Сделал <a class="link link--dark" href="http://solopchenko.net" title="Святослав Солопченко" target="_blank">Святослав Солопченко</a> в 2017 году.</p>
+            <div class="madeby">
+                При участии <a class="link link--dark" href="http://solopchenko.net" title="Святослава Солопченко" target="_blank">Святослава Солопченко</a>
+            </div>
         </div>
     </div>
 </footer>
