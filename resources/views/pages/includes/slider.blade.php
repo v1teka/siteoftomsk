@@ -1,6 +1,6 @@
 <div class="fotorama" data-autoplay="true">
     <?php $i = 1;?>
-    @while (file_exists(public_path() . '\\assets\\slider\\' . $i . '.jpg'))
+    @while (file_exists(public_path() . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'slider' . DIRECTORY_SEPARATOR . $i . '.jpg'))
         <div class="slider-item" data-img="/assets/slider/{!! $i !!}.jpg">
             @include ('pages.includes.slider_text')
         </div>
