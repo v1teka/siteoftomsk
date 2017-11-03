@@ -390,8 +390,3 @@ li.LiNavBar:hover
 		transform: translateY(-10px);
 	}
 }
-
-ul.MenuListTwo a li:hover
-{
-	animation: bounce 1s;
-}
