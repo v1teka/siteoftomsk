@@ -19,6 +19,10 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+table > thead, table > tbody, table > tfoot, thead > tr, tbody > tr, tfoot > tr, tr > td, tr > th {
+	border: inherit;
+}
+
 
 body, html
 {

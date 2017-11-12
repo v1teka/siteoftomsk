@@ -225,12 +225,13 @@ body {
 // Links
 .link {
     color: $link-color;
-    text-decoration: none;
-    border-bottom: 1px solid rgba($link-color, 0.3);
+    text-decoration: underline;
+    //border-bottom: 1px solid rgba($link-color, 0.3);
+    border: none;
     &:hover, &:active {
         color: #191970;
-        border-color: rgba(#191970, 0.3);
-        text-decoration: none;
+        //border-color: rgba(#191970, 0.3);
+        text-decoration: underline;
     }
     &--light {
         color: $link-light-color;
@@ -250,6 +251,7 @@ body {
     &--without-underline,
     &--without-underline:hover {
         border-color: transparent;
+        text-decoration: none;
     }
 }
 
