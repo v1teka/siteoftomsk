@@ -26,6 +26,9 @@
                     </thead>
                     <tbody>
                         @foreach ($comments as $comment)
+                            @if ($comment->project == null)
+                                @continue
+                            @endif
                             <tr>
                                 <td>{!! $comment->id !!}</td>
                                 <td><a href="{!! route('projects.show', $comment->project_id) !!}">{!! $comment->project->title !!}</a></td>
