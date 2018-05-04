@@ -76,6 +76,8 @@ Route::prefix('admin')->group(function() {
         Route::get('/solutions/edit/{smartSolution}', 'SmartSolutionController@edit')->name('smart.solutions.edit.admin.index');//->middleware('can:update,App\SmartSection');
         Route::post('/solutions/update/{smartSolution}', 'SmartSolutionController@update')->name('smart.solutions.update.admin.index');//->middleware('can:update,App\SmartSection');
     });
+    Route::get('/variables/{variable}', 'VariableController@showVariable')->name('variables.admin.index');
+    Route::patch('/variables/{variable}', 'VariableController@update')->name('variables.admin.update');
 });
 
 Route::prefix('smart')->group(function() {

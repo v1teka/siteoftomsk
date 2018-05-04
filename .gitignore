@@ -12,4 +12,3 @@ npm-debug.log
 
 public/assets/sass/**/*.css
 public/assets/sass/**/*.css.map
-composer.lock
