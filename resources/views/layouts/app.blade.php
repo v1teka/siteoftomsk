@@ -32,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/NameSite.css" />
+    <link rel="stylesheet" type="text/css" href="/css/additionalStyles.css" />
     @stack('css')
     <link rel="stylesheet" type="text/css" href="/css/ProLink.css" />
 

@@ -34,6 +34,21 @@ Route::prefix('projects')->group(function() {
     Route::post('/{project}/addcomment', 'CommentController@store')->name('projects.addcomment')->middleware('auth');
 });
 
+// Точки на карте
+Route::prefix('points')->group(function() {
+    Route::get('/', 'PointController@index')->name('points.index');
+    Route::post('/', 'PointController@store')->name('points.store')->middleware('auth');
+    Route::get('/create', 'PointController@create')->name('points.create')->middleware('auth');
+    Route::get('/{point}', 'PointController@show')->name('points.show');
+    Route::get('/{point}/edit', 'PointController@edit')->name('points.edit')->middleware('can:update,point');
+    Route::post('/{point}', 'PointController@update')->name('points.update')->middleware('can:update,point');
+    Route::delete('/{point}', 'PointController@destroy')->name('points.destroy')->middleware('can:update,point');
+    Route::post('/{point}/delete', 'PointController@destroy')->name('points.destroy')->middleware('can:update,point');
+    Route::get('/{point}/delete', 'PointController@destroy')->name('points.destroy')->middleware('can:update,point');
+    Route::post('/{point}/rate', 'PointController@rate')->name('points.rate')->middleware('auth');
+    Route::post('/{point}/addcomment', 'CommentController@store')->name('points.addcomment')->middleware('auth');
+});
+
 // Рубрики
 Route::prefix('rubrics')->group(function() {
     Route::get('/', 'RubricController@index')->name('rubrics.index');
@@ -56,6 +71,11 @@ Route::prefix('admin')->group(function() {
     Route::get('/projects/{project}', 'ProjectController@adminShow')->name('projects.admin.show')->middleware('can:administrate,App\Project');
     Route::patch('/projects/{project}', 'ProjectController@adminUpdate')->name('projects.admin.update')->middleware('can:administrate,App\Project');
     Route::get('/create/projects/', 'ProjectController@adminCreate')->name('projects.admin.create')->middleware('can:administrate,App\Project');
+
+    Route::get('/points', 'PointController@adminIndex')->name('points.admin.index')->middleware('can:administrate,App\Point');
+    Route::get('/points/{point}', 'PointController@adminShow')->name('points.admin.show')->middleware('can:administrate,App\Point');
+    Route::patch('/points/{point}', 'PointController@adminUpdate')->name('points.admin.update')->middleware('can:administrate,App\Point');
+    Route::get('/create/points/', 'PointController@adminCreate')->name('points.admin.create')->middleware('can:administrate,App\Point');
 
     Route::get('/users', 'UserController@adminIndex')->name('users.admin.index')->middleware('can:administrate,App\User');
     Route::get('/users/{user}', 'UserController@adminShow')->name('users.admin.show')->middleware('can:administrate,App\User');
@@ -110,4 +130,6 @@ Route::prefix('forum')->group(function() {
 Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard.index');
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
+
+
 

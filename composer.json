@@ -8,7 +8,7 @@
         "php": ">=5.6.4",
         "almasaeed2010/adminlte": "^2.3",
         "doctrine/dbal": "^2.5",
-        "laravel/framework": "5.4.*",
+        "laravel/framework": "5.7.*",
         "laravel/tinker": "~1.0",
         "makeusabrew/bootbox": "dev-master",
         "mobiledetect/mobiledetectlib": "^2.8",

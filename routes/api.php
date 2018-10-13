@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Project;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Route::middleware('auth:api')->get('/projects', 'Controller@generateJSON');
+
+Route::middleware('auth.basic')->resource('projects', 'API\ProjectController');
