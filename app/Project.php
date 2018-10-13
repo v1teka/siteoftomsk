@@ -9,6 +9,7 @@ use \App\Observers\ProjectObserver;
 use \App\Traits\Ratingable;
 
 use App\File;
+use App\Comment;
 
 class Project extends Model
 {
@@ -124,14 +125,14 @@ class Project extends Model
     }
 
     public function comments() {
-        return $this->hasMany('App\Comment')->orderByDesc('created_at');
+        return Comment::where('point_comment','<>','1')->where('target_id',$this->id)->orderByDesc('created_at');
     }
 
     public function scopeCommentsFirst() {
-        return $this->hasMany('App\Comment')->whereNull('comment_id')->orderByDesc('created_at');
+        return Comment::where('point_comment','<>','1')->where('target_id',$this->id)->whereNull('comment_id')->orderByDesc('created_at');
     }
 
     public function scopePublishedCommentsFirst() {
-        return $this->hasMany('App\Comment')->whereNull('comment_id')->where('is_published', '>', '0')->orderByDesc('created_at');
+        return Comment::where('point_comment','<>','1')->where('target_id',$this->id)->whereNull('comment_id')->where('is_published', '>', '0')->orderByDesc('created_at');
     }
 }

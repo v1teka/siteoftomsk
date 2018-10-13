@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Project;
+use App\Point;
 
 class Comment extends Model
 {
@@ -11,7 +13,7 @@ class Comment extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'message', 'created_at', 'created_by', 'updated_at', 'updated_by', 'comment_id', 'project_id', 'is_processed', 'is_published',
+        'message', 'created_at', 'created_by', 'updated_at', 'updated_by', 'comment_id', 'target_id', 'point_comment','is_processed', 'is_published',
     ];
 
     protected $dates = [
@@ -34,7 +36,8 @@ class Comment extends Model
         return $this->hasMany('App\Comment', 'comment_id');
     }
 
-    public function project() {
-        return $this->belongsTo('App\Project');
+    public function target() {
+        if ($this->point_comment) return Point::find($this->target_id);
+        else Project::find($this->target_id);
     }
 }
