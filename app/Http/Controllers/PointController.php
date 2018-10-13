@@ -73,7 +73,27 @@ class PointController extends Controller
     
     public function update(Request $request, Point $point)
     {
-        //
+        $this->validate(request(), [
+            'title' => 'required',
+            'description' => 'required',
+            'isPositive' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1000|max:3072'
+        ]);
+
+        $point->title = request('title');
+        $point->description = request('description');
+        // Если пользватель не может администрировать проекты, то сбрасываем флаг модерации
+        $point->moderated = Auth::user()->can('administrate', $point) ? $point->moderated : null;
+        $point->isPositive = request('isPositive');
+        $point->save();
+
+        // Загрузка изображения
+        if(request()->hasFile('image')) {
+            $image = request()->file('image');
+            $point->uploadImage($image);
+        }
+
+        return redirect()->route('points.show', $point);
     }
     
     public function destroy(Point $point)
