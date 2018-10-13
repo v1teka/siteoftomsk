@@ -4,7 +4,7 @@
 
 @if ($canComment == 1)
     <div class="container-main" xmlns="http://www.w3.org/1999/html">
-        <form method="POST" action="{{ route('projects.addcomment', $project) }}">
+        <form method="POST" action="{{ route('points.addcomment', $point) }}">
             {{ csrf_field() }}
             @if ($errors->has('error'))
                 <div class="alert alert-danger">

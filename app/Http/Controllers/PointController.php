@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Point;
+use App\Comment;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Auth;
@@ -63,7 +64,7 @@ class PointController extends Controller
 
     public function show(Point $point)
     {
-        /*$comments = $point->scopePublishedCommentsFirst()->get();
+        $comments = $point->scopePublishedCommentsFirst()->get();
             $canComment = 1;
             if (null !== Auth::user()) {
                 if (isset(Comment::where('created_by', '=', Auth::user()->id)->orderByDesc('created_by')->first()->created_at)) {
@@ -76,8 +77,8 @@ class PointController extends Controller
                 $canComment = 2;
             }
 
-            //$point->with('rubric', 'user', 'files');*/
-            return view('points.show', compact(['point'/*, 'comments', 'canComment'*/]));
+            $point->with('rubric', 'user', 'files');
+            return view('points.show', compact(['point', 'comments', 'canComment']));
     }
     
     public function edit(Point $point)

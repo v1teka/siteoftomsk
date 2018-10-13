@@ -75,6 +75,7 @@
 
         <article class="point-content">
             <div class="container-main">
+                <div id="positiveMap" style="width: 600px; height: 400px"></div>
             </div>
         </article>
         <footer class="point-footer">
