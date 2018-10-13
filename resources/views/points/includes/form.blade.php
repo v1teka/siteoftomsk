@@ -17,6 +17,15 @@
         @endif
     </div>
     <div class="form-group">
+        <label for="description">Местоположение</label>
+        @if($errors->has('location'))
+            <div class="form-group__message form-group__message--error">{{ $errors->first('location') }}</div>
+        @endif
+        <div id="positiveMap" style="width: 600px; height: 400px"></div>
+        <input type="hidden" name="x" id="x_field">
+        <input type="hidden" name="y" id="y_field">
+    </div>
+    <div class="form-group">
         <label for="description">Описание</label>
         <textarea class="form-control {{ $errors->has('description') ? 'textarea_has-error' : '' }}" name="description" id="description" placeholder="Краткое описание ситуации" rows="3">{{ isset($point->description) ? $point->description : old('description') }}</textarea>
         @if($errors->has('description'))

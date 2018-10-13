@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Добавление проекта')
+@section('title', 'Добавление точки на карту')
 
 @section('content')
     @parent
     <div class="page">
         <div class="page__content">
             <div class="container">
-                <h1 class="title title--xxl">Добавление проекта</h1>
-                @include('projects.includes.form',
+                <h1 class="title title--xxl">Добавление точки на карту</h1>
+                @include('points.includes.form',
                     [
                         'submitButtonText' => 'Добавить',
-                        'actionPath' => route('projects.store')
+                        'actionPath' => route('points.store')
                     ]
                 )
             </div>

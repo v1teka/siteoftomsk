@@ -41,12 +41,16 @@ class PointController extends Controller
         $this->validate(request(), [
             'title' => 'required|max:255',
             'description' => 'required',
+            'x' => 'required',
+            'y' => 'required',
             'image' => 'required|image|mimes:jpeg,png|dimensions:min_width=600|max:3072'
         ]);
 
         $point = new Point;
         $point->user()->associate(Auth::user());
         $point->title = request('title');
+        $point->x = request('x');
+        $point->y = request('y');
         $point->description = request('description');
         // Если пользватель может администрировать проекты, то модерация не нужна
         $point->moderated = Auth::user()->can('administrate', $point) ? 1 : null;
