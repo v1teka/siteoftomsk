@@ -33,6 +33,20 @@
         </a>
         <hr class="HRLine"/>
 
+        <a href="{{ route('points.index', 1) }}">
+            <li class="MenuListExitToALL">
+                Карта позитива
+            </li>
+        </a>
+
+        <a href="{{ route('points.index', 2) }}">
+            <li class="MenuListExitToALL">
+                Карта негатива
+            </li>
+        </a>
+
+        <hr class="HRLine"/>
+
         <a data-toggle="collapse" href="#MT">
             <li class="MenuListExitToALL">
                 Исследование и аналитика
@@ -81,12 +95,6 @@
         <a href="{{ route('projects.show', 7) }}">
             <li class="MenuListExitToALL">
                 UniverCITerra
-            </li>
-        </a>
-
-        <a href="{{ route('projects.show', 11) }}">
-            <li class="MenuListExitToALL">
-                Карта позитива
             </li>
         </a>
 
@@ -201,6 +209,7 @@
         </ul>
 
         <hr class="HRLine"/>
+        
         <a href="{{ route('projects.show', 26) }}">
             <li class="MenuListExitToALL">
                 Новости

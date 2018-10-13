@@ -63,7 +63,21 @@ class PointController extends Controller
 
     public function show(Point $point)
     {
-        //
+        /*$comments = $point->scopePublishedCommentsFirst()->get();
+            $canComment = 1;
+            if (null !== Auth::user()) {
+                if (isset(Comment::where('created_by', '=', Auth::user()->id)->orderByDesc('created_by')->first()->created_at)) {
+                    $lastCommentTime =  Comment::where('created_by', '=', Auth::user()->id)->orderByDesc('created_by')->first()->created_at;
+                    if (Carbon::now()->diffInMinutes($lastCommentTime) <= 5) {
+                        $canComment = 0;
+                    };
+                }
+            } else {
+                $canComment = 2;
+            }
+
+            //$point->with('rubric', 'user', 'files');*/
+            return view('points.show', compact(['point'/*, 'comments', 'canComment'*/]));
     }
     
     public function edit(Point $point)
