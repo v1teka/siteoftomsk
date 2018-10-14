@@ -6,56 +6,6 @@
 
 @push('scripts')
     <script type="text/javascript" src="{{ asset('/js/Project.js') }}" type="text/javascript"></script>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ea23b980-9229-4bc0-8d71-4365a78f6ee5&lang=ru_RU" type="text/javascript"></script>
-    <script type="text/javascript">
-    // Функция ymaps.ready() будет вызвана, когда
-    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-    ymaps.ready(initMap);
-
-
-    function initMap(){ 
-        var myMap = new ymaps.Map("positiveMap", {
-            center: [56.49, 84.98], // Координаты Томска
-            zoom: 12
-        });
-
-        <?php
-            $pcount=0;
-            $ncount=0;
-            $name="";
-            $points = Point::all();
-            foreach ($points as $point){
-                if ($point->isPositive){
-                    $name="positive".$pcount;
-                    $pcount++;
-                }
-                else{
-                    $name="negative".$ncount;
-                    $ncount++;
-                }
-                print "var ".$name." = new ymaps.GeoObject({
-                       geometry: {
-                           type: \"Point\",
-                           coordinates: [".$point->x.",".$point->y."]
-                       },
-                       properties: {
-                           hintContent: \"Негативное событие\",
-                           balloonContentHeader: \"Огромная яма посреди дороги\",
-                           balloonContentBody: \"<a href=\"http://siteoftomsk.ru/trouble001\"><img class=\"imageMap\" title=\"Огромная яма посреди дороги\" src=\"/assets/images/v_razrabotke.jpg\"></img></a>\",
-                           population: 11848762
-                       }
-                   },{
-                       preset: 'islands#redGlyphIcon',            
-                       iconGlyph: 'remove',
-                       iconGlyphColor: 'black'
-                   });
-                myMap.geoObjects.add(".$name.");";
-            }
-        ?>
-    }
-
-    
-    </script>
 @endpush
 
 @section('content')
@@ -81,7 +31,6 @@
             <div class="container-main">
                 <div class="text">
                     {!! $project->content !!}
-                    <div id="positiveMap" style="width: 600px; height: 400px"></div>
                 </div>
 
                 @if ($project->files->count() > 0)

@@ -136,4 +136,13 @@ class PointController extends Controller
 
         return redirect()->route('points.admin.show', $point);
     }
+
+    public function rate(Point $point)
+    {
+        $this->validate(request(), [
+            'score' => 'required|integer|digits_between:1,5',
+        ]);
+        $point->rate(['score' => request('score')], Auth::user());
+        return request()->ajax() ? $point->avg_rating : redirect()->route('points.show', $point);
+    }
 }

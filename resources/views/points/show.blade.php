@@ -14,6 +14,7 @@
 @section('description', $point->description)
 
 @push('scripts')
+    <script type="text/javascript" src="{{ asset('/js/Point.js') }}" type="text/javascript"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=ea23b980-9229-4bc0-8d71-4365a78f6ee5&lang=ru_RU" type="text/javascript"></script>
     <script type="text/javascript">
     // Функция ymaps.ready() будет вызвана, когда
