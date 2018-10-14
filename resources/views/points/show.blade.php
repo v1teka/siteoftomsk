@@ -22,7 +22,7 @@
 
 
     function initMap(){ 
-        var myMap = new ymaps.Map("positiveMap", {
+        var myMap = new ymaps.Map("tomskMap", {
             center: [56.49, 84.98], // Координаты Томска
             zoom: 12
         });
@@ -73,7 +73,7 @@
 
         <article class="point-content">
             <div class="container-main">
-                <div id="positiveMap" style="width: 600px; height: 400px"></div>
+                <div id="tomskMap" style="width: 600px; height: 400px"></div>
             </div>
         </article>
         <footer class="point-footer">

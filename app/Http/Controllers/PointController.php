@@ -10,22 +10,11 @@ use Auth;
 
 class PointController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
-        //$points = Point::moderated()->where('isPositive', $request);
         return view('points.index', ['mapType' => key($request->all())]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         return view('points.create');
@@ -122,7 +111,6 @@ class PointController extends Controller
         return redirect()->route('points.admin.index');
     }
 
-    // Список проектов в админке
     public function adminIndex()
     {
         $points = Point::with('user')->paginate(20);
@@ -131,7 +119,6 @@ class PointController extends Controller
 
     public function adminShow(Point $point)
     {
-        $rubrics = Rubric::all();
         $point->with('rubric', 'user', 'files');
         return view('points.admin.show', compact('point', 'rubrics'));
     }
@@ -139,12 +126,10 @@ class PointController extends Controller
     public function adminUpdate(Point $point)
     {
         $this->validate(request(), [
-            'rubric_id' => 'nullable|exists:rubrics,id',
             'moderated' => 'nullable|boolean',
             'published' => 'nullable',
         ]);
 
-        $point->rubric_id = request('rubric_id');
         $point->moderated = request('moderated');
         $point->published_at = request()->has('published') ? Carbon::now() : null;
         $point->save();

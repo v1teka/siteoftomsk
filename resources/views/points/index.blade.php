@@ -33,7 +33,7 @@
             $pcount=0;
             $ncount=0;
             $name="";
-            $points = Point::where('isPositive', $mapType)->get();
+            $points = Point::moderated()->where('isPositive', $mapType)->get();
             foreach ($points as $point){
                 if ($point->isPositive){
                     $name="positive".$pcount;
