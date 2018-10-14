@@ -4,7 +4,7 @@
         <tr>
             <td rowspan="2" class="OneMenuText">
                 <p class="MenuText">
-                    Рубрики
+                    Меню
                 </p>
             </td>
             <td class="OneNameSite">

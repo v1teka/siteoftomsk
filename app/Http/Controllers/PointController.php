@@ -88,7 +88,7 @@ class PointController extends Controller
     
     public function edit(Point $point)
     {
-        return view('points.edit', compact('point'));
+        return view('points.edit', compact('point', $point));
     }
     
     public function update(Request $request, Point $point)
