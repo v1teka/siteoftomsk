@@ -15,10 +15,10 @@ class PointController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $points = Point::moderated()->latest()->paginate(9);
-        return view('points.index', compact('points'));
+        //$points = Point::moderated()->where('isPositive', $request);
+        return view('points.index', ['mapType' => key($request->all())]);
     }
 
     /**
@@ -51,6 +51,7 @@ class PointController extends Controller
         $point->title = request('title');
         $point->x = request('x');
         $point->y = request('y');
+        $point->isPositive = request('isPositive');
         $point->description = request('description');
         // Если пользватель может администрировать проекты, то модерация не нужна
         $point->moderated = Auth::user()->can('administrate', $point) ? 1 : null;

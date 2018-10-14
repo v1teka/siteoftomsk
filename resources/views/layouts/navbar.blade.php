@@ -39,7 +39,7 @@
             </li>
         </a>
 
-        <a href="{{ route('points.index', 2) }}">
+        <a href="{{ route('points.index', 0) }}">
             <li class="MenuListExitToALL">
                 Карта негатива
             </li>

@@ -12,12 +12,11 @@
                         <tr>
                             <th>№</th>
                             <th>Название</th>
-                            <th>Рубрика</th>
+                            <th>Карта</th>
                             <th>Автор</th>
                             <th>Дата создания</th>
                             <th>Модерация</th>
                             <th>Опубликован</th>
-                            <th>Показывать на главной странице</th>
                             <th>Удалить</th>
                         </tr>
                     </thead>
@@ -33,14 +32,10 @@
                                 <td>{{ $point->id }}</td>
                                 <td><a class="link" href="{{ route('points.edit', $point) }}">{{ $point->title }}</a></td>
                                 <td>
-                                    @if($point->rubric)
-                                        <a class="link" href="{{ route('rubrics.show', $point->rubric) }}">{{ $point->rubric->name }}</a>
-                                    @else
-                                        Без рубрики
-                                    @endif
+                                    <?php print ($point->isPositive == 1)? "Позитива":"Негатива"; ?>
                                 </td>
                                 <td><a class="link" href="{{ route('users.admin.show', $point->user) }}">{{ $point->user->full_name }}</a></td>
-                                <td></td>
+                                <td>{{ $point->created_at->format('d.m.Y H:i:s') }}</td>
                                 <td>
                                     @if ($point->moderated === null)
                                         Рассматривается
@@ -54,14 +49,6 @@
                                     {{ $point->published_at ? 'Да' : 'Нет' }}
                                 </td>
                                 <td>
-                                    @if ($point->show_on_main_page > 0)
-                                        Да ({{ $point->show_on_main_page }})
-                                    @else
-                                        Нет
-                                    @endif
-
-                                </td>
-                                <td>
                                     <a href="{{ route('points.destroy', $point) }}" title="Удалить проект" class="confirm">
                                         <i class="fa fa-close text-red icon-big"></i>
                                     </a>
@@ -70,7 +57,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <a href="{{ route('points.admin.create') }}" class="btn btn-success">Добавить проект</a>
+                <a href="{{ route('points.admin.create') }}" class="btn btn-success">Добавить точку</a>
                 {{ $points->links('layouts.pagination') }}
             </div>
         </div>

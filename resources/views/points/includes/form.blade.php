@@ -12,14 +12,11 @@
             <option class="select__option" value="1" {{ (isset($point) && $point->isPositive == 1) ? 'selected' : '' }}>Положительное</option>
             <option class="select__option" value="0" {{ (isset($point) && $point->isPositive == 0) ? 'selected' : '' }}>Отрицательное</option>
         </select>
-        @if($errors->has('rubric_id'))
-            <div class="form-group__message form-group__message--error">{{ $errors->first('rubric_id') }}</div>
-        @endif
     </div>
     <div class="form-group">
         <label for="description">Местоположение</label>
-        @if($errors->has('location'))
-            <div class="form-group__message form-group__message--error">{{ $errors->first('location') }}</div>
+        @if($errors->has('x') || $errors->has('y'))
+            <div class="form-group__message form-group__message--error">Указана не корректная локация точки</div>
         @endif
         <div id="positiveMap" style="width: 600px; height: 400px"></div>
         <input type="hidden" name="x" id="x_field">
