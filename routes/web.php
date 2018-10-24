@@ -1,6 +1,6 @@
 <?php
 
-Route::get('mobile', function() {return view('errors.indeveloping');})->name('mobile');
+Route::get('mobile', function() {return view('errors.503');})->name('mobile');
 
 Route::get('/', 'PageController@index')->name('pages.index');
 Route::get('/about', 'PageController@about')->name('pages.about');

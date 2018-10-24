@@ -15,10 +15,10 @@ class MobileVerifyProvider extends ServiceProvider
     public function boot()
     {
         //
-        $detect = new Mobile_Detect;
+        /*$detect = new Mobile_Detect;
         if ($detect->isMobile() || $detect->isTablet()) {
             return abort(503);
-        }
+        }*/
     }
 
     /**

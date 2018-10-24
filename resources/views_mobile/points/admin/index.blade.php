@@ -32,7 +32,7 @@
                                 <td>{{ $point->id }}</td>
                                 <td><a class="link" href="{{ route('points.edit', $point) }}">{{ $point->title }}</a></td>
                                 <td>
-                                    <?php print ($point->isPositive == 1)? "Позитива":"Проблем"; ?>
+                                    <?php print ($point->isPositive == 1)? "Позитива":"Негатива"; ?>
                                 </td>
                                 <td><a class="link" href="{{ route('users.admin.show', $point->user) }}">{{ $point->user->full_name }}</a></td>
                                 <td>{{ $point->created_at->format('d.m.Y H:i:s') }}</td>

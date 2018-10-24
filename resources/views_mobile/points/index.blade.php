@@ -5,7 +5,7 @@
         $color = "green";
         $icon_name = "ok";
     }else{
-        $mapTitle = "Карта проблем";
+        $mapTitle = "Карта негатива";
         $color = "red";
         $icon_name = "remove";
     }

@@ -41,7 +41,7 @@
 
         <a href="{{ route('points.index', 0) }}">
             <li class="MenuListExitToALL">
-                Карта проблем
+                Карта негатива
             </li>
         </a>
 

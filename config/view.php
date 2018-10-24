@@ -1,4 +1,10 @@
 <?php
+$viewPath = 'views';
+$detect = new Mobile_Detect;
+
+if ($detect->isMobile() || $detect->isTablet()) {
+    $viewPath = 'views_mobile';
+}
 
 return [
 
@@ -14,7 +20,7 @@ return [
     */
 
     'paths' => [
-        resource_path('views'),
+        resource_path($viewPath),
     ],
 
     /*

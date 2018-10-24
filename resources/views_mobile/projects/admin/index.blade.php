@@ -1,6 +1,6 @@
 @extends('dashboard.index')
 
-@section('title', 'Список точек на карте')
+@section('title', 'Список проектов')
 
 @section('content')
     @parent
@@ -12,44 +12,57 @@
                         <tr>
                             <th>№</th>
                             <th>Название</th>
-                            <th>Карта</th>
+                            <th>Рубрика</th>
                             <th>Автор</th>
                             <th>Дата создания</th>
                             <th>Модерация</th>
                             <th>Опубликован</th>
+                            <th>Показывать на главной странице</th>
                             <th>Удалить</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($points as $point)
-                            @if ($point->moderated === null)
+                        @foreach ($projects as $project)
+                            @if ($project->moderated === null)
                                 <tr>
-                            @elseif ($point->moderated == 1)
+                            @elseif ($project->moderated == 1)
                                 <tr class="success">
                             @else
                                 <tr class="danger">
                             @endif
-                                <td>{{ $point->id }}</td>
-                                <td><a class="link" href="{{ route('points.edit', $point) }}">{{ $point->title }}</a></td>
+                                <td>{{ $project->id }}</td>
+                                <td><a class="link" href="{{ route('projects.edit', $project) }}">{{ $project->title }}</a></td>
                                 <td>
-                                    <?php print ($point->isPositive == 1)? "Позитива":"Проблем"; ?>
+                                    @if($project->rubric)
+                                        <a class="link" href="{{ route('rubrics.show', $project->rubric) }}">{{ $project->rubric->name }}</a>
+                                    @else
+                                        Без рубрики
+                                    @endif
                                 </td>
-                                <td><a class="link" href="{{ route('users.admin.show', $point->user) }}">{{ $point->user->full_name }}</a></td>
-                                <td>{{ $point->created_at->format('d.m.Y H:i:s') }}</td>
+                                <td><a class="link" href="{{ route('users.admin.show', $project->user) }}">{{ $project->user->full_name }}</a></td>
+                                <td>{{ $project->created_at->format('d.m.Y H:i:s') }}</td>
                                 <td>
-                                    @if ($point->moderated === null)
+                                    @if ($project->moderated === null)
                                         Рассматривается
-                                    @elseif ($point->moderated == 1)
+                                    @elseif ($project->moderated == 1)
                                         Одобрен
                                     @else
                                         Отклонён
                                     @endif
                                 </td>
                                 <td>
-                                    {{ $point->published_at ? 'Да' : 'Нет' }}
+                                    {{ $project->published_at ? 'Да' : 'Нет' }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('points.destroy', $point) }}" title="Удалить проект" class="confirm">
+                                    @if ($project->show_on_main_page > 0)
+                                        Да ({{ $project->show_on_main_page }})
+                                    @else
+                                        Нет
+                                    @endif
+
+                                </td>
+                                <td>
+                                    <a href="{{ route('projects.destroy', $project) }}" title="Удалить проект" class="confirm">
                                         <i class="fa fa-close text-red icon-big"></i>
                                     </a>
                                 </td>
@@ -57,8 +70,8 @@
                         @endforeach
                     </tbody>
                 </table>
-                <a href="{{ route('points.admin.create') }}" class="btn btn-success">Добавить точку</a>
-                {{ $points->links('layouts.pagination') }}
+                <a href="{{ route('projects.admin.create') }}" class="btn btn-success">Добавить проект</a>
+                {{ $projects->links('layouts.pagination') }}
             </div>
         </div>
     </div>
@@ -72,7 +85,7 @@
             var currentLink = this;
             e.preventDefault();
             bootbox.confirm({
-                message: "Вы действительно хотите удалить точку?",
+                message: "Вы действительно хотите удалить проект?",
                 buttons: {
                     confirm: {
                         label: 'Да, удалить',

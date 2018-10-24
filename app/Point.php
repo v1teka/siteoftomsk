@@ -49,7 +49,7 @@ class Point extends Model
             Storage::disk('public')->delete($this->image);
         }
         // Загрузка нового изображения
-        $this->image = $image->store('projects/' . $this->id, 'public');
+        $this->image = $image->store('points/' . $this->id, 'public');
         $this->save();
     }
 
