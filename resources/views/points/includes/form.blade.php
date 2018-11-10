@@ -1,3 +1,64 @@
+<?php
+    Use App\PointType;
+    Use App\Project;
+?>
+@push('scripts')
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ea23b980-9229-4bc0-8d71-4365a78f6ee5&lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        function switchPointType(){
+            $( "#pointTypeSelect > option" ).each(function( index ) {
+                if($(this).attr('positive') == $("#isPositiveSelect").val()){
+                    $(this).show();
+                    $(this).prop('selected',true)
+                }  
+                else{
+                    $(this).hide();
+                    $(this).prop('selected',false)
+                }
+            });
+            ($( "#pointTypeSelect > option:selected" ).attr('positive') == 1)? newPoint.options.set('preset', 'islands#greenGlyphIcon') : newPoint.options.set('preset', 'islands#redGlyphIcon');
+        }
+    // Функция ymaps.ready() будет вызвана, когда
+    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    ymaps.ready(initMap);
+    var newPoint;
+
+    function initMap(){ 
+        var myMap = new ymaps.Map("tomskMap", {
+            center: [<?php (isset($point)) ? print($point->x.", ".$point->y) : print("56.49, 84.98"); ?>], // Координаты Томска
+            zoom: 12
+        });
+
+        myMap.controls.remove('trafficControl');
+
+        newPoint = new ymaps.GeoObject({
+            geometry: {
+                type: "Point",
+                coordinates: [<?php (isset($point)) ? print($point->x.", ".$point->y) : print("56.49, 84.98"); ?>]
+            },
+            properties: {
+                hintContent:  <?php (isset($point)) ? print("\"".$point->title."\"") : print("\"Новая точка\""); ?>,
+                //balloonContentHeader: \"Огромная яма посреди дороги\",
+                //balloonContentBody: \"<a href='/points/".$point->id."'><img class='imageMap'title='Огромная яма посреди дороги' src='/assets/images/v_razrabotke.jpg'></img></a>\",
+                population: 11848762
+            }
+        },{
+            preset: <?php (isset($point) && $point->type->isPositive == 0) ? print("\"islands#redGlyphIcon\"") : print("\"islands#greenGlyphIcon\""); ?>,            
+            iconGlyph: <?php (isset($point)) ? print("\"".$point->type->iconType."\"") : print("\"ok\""); ?>,
+            iconGlyphColor: 'black',
+            draggable: true
+        });
+
+        newPoint.events.add('drag', function () {
+            $("#x_field").val(newPoint.geometry.getCoordinates()[0]);
+            $("#y_field").val(newPoint.geometry.getCoordinates()[1]);
+        });
+
+        myMap.geoObjects.add(newPoint);
+        switchPointType();
+    }
+    </script>
+@endpush
 <form method="POST" action="{{ $actionPath }}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group">
@@ -8,9 +69,16 @@
         @endif
     </div>
     <div class="form-group">
-        <select class="form-control {{ $errors->has('isPositive') ? 'select_has-error' : '' }}" id="point_type" name="isPositive">
-            <option class="select__option" value="1" {{ (isset($point) && $point->isPositive == 1) ? 'selected' : '' }}>Положительное</option>
-            <option class="select__option" value="0" {{ (isset($point) && $point->isPositive == 0) ? 'selected' : '' }}>Отрицательное</option>
+        <select class="form-control {{ $errors->has('isPositive') ? 'select_has-error' : '' }}" id="isPositiveSelect" onChange="switchPointType()">
+            <option class="select__option" value="1" {{ (!isset($point) || $point->type->isPositive == 1) ? 'selected' : '' }}>Положительное</option>
+            <option class="select__option" value="0" {{ (isset($point) && $point->type->isPositive == 0) ? 'selected' : '' }}>Отрицательное</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select class="form-control {{ $errors->has('point_type') ? 'select_has-error' : '' }}" id="pointTypeSelect" name="point_type" onChange="switchPointType()">
+            @foreach (PointType::all() as $type)
+                <option class="select__option" positive="{{ $type->isPositive }}" icon="{{ $type->iconType }}" value="{{ $type->id }}" {{ (isset($point) && ($point->type_id == $type->id)) ? 'selected' : '' }} >{{ $type->title }}</option>
+            @endforeach
         </select>
     </div>
     <div class="form-group">
@@ -18,7 +86,7 @@
         @if($errors->has('x') || $errors->has('y'))
             <div class="form-group__message form-group__message--error">Указана не корректная локация точки</div>
         @endif
-        <div id="positiveMap" style="width: 600px; height: 400px"></div>
+        <div id="tomskMap" class="tomskMap"></div>
         <input type="hidden" name="x" id="x_field">
         <input type="hidden" name="y" id="y_field">
     </div>
@@ -29,6 +97,15 @@
             <div class="form-group__message form-group__message--error">{{ $errors->first('description') }}</div>
         @endif
         <div class="help-block">Достаточно двух-трёх предложений.</div>
+    </div>
+    <div class="form-group">
+        <label for="description">Относится к проекту</label>
+        <select class="form-control {{ $errors->has('project_id') ? 'select_has-error' : '' }}" name="project_id">
+            <option class="select__option" value="" {{ (!isset($point) || ($point->project_id == NULL)) ? 'selected' : '' }} >-</option>
+            @foreach (Project::all() as $project)
+                <option class="select__option" value="{{ $project->id }}" {{ (isset($point) && ($point->project_id == $project->id)) ? 'selected' : '' }} >{{ $project->title }}</option>
+            @endforeach
+        </select>
     </div>
     <div class="form-group">
         <label for="image">Изображение</label>

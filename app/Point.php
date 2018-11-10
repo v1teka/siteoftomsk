@@ -18,7 +18,7 @@ class Point extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'title', 'x', 'y', 'description', 'image', 'isPositive', 'published_at'
+        'title', 'x', 'y', 'description', 'image', 'type_id', 'published_at'
       ];
   
     protected $dates = [
@@ -78,5 +78,15 @@ class Point extends Model
     public function scopeAwaiting($query)
     {
         return $query->whereNull('moderated');
+    }
+
+    public function type()
+    {
+        return $this->belongsTo('App\PointType');
+    }
+
+    public function project()
+    {
+        return $this->belongsTo('App\Project');
     }
 }

@@ -1,0 +1,22 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AddAttachedProjectToPointsTable extends Migration
+{
+    public function up()
+    {
+        Schema::table('points', function (Blueprint $table) {
+            $table->integer('project_id')->default(NULL);
+        });
+    }
+    
+    public function down()
+    {
+        Schema::table('points', function (Blueprint $table) {
+            $table->dropColumn('project_id');
+        });
+    }
+}

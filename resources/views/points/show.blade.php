@@ -1,6 +1,6 @@
 <?php
     use App\Point;
-    if($point->isPositive){
+    if($point->type->isPositive){
         $color = "green";
         $icon_name = "ok";
     }else{
@@ -27,7 +27,8 @@
             center: [56.49, 84.98], // Координаты Томска
             zoom: 12
         });
-
+        myMap.controls.remove('trafficControl');
+        
         <?php
             print "var thePoint = new ymaps.GeoObject({
                    geometry: {
@@ -42,7 +43,7 @@
                    }
                },{
                     preset: 'islands#".$color."GlyphIcon',            
-                    iconGlyph: '".$icon_name."',
+                    iconGlyph: '".$point->type->iconType."',
                    iconGlyphColor: 'black'
                });
             myMap.geoObjects.add(thePoint);";   
@@ -74,8 +75,11 @@
 
         <article class="point-content">
             <div class="container-main">
-                <div id="tomskMap" style="width: 600px; height: 400px"></div>
+                <div id="tomskMap" class="tomskMap"></div>
             </div>
+            @if($point->project_id !=NULL)
+                <div>Решается в рамках проекта <a class="link" href="{{route('projects.show', $point->project)}}">{{$point->project->title}}</a></div>
+            @endif
         </article>
         <footer class="point-footer">
             <div class="container-main">

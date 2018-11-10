@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\API;
 
 use App\Project;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return response()->json(['pacantre']);
+        $projects = Project::select('id', 'title', 'description', 'user_id', 'updated_at')->where('moderated', 1)->get();
+        foreach ($projects as $project) {
+            $project['user_id'] = User::find($project['user_id'])->name." ".User::find($project['user_id'])->surname;
+        }
+        return response()->json($projects, 200, [], JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -47,7 +47,10 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        if($project->moderated || (Auth::check() && (Auth::user()->isModerator() || (Auth::user()->id == $project->user_id))))
+            return response()->json($project, 200, [], JSON_UNESCAPED_UNICODE);
+        else
+            return response('Не найдено', 404);
     }
 
     /**

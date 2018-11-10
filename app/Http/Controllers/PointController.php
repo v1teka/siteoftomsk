@@ -40,7 +40,7 @@ class PointController extends Controller
         $point->title = request('title');
         $point->x = request('x');
         $point->y = request('y');
-        $point->isPositive = request('isPositive');
+        $point->type_id = request('point_type');
         $point->description = request('description');
         // Если пользватель может администрировать проекты, то модерация не нужна
         $point->moderated = Auth::user()->can('administrate', $point) ? 1 : null;
@@ -85,7 +85,7 @@ class PointController extends Controller
         $this->validate(request(), [
             'title' => 'required',
             'description' => 'required',
-            'isPositive' => 'required',
+            'point_type' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1000|max:3072'
         ]);
 
@@ -93,7 +93,7 @@ class PointController extends Controller
         $point->description = request('description');
         // Если пользватель не может администрировать проекты, то сбрасываем флаг модерации
         $point->moderated = Auth::user()->can('administrate', $point) ? $point->moderated : null;
-        $point->isPositive = request('isPositive');
+        $point->type_id = request('point_type');
         $point->save();
 
         // Загрузка изображения
