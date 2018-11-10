@@ -7,6 +7,7 @@ use App\Comment;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class PointController extends Controller
 {
@@ -117,10 +118,50 @@ class PointController extends Controller
         return redirect()->route('points.admin.index');
     }
 
+    public function isPartOf($needle, $haystack){
+        foreach($needle as $value)
+            if(!in_array($value,$haystack))
+                return false;
+        return true;
+    }
+
     public function adminIndex()
     {
         $points = Point::with('user')->paginate(20);
-        return view('points.admin.index', compact('points'));
+        $groups = DB::table('points_group')->get();
+        $g = [];
+        foreach($groups as $group){
+            $add = true;
+            $new_points_string = $group->points;
+            foreach($g as $points_string){
+                if($this->isPartOf(explode(',',$new_points_string), explode(',',$points_string))){
+                    $add = false;
+                    break;
+                }
+                if($this->isPartOf(explode(',',$points_string), explode(',',$new_points_string))){
+                    $points_string = $new_points_string;
+                    $add = false;
+                    break;
+                }
+            }
+            if($add) array_push($g, $new_points_string);
+        }
+
+        $groups = [];
+        foreach($g as $group_string){
+            $group = (object)[];
+            $pointIDs = explode(',', $group_string);
+            $group->type_icon = Point::find($pointIDs[0])->type->iconType;
+            $group->count = sizeof($pointIDs);
+            $group->updated_at = Point::find($pointIDs[0])->updated_at;
+            foreach($pointIDs as $ID){
+                if(Point::find($ID)->updated_at > $group->updated_at)
+                    $group->updated_at = Point::find($ID)->updated_at;
+            }
+            array_push($groups, $group);
+        }
+
+        return view('points.admin.index', compact('points', 'groups'));
     }
 
     public function adminShow(Point $point)

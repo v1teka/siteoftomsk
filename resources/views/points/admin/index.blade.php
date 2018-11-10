@@ -6,9 +6,28 @@
     @parent
     <div class="page">
         <div class="page__content">
+            <div>
+                <a href="#" >Скопления точек</a>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Категория</th>
+                            <th>Количество точек</th>
+                            <th>Дата создания</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($groups as $key=>$group)
+                            <tr>
+                                <td><a href="/admin/points?group={{$key}}">{{ $group->type_icon }}</a></td>
+                                <td>{{ $group->count }}</td>
+                                <td>{{ $group->updated_at }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
             <div class="container-fluid">
-                <div>
-                </div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
