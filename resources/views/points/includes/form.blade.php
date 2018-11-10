@@ -7,16 +7,14 @@
     <script type="text/javascript">
         function switchPointType(){
             $( "#pointTypeSelect > option" ).each(function( index ) {
-                if($(this).attr('positive') == $("#isPositiveSelect").val()){
+                if($(this).attr('positive') == $("#isPositiveSelect").val())
                     $(this).show();
-                    $(this).prop('selected',true)
-                }  
-                else{
-                    $(this).hide();
-                    $(this).prop('selected',false)
-                }
+                else $(this).hide();
             });
+            if( $( "#pointTypeSelect > option:selected").attr('positive') != $("#isPositiveSelect").val())
+                $("#pointTypeSelect > option[positive='"+$("#isPositiveSelect").val()+"']").first().prop('selected',true);
             ($( "#pointTypeSelect > option:selected" ).attr('positive') == 1)? newPoint.options.set('preset', 'islands#greenGlyphIcon') : newPoint.options.set('preset', 'islands#redGlyphIcon');
+            newPoint.options.set('iconGlyph', $( "#pointTypeSelect > option:selected" ).attr('icon'));
         }
     // Функция ymaps.ready() будет вызвана, когда
     // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
@@ -69,12 +67,14 @@
         @endif
     </div>
     <div class="form-group">
+        <label for="isPositive">Карта</label>
         <select class="form-control {{ $errors->has('isPositive') ? 'select_has-error' : '' }}" id="isPositiveSelect" onChange="switchPointType()">
-            <option class="select__option" value="1" {{ (!isset($point) || $point->type->isPositive == 1) ? 'selected' : '' }}>Положительное</option>
-            <option class="select__option" value="0" {{ (isset($point) && $point->type->isPositive == 0) ? 'selected' : '' }}>Отрицательное</option>
+            <option class="select__option" value="1" {{ (((!isset($point)|| $point->type->isPositive == 1)) && (!isset($mapType) || $mapType == 1))  ? 'selected' : '' }}>Позитива</option>
+            <option class="select__option" value="0" {{ ((isset($point) && $point->type->isPositive == 0) || (isset($mapType) && $mapType == 0)) ? 'selected' : '' }}>Проблем</option>
         </select>
     </div>
     <div class="form-group">
+        <label for="type">Категория</label>
         <select class="form-control {{ $errors->has('point_type') ? 'select_has-error' : '' }}" id="pointTypeSelect" name="point_type" onChange="switchPointType()">
             @foreach (PointType::all() as $type)
                 <option class="select__option" positive="{{ $type->isPositive }}" icon="{{ $type->iconType }}" value="{{ $type->id }}" {{ (isset($point) && ($point->type_id == $type->id)) ? 'selected' : '' }} >{{ $type->title }}</option>

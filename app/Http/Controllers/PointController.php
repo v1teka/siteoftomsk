@@ -15,9 +15,9 @@ class PointController extends Controller
         return view('points.index', ['mapType' => key($request->all())]);
     }
     
-    public function create()
+    public function create(Request $request)
     {
-        return view('points.create');
+        return view('points.create', ['mapType' => key($request->all())]);
     }
 
     public function adminCreate()
@@ -30,7 +30,7 @@ class PointController extends Controller
         $this->validate(request(), [
             'title' => 'required|max:255',
             'description' => 'required',
-            'x' => 'required',
+            'x' => 'required', //+проверка нахождения точки в томской области
             'y' => 'required',
             'image' => 'required|image|mimes:jpeg,png|dimensions:min_width=600|max:3072'
         ]);
@@ -41,6 +41,7 @@ class PointController extends Controller
         $point->x = request('x');
         $point->y = request('y');
         $point->type_id = request('point_type');
+        $point->project_id = request('project_id');
         $point->description = request('description');
         // Если пользватель может администрировать проекты, то модерация не нужна
         $point->moderated = Auth::user()->can('administrate', $point) ? 1 : null;
@@ -94,6 +95,7 @@ class PointController extends Controller
         // Если пользватель не может администрировать проекты, то сбрасываем флаг модерации
         $point->moderated = Auth::user()->can('administrate', $point) ? $point->moderated : null;
         $point->type_id = request('point_type');
+        $point->project_id = request('project_type');
         $point->save();
 
         // Загрузка изображения

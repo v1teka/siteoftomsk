@@ -24,11 +24,11 @@
 
     function initMap(){ 
         var myMap = new ymaps.Map("tomskMap", {
-            center: [56.49, 84.98], // Координаты Томска
+            center: [{{$point->x }}, {{$point->y}}],
             zoom: 12
         });
         myMap.controls.remove('trafficControl');
-        
+
         <?php
             print "var thePoint = new ymaps.GeoObject({
                    geometry: {
@@ -38,7 +38,7 @@
                    properties: {
                        hintContent: \"".$point->title."\",
                        balloonContentHeader: \"".$point->title."\",
-                       balloonContentBody: \"<a href='/points/".$point->id."'><img class='imageMap'title='".$point->title."' src='".$point->image."'></img></a>\",
+                       balloonContentBody: \"<img class='imageMap' title='".$point->title."' src='".$point->image."'></img>\",
                        population: 11848762
                    }
                },{

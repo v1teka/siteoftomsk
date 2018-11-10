@@ -18,7 +18,7 @@ class Point extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'title', 'x', 'y', 'description', 'image', 'type_id', 'published_at'
+        'title', 'x', 'y', 'description', 'image', 'type_id', 'project_id', 'published_at'
       ];
   
     protected $dates = [
