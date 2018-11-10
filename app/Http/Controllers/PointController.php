@@ -87,7 +87,9 @@ class PointController extends Controller
             'title' => 'required',
             'description' => 'required',
             'point_type' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1000|max:3072'
+            'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1000|max:3072',
+            'x' => 'numeric|between:56.20,56.65',
+            'y' => 'numeric|between:84.75,85.40'
         ]);
 
         $point->title = request('title');
@@ -96,6 +98,8 @@ class PointController extends Controller
         $point->moderated = Auth::user()->can('administrate', $point) ? $point->moderated : null;
         $point->type_id = request('point_type');
         $point->project_id = request('project_type');
+        $point->x = request('x');
+        $point->y = request('y');
         $point->save();
 
         // Загрузка изображения

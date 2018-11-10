@@ -7,6 +7,8 @@
     <div class="page">
         <div class="page__content">
             <div class="container-fluid">
+                <div>
+                </div>
                 <table class="table table-hover">
                     <thead>
                         <tr>

@@ -29,25 +29,23 @@
         });
         myMap.controls.remove('trafficControl');
 
-        <?php
-            print "var thePoint = new ymaps.GeoObject({
-                   geometry: {
-                       type: \"Point\",
-                       coordinates: [".$point->x.",".$point->y."]
-                   },
-                   properties: {
-                       hintContent: \"".$point->title."\",
-                       balloonContentHeader: \"".$point->title."\",
-                       balloonContentBody: \"<img class='imageMap' title='".$point->title."' src='".$point->image."'></img>\",
-                       population: 11848762
-                   }
-               },{
-                    preset: 'islands#".$color."GlyphIcon',            
-                    iconGlyph: '".$point->type->iconType."',
-                   iconGlyphColor: 'black'
-               });
-            myMap.geoObjects.add(thePoint);";   
-        ?>
+        var thePoint = new ymaps.GeoObject({
+            geometry: {
+                type: "Point",
+                 coordinates: [{{$point->x }}, {{$point->y}}]
+            },
+            properties: {
+                hintContent: "{{ $point->title }}",
+                balloonContentHeader: "{{ $point->title }}",
+                balloonContentBody: "<img class='imageMap' title='{{$point->title}}' src='{{$point->image}}'></img>",
+                population: 11848762
+            }
+        },{
+            preset: 'islands#{{$color}}GlyphIcon',            
+            iconGlyph: "{{ $point->type->iconType }}",
+            iconGlyphColor: 'black'
+        });
+        myMap.geoObjects.add(thePoint);
     }
 
     
