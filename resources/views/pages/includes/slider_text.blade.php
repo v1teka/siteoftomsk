@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="title title--xxl slider-item__title">ДОБРО ПОЖАЛОВАТЬ В ТОМСК</div>
+    <div class="title title--xxl slider-item__title">ДОБРО ПОЖАЛОВАТЬ В ТОМСК 7.0</div>
     <div class="slider-item__content">
         <p class="slider_info">Уважаемые посетители!</p>
         <p class="slider_small">На нашем портале вы можете получить информацию и выразить свое мнение по вопросам,</p>

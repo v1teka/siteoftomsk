@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Добро пожаловать в Томск')
+@section('title', 'Томск 7.0. Технологии и творчество')
 
 @section('content')
   @parent
