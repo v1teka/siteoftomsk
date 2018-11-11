@@ -125,9 +125,7 @@ class PointController extends Controller
         return true;
     }
 
-    public function adminIndex()
-    {
-        $points = Point::with('user')->paginate(20);
+    public function groups(){
         $groups = DB::table('points_group')->get();
         $g = [];
         foreach($groups as $group){
@@ -146,22 +144,35 @@ class PointController extends Controller
             }
             if($add) array_push($g, $new_points_string);
         }
-
+        
         $groups = [];
         foreach($g as $group_string){
             $group = (object)[];
-            $pointIDs = explode(',', $group_string);
-            $group->type_icon = Point::find($pointIDs[0])->type->iconType;
-            $group->count = sizeof($pointIDs);
-            $group->updated_at = Point::find($pointIDs[0])->updated_at;
-            foreach($pointIDs as $ID){
+            $group->pointIDs = explode(',', $group_string);
+            $group->type_icon = Point::find($group->pointIDs[0])->type->iconType;
+            $group->count = sizeof($group->pointIDs);
+            $group->updated_at = Point::find($group->pointIDs[0])->updated_at;
+            foreach($group->pointIDs as $ID){
                 if(Point::find($ID)->updated_at > $group->updated_at)
                     $group->updated_at = Point::find($ID)->updated_at;
             }
             array_push($groups, $group);
         }
 
+        return $groups;
+    }
+
+    public function adminIndex()
+    {
+        $points = Point::with('user')->paginate(20);
+        $groups = $this->groups();
+            
         return view('points.admin.index', compact('points', 'groups'));
+    }
+
+    public function adminGroup($groupID){
+        $groups = $this->groups();
+        return view('points.admin.group', ['group' => $groups[$groupID]]);
     }
 
     public function adminShow(Point $point)

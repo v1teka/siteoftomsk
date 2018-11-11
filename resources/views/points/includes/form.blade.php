@@ -16,45 +16,47 @@
             ($( "#pointTypeSelect > option:selected" ).attr('positive') == 1)? newPoint.options.set('preset', 'islands#greenGlyphIcon') : newPoint.options.set('preset', 'islands#redGlyphIcon');
             newPoint.options.set('iconGlyph', $( "#pointTypeSelect > option:selected" ).attr('icon'));
         }
-    // Функция ymaps.ready() будет вызвана, когда
-    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-    ymaps.ready(initMap);
-    var newPoint;
+        
+        ymaps.ready(initMap);
+        var newPoint, myMap;
 
-    function initMap(){ 
-        var myMap = new ymaps.Map("tomskMap", {
-            center: [<?php (isset($point)) ? print($point->x.", ".$point->y) : print("56.49, 84.98"); ?>], // Координаты Томска
-            zoom: 12
-        });
+        function initMap(){ 
+                myMap = new ymaps.Map("tomskMap", {
+                center: [<?php (isset($point)) ? print($point->x.", ".$point->y) : print("56.49, 84.98"); ?>], // Координаты Томска
+                zoom: 12
+            });
 
-        myMap.controls.remove('trafficControl');
+            myMap.controls.remove('trafficControl');
+            
+            <?php
+                if(isset($points))
+                    print('addGroupPoints();');
+            ?>
 
-        newPoint = new ymaps.GeoObject({
-            geometry: {
-                type: "Point",
-                coordinates: [<?php (isset($point)) ? print($point->x.", ".$point->y) : print("56.49, 84.98"); ?>]
-            },
-            properties: {
-                hintContent:  <?php (isset($point)) ? print("\"".$point->title."\"") : print("\"Новая точка\""); ?>,
-                //balloonContentHeader: \"Огромная яма посреди дороги\",
-                //balloonContentBody: \"<a href='/points/".$point->id."'><img class='imageMap'title='Огромная яма посреди дороги' src='/assets/images/v_razrabotke.jpg'></img></a>\",
-                population: 11848762
-            }
-        },{
-            preset: <?php (isset($point) && $point->type->isPositive == 0) ? print("\"islands#redGlyphIcon\"") : print("\"islands#greenGlyphIcon\""); ?>,            
-            iconGlyph: <?php (isset($point)) ? print("\"".$point->type->iconType."\"") : print("\"ok\""); ?>,
-            iconGlyphColor: 'black',
-            draggable: true
-        });
+            newPoint = new ymaps.GeoObject({
+                geometry: {
+                    type: "Point",
+                    coordinates: [<?php (isset($point)) ? print($point->x.", ".$point->y) : print("56.49, 84.98"); ?>]
+                },
+                properties: {
+                    hintContent:  <?php (isset($point)) ? print("\"".$point->title."\"") : print("\"Новая точка\""); ?>,
+                    population: 11848762
+                }
+            },{
+                preset: <?php (isset($point) && $point->type->isPositive == 0) ? print("\"islands#redGlyphIcon\"") : print("\"islands#greenGlyphIcon\""); ?>,            
+                iconGlyph: <?php (isset($point)) ? print("\"".$point->type->iconType."\"") : print("\"ok\""); ?>,
+                iconGlyphColor: 'black',
+                draggable: true
+            });
 
-        newPoint.events.add('drag', function () {
-            $("#x_field").val(newPoint.geometry.getCoordinates()[0]);
-            $("#y_field").val(newPoint.geometry.getCoordinates()[1]);
-        });
+            newPoint.events.add('drag', function () {
+                $("#x_field").val(newPoint.geometry.getCoordinates()[0]);
+                $("#y_field").val(newPoint.geometry.getCoordinates()[1]);
+            });
 
-        myMap.geoObjects.add(newPoint);
-        switchPointType();
-    }
+            myMap.geoObjects.add(newPoint);
+            switchPointType();
+        }
     </script>
 @endpush
 <form method="POST" action="{{ $actionPath }}" enctype="multipart/form-data">
@@ -124,7 +126,7 @@
         <button class="btn btn-success" type="submit" style="float: left;">{{ $submitButtonText }}</button>
     </div>
 </form>
-@if (isset($point))
+@if (isset($point) && !isset($points))
     <!--<form method="POST" action="{{ route('points.destroy', $point) }}" enctype="multipart/form-data" style="float: left;">-->
     <form id="point_delete_form" action="{{ route('points.destroy', $point) }}" method="POST">
         {{ csrf_field() }}

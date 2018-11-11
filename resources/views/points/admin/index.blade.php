@@ -19,7 +19,7 @@
                     <tbody>
                         @foreach($groups as $key=>$group)
                             <tr>
-                                <td><a href="/admin/points?group={{$key}}">{{ $group->type_icon }}</a></td>
+                                <td><a href="{{route('points.admin.group', $key)}}"><i class="fa fa-{{$group->type_icon}} text-black" style="font-size: 1.7em;"></i></a></td>
                                 <td>{{ $group->count }}</td>
                                 <td>{{ $group->updated_at }}</td>
                             </tr>
