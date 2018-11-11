@@ -23,25 +23,31 @@
             zoom: 12
         });
 
-        <?php
-            print "var thePoint = new ymaps.GeoObject({
-                   geometry: {
-                       type: \"Point\",
-                       coordinates: [".$point->x.",".$point->y."]
-                   },
-                   properties: {
-                       hintContent: \"".$point->title."\",
-                       balloonContentHeader: \"".$point->title."\",
-                       balloonContentBody: \"<img class='imageMap'title='".$point->title."' src='".$point->image."'></img>\",
-                       population: 11848762
-                   }
-               },{
-                    preset: 'islands#".$color."GlyphIcon',            
-                    iconGlyph: '".$point->type->iconType."',
-                   iconGlyphColor: 'black'
-               });
-            myMap.geoObjects.add(thePoint);";   
-        ?>
+        function initMap(){ 
+        var myMap = new ymaps.Map("tomskMap", {
+            center: [{{$point->x }}, {{$point->y}}],
+            zoom: 12
+        });
+        myMap.controls.remove('trafficControl');
+
+        var thePoint = new ymaps.GeoObject({
+            geometry: {
+                type: "Point",
+                 coordinates: [{{$point->x }}, {{$point->y}}]
+            },
+            properties: {
+                hintContent: "{{ $point->title }}",
+                balloonContentHeader: "{{ $point->title }}",
+                balloonContentBody: "<img class='imageMap' title='{{$point->title}}' src='{{ Storage::disk('public')->url($point->image) }}'></img>",
+                population: 11848762
+            }
+        },{
+            preset: 'islands#{{$color}}GlyphIcon',            
+            iconGlyph: "{{ $point->type->iconType }}",
+            iconGlyphColor: 'black'
+        });
+        myMap.geoObjects.add(thePoint);
+    }
     }
 
     

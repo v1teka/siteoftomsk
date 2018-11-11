@@ -27,7 +27,7 @@
                     properties: {
                         hintContent: "{{ $point->title }}",
                         balloonContentHeader: "{{ $point->title }}",
-                        balloonContentBody: "<img class='imageMap' title='{{$point->title}}' src='{{$point->image}}'></img>",
+                        balloonContentBody: "<a href='{{ route('points.admin.show', $point) }}'><img class='imageMap' title='{{$point->title}}' src='{{ Storage::disk('public')->url($point->image) }}'></img></a>",
                         population: 11848762
                     }
                 },{
