@@ -17,6 +17,11 @@
             newPoint.options.set('iconGlyph', $( "#pointTypeSelect > option:selected" ).attr('icon'));
         }
         
+        function updatePointPosition(){
+            $("#x_field").val(newPoint.geometry.getCoordinates()[0]);
+                $("#y_field").val(newPoint.geometry.getCoordinates()[1]);
+        }
+
         ymaps.ready(initMap);
         var newPoint, myMap;
 
@@ -49,13 +54,11 @@
                 draggable: true
             });
 
-            newPoint.events.add('drag', function () {
-                $("#x_field").val(newPoint.geometry.getCoordinates()[0]);
-                $("#y_field").val(newPoint.geometry.getCoordinates()[1]);
-            });
+            newPoint.events.add('drag', updatePointPosition());
 
             myMap.geoObjects.add(newPoint);
             switchPointType();
+            updatePointPosition();
         }
     </script>
 @endpush
@@ -120,7 +123,7 @@
         @if($errors->has('image'))
             <div class="form-group__message form-group__message--error">{{ $errors->first('image') }}</div>
         @endif
-        <div class="help-block">Поддерживаются файлы .jpeg, .jpg и .png шириной от 1000 пикс. и размером не более 30&nbsp;Мб.</div>
+        <div class="help-block">Поддерживаются файлы .jpeg, .jpg и .png размером не более 30&nbsp;Мб.</div>
     </div>
     <div class="form-group">
         <button class="btn btn-success" type="submit" style="float: left;">{{ $submitButtonText }}</button>
