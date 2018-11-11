@@ -1,16 +1,15 @@
 <?php
     use App\Point;
-    if($point->isPositive){
+    if($point->type->isPositive){
         $color = "green";
-        $icon_name = "ok";
     }else{
         $color = "red";
-        $icon_name = "remove";
     }
 ?>
 @extends('dashboard.index')
 
 @push('scripts')
+    <script type="text/javascript" src="{{ asset('/js/Point.js') }}" type="text/javascript"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=ea23b980-9229-4bc0-8d71-4365a78f6ee5&lang=ru_RU" type="text/javascript"></script>
     <script type="text/javascript">
     // Функция ymaps.ready() будет вызвана, когда
@@ -38,7 +37,7 @@
                    }
                },{
                     preset: 'islands#".$color."GlyphIcon',            
-                    iconGlyph: '".$icon_name."',
+                    iconGlyph: '".$point->type->iconType."',
                    iconGlyphColor: 'black'
                });
             myMap.geoObjects.add(thePoint);";   
@@ -63,7 +62,7 @@
                 <div class="form-group">
                     <label class="form-group__label">Местоположение</label>
                     <div class="form-group__value">
-                        <div id="tomskMap" style="width: 600px; height: 400px"></div>
+                        <div id="tomskMap" class="tomskMap"></div>
                     </div>
                 </div>
                 <div class="form-group">

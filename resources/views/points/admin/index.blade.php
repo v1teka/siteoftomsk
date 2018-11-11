@@ -6,6 +6,27 @@
     @parent
     <div class="page">
         <div class="page__content">
+            <div>
+                <a href="#" >Скопления точек</a>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Категория</th>
+                            <th>Количество точек</th>
+                            <th>Дата создания</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($groups as $key=>$group)
+                            <tr>
+                                <td><a href="{{route('points.admin.group', $key)}}"><i class="fa fa-{{$group->type_icon}} text-black" style="font-size: 1.7em;"></i></a></td>
+                                <td>{{ $group->count }}</td>
+                                <td>{{ $group->updated_at }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
             <div class="container-fluid">
                 <table class="table table-hover">
                     <thead>
@@ -14,9 +35,9 @@
                             <th>Название</th>
                             <th>Карта</th>
                             <th>Автор</th>
+                            <th>Проект</th>
                             <th>Дата создания</th>
                             <th>Модерация</th>
-                            <th>Опубликован</th>
                             <th>Удалить</th>
                         </tr>
                     </thead>
@@ -32,9 +53,16 @@
                                 <td>{{ $point->id }}</td>
                                 <td><a class="link" href="{{ route('points.edit', $point) }}">{{ $point->title }}</a></td>
                                 <td>
-                                    <?php print ($point->isPositive == 1)? "Позитива":"Проблем"; ?>
+                                    <?php print ($point->type->isPositive == 1)? "Позитива":"Проблем"; ?>
                                 </td>
                                 <td><a class="link" href="{{ route('users.admin.show', $point->user) }}">{{ $point->user->full_name }}</a></td>
+                                <td>
+                                    @if ($point->project === null)
+                                        Нет
+                                    @else
+                                        <a class="link" href="{{route('projects.admin.show', $point->project)}}">{{$point->project->title}}</a>
+                                    @endif
+                                </td>
                                 <td>{{ $point->created_at->format('d.m.Y H:i:s') }}</td>
                                 <td>
                                     @if ($point->moderated === null)
@@ -46,10 +74,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{ $point->published_at ? 'Да' : 'Нет' }}
-                                </td>
-                                <td>
-                                    <a href="{{ route('points.destroy', $point) }}" title="Удалить проект" class="confirm">
+                                    <a href="{{ route('points.destroy', $point) }}" title="Удалить точку" class="confirm">
                                         <i class="fa fa-close text-red icon-big"></i>
                                     </a>
                                 </td>

@@ -1,14 +1,14 @@
 <?php
     use App\Point;
+    use App\PointType;
     if($mapType==1){
         $mapTitle = "Карта позитива";
         $color = "green";
-        $icon_name = "ok";
     }else{
         $mapTitle = "Карта проблем";
         $color = "red";
-        $icon_name = "remove";
     }
+    
     
 ?>
 @extends('layouts.app')
@@ -28,14 +28,40 @@
             center: [56.49, 84.98], // Координаты Томска
             zoom: 12
         });
+        myMap.controls.remove('trafficControl');
+        var geoObjects = [];
+        var clusterer = new ymaps.Clusterer({
+            /**
+             * Через кластеризатор можно указать только стили кластеров,
+             * стили для меток нужно назначать каждой метке отдельно.
+             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/option.presetStorage.xml
+             */
+            preset: 'islands#invertedVioletClusterIcons',
+            /**
+             * Ставим true, если хотим кластеризовать только точки с одинаковыми координатами.
+             */
+            groupByCoordinates: false,
+            /**
+             * Опции кластеров указываем в кластеризаторе с префиксом "cluster".
+             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ClusterPlacemark.xml
+             */
+            clusterDisableClickZoom: true,
+            clusterHideIconOnBalloonOpen: false,
+            geoObjectHideIconOnBalloonOpen: false
+        });
 
         <?php
             $pcount=0;
             $ncount=0;
             $name="";
-            $points = Point::moderated()->where('isPositive', $mapType)->get();
+            
+            $points = Point::moderated()->whereHas('type', function($q) use ($mapType)
+            {
+                $q->where('isPositive', $mapType);
+            })->get();
+            //$points = Point::moderated()->where('isPositive', $mapType)->get();
             foreach ($points as $point){
-                if ($point->isPositive){
+                if ($point->type->isPositive){
                     $name="positive".$pcount;
                     $pcount++;
                 }
@@ -56,7 +82,7 @@
                        }
                    },{
                        preset: 'islands#".$color."GlyphIcon',            
-                       iconGlyph: '".$icon_name."',
+                       iconGlyph: '".$point->type->iconType."',
                        iconGlyphColor: 'black'
                    });
                 myMap.geoObjects.add(".$name.");";
@@ -74,7 +100,8 @@
         <div class="page__content">
             <div class="container">
                 <h1 class="title title--xxl">{{ $mapTitle }}</h1>
-                <div id="tomskMap" style="width: 600px; height: 400px"></div>
+                <div id="tomskMap" class="tomskMap"></div>
+                <a class="link" href="{{route('points.create', $mapType)}}">Добавить точку на карту</a>
             </div>
         </div>
     </div>

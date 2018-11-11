@@ -1,6 +1,6 @@
 <?php
     use App\Point;
-    if($point->isPositive){
+    if($point->type->isPositive){
         $color = "green";
         $icon_name = "ok";
     }else{
@@ -24,29 +24,28 @@
 
     function initMap(){ 
         var myMap = new ymaps.Map("tomskMap", {
-            center: [56.49, 84.98], // Координаты Томска
+            center: [{{$point->x }}, {{$point->y}}],
             zoom: 12
         });
+        myMap.controls.remove('trafficControl');
 
-        <?php
-            print "var thePoint = new ymaps.GeoObject({
-                   geometry: {
-                       type: \"Point\",
-                       coordinates: [".$point->x.",".$point->y."]
-                   },
-                   properties: {
-                       hintContent: \"".$point->title."\",
-                       balloonContentHeader: \"".$point->title."\",
-                       balloonContentBody: \"<a href='/points/".$point->id."'><img class='imageMap'title='".$point->title."' src='".$point->image."'></img></a>\",
-                       population: 11848762
-                   }
-               },{
-                    preset: 'islands#".$color."GlyphIcon',            
-                    iconGlyph: '".$icon_name."',
-                   iconGlyphColor: 'black'
-               });
-            myMap.geoObjects.add(thePoint);";   
-        ?>
+        var thePoint = new ymaps.GeoObject({
+            geometry: {
+                type: "Point",
+                 coordinates: [{{$point->x }}, {{$point->y}}]
+            },
+            properties: {
+                hintContent: "{{ $point->title }}",
+                balloonContentHeader: "{{ $point->title }}",
+                balloonContentBody: "<img class='imageMap' title='{{$point->title}}' src='{{$point->image}}'></img>",
+                population: 11848762
+            }
+        },{
+            preset: 'islands#{{$color}}GlyphIcon',            
+            iconGlyph: "{{ $point->type->iconType }}",
+            iconGlyphColor: 'black'
+        });
+        myMap.geoObjects.add(thePoint);
     }
 
     
@@ -74,8 +73,11 @@
 
         <article class="point-content">
             <div class="container-main">
-                <div id="tomskMap" style="width: 600px; height: 400px"></div>
+                <div id="tomskMap" class="tomskMap"></div>
             </div>
+            @if($point->project_id !=NULL)
+                <div>Решается в рамках проекта <a class="link" href="{{route('projects.show', $point->project)}}">{{$point->project->title}}</a></div>
+            @endif
         </article>
         <footer class="point-footer">
             <div class="container-main">

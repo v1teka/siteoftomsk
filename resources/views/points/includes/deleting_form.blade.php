@@ -1,4 +1,4 @@
-<h2 class="title title--xl">Удаление проекта</h2>
+<h2 class="title title--xl">Удаление точки с карты</h2>
 <form method="POST" action="{{ route('points.destroy', $point) }}" enctype="multipart/form-data">
     {{ method_field('DELETE') }}
     {{ csrf_field() }}

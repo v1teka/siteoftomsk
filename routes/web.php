@@ -65,6 +65,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/points/{point}', 'PointController@adminShow')->name('points.admin.show')->middleware('can:administrate,App\Point');
     Route::patch('/points/{point}', 'PointController@adminUpdate')->name('points.admin.update')->middleware('can:administrate,App\Point');
     Route::get('/create/points/', 'PointController@adminCreate')->name('points.admin.create')->middleware('can:administrate,App\Point');
+    Route::get('/group/{id}', 'PointController@adminGroup')->name('points.admin.group')->middleware('can:administrate,App\Point');
 
     Route::get('/users', 'UserController@adminIndex')->name('users.admin.index')->middleware('can:administrate,App\User');
     Route::get('/users/{user}', 'UserController@adminShow')->name('users.admin.show')->middleware('can:administrate,App\User');

@@ -8,15 +8,16 @@
     // Функция ymaps.ready() будет вызвана, когда
     // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
     ymaps.ready(initMap);
-
+    var newPoint;
 
     function initMap(){ 
-        var myMap = new ymaps.Map("positiveMap", {
+        var myMap = new ymaps.Map("tomskMap", {
             center: [56.49, 84.98], // Координаты Томска
             zoom: 12
         });
+        myMap.controls.remove('trafficControl');
 
-        var newPoint = new ymaps.GeoObject({
+        newPoint = new ymaps.GeoObject({
             geometry: {
                 type: "Point",
                 coordinates: [56.49, 84.98]
@@ -41,8 +42,6 @@
 
         myMap.geoObjects.add(newPoint);
     }
-
-    
     </script>
 @endpush
 

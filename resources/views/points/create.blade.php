@@ -11,7 +11,8 @@
                 @include('points.includes.form',
                     [
                         'submitButtonText' => 'Добавить',
-                        'actionPath' => route('points.store')
+                        'actionPath' => route('points.store'),
+                        'mapType' => $mapType
                     ]
                 )
             </div>

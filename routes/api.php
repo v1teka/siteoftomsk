@@ -18,6 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::middleware('auth:api')->get('/projects', 'Controller@generateJSON');
-
 Route::middleware('auth.basic')->resource('projects', 'API\ProjectController');
+Route::middleware('auth.basic')->resource('points', 'API\PointController');
