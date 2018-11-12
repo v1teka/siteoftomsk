@@ -19,7 +19,7 @@
         
         function updatePointPosition(){
             $("#x_field").val(newPoint.geometry.getCoordinates()[0]);
-                $("#y_field").val(newPoint.geometry.getCoordinates()[1]);
+            $("#y_field").val(newPoint.geometry.getCoordinates()[1]);
         }
 
         ymaps.ready(initMap);
@@ -54,7 +54,7 @@
                 draggable: true
             });
 
-            newPoint.events.add('drag', updatePointPosition());
+            newPoint.events.add('drag', updatePointPosition);
 
             myMap.geoObjects.add(newPoint);
             switchPointType();

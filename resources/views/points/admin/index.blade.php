@@ -6,8 +6,9 @@
     @parent
     <div class="page">
         <div class="page__content">
+            @if(sizeof($groups) > 0)
             <div>
-                <a href="#" >Скопления точек</a>
+                <p>Скопления точек</p>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -27,6 +28,7 @@
                     </tbody>
                 </table>
             </div>
+            @endif
             <div class="container-fluid">
                 <table class="table table-hover">
                     <thead>

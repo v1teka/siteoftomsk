@@ -31,8 +31,8 @@ class PointController extends Controller
         $this->validate(request(), [
             'title' => 'required|max:255',
             'description' => 'required',
-            'x' => 'required', //+проверка нахождения точки в томской области
-            'y' => 'required',
+            'x' => 'numeric|between:55,59',
+            'y' => 'numeric|between:82,87',
             'image' => 'required|image|mimes:jpeg,png|dimensions:min_width=600|max:3072'
         ]);
 
@@ -82,15 +82,15 @@ class PointController extends Controller
         return view('points.edit', compact('point', $point));
     }
     
-    public function update(Request $request, Point $point)
+    public function update(Point $point)
     {
         $this->validate(request(), [
             'title' => 'required',
             'description' => 'required',
             'point_type' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png|dimensions:min_width=1000|max:3072',
-            'x' => 'numeric|between:56.20,56.65',
-            'y' => 'numeric|between:84.75,85.40'
+            'x' => 'numeric|between:55.0,59.0',
+            'y' => 'numeric|between:82.0,87.0'
         ]);
 
         $point->title = request('title');
@@ -98,16 +98,17 @@ class PointController extends Controller
         // Если пользватель не может администрировать проекты, то сбрасываем флаг модерации
         $point->moderated = Auth::user()->can('administrate', $point) ? $point->moderated : null;
         $point->type_id = request('point_type');
-        $point->project_id = request('project_type');
+        $point->project_id = request('project_id');
         $point->x = request('x');
         $point->y = request('y');
-        $point->save();
+       
 
         // Загрузка изображения
         if(request()->hasFile('image')) {
             $image = request()->file('image');
             $point->uploadImage($image);
         }
+        $point->save();
 
         return redirect()->route('points.show', $point);
     }
@@ -126,7 +127,7 @@ class PointController extends Controller
     }
 
     public function groups(){
-        $groups = DB::table('points_group')->get();
+        $groups = DB::table('point_groups')->get();
         $g = [];
         foreach($groups as $group){
             $add = true;
