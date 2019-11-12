@@ -73,7 +73,11 @@
 
         <article class="point-content">
             <div class="container-main">
-                <div id="tomskMap" class="tomskMap"></div>
+                <div id="tomskMap" class="tomskMap">
+                </div>
+                <div class="text">
+                    {!! $point->description !!}
+                </div>
             </div>
             @if($point->project_id !=NULL)
                 <div>Решается в рамках проекта <a class="link" href="{{route('projects.show', $point->project)}}">{{$point->project->title}}</a></div>
